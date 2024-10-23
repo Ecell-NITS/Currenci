@@ -25,7 +25,7 @@
     "**/*.tsx",
     "src/middleware.ts",
     "src/app/schema/teamMemberSchema.ts",
-    "route.js"
+    "src/app/api/route.js"
   ],
   "exclude": ["node_modules"]
 }
