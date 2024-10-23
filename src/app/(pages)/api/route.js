@@ -1,8 +1,8 @@
 /* eslint-disable consistent-return */
 const express = require("express");
 const mongoose = require("mongoose");
-const adminAuth = require("./src/middleware/adminAuth"); // The adminAuth middleware
-const TeamMember = require("./src/app/schema"); // TeamMember model
+const adminAuth = require("../../../middleware/adminAuth"); // The adminAuth middleware
+const TeamMember = require("../../schema/teamMemberSchema"); // TeamMember model
 const app = express();
 
 app.use(express.json());
