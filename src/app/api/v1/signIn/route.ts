@@ -3,12 +3,15 @@ import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import dbConnect from "../../../../lib/dbConnect";
 import UserModel from "../../../../model/User";
+import { use } from "react";
 
 export async function POST(req: NextRequest) {
   try {
     await dbConnect();
-    const { email, password } = await req.json();
-    const user = await UserModel.findOne({ email });
+    const { usernameOrEmail, password } = await req.json();
+    const user = await UserModel.findOne({
+      $or: [{ email: usernameOrEmail }, { username: usernameOrEmail }],
+    });
     if (!user) {
       return Response.json(
         { success: false, message: "User does not exist" },
@@ -23,6 +26,7 @@ export async function POST(req: NextRequest) {
       );
     }
     const tokenData = {
+      id: user._id,
       username: user.username,
       email: user.email,
     };
