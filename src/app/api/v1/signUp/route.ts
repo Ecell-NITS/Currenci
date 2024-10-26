@@ -5,8 +5,7 @@ import UserModel from "../../../../model/User";
 export async function POST(req: Request) {
   await dbConnect();
   try {
-    const { username, email, password, imageUrl, testimonials } =
-      await req.json();
+    const { username, email, password } = await req.json();
 
     const existingUsername = await UserModel.findOne({ username });
 
@@ -39,8 +38,6 @@ export async function POST(req: Request) {
       username,
       email,
       password: hashedPassword,
-      imageUrl,
-      testimonials,
     });
 
     await newUser.save();
