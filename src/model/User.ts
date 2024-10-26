@@ -2,9 +2,18 @@ import mongoose, { Schema, Document } from "mongoose";
 
 export interface Testimonial extends Document {
   content: string;
-  givenBy: string;
+  givenBy: User;
   createdAt: Date;
   isApproved: boolean;
+}
+
+export interface User extends Document {
+  username: string;
+  email: string;
+  password: string;
+  imageUrl?: string;
+  role: string;
+  testimonials?: Testimonial;
 }
 
 const TestimonialSchema: Schema = new Schema({
@@ -13,7 +22,8 @@ const TestimonialSchema: Schema = new Schema({
     required: true,
   },
   givenBy: {
-    type: String,
+    type: Schema.Types.ObjectId,
+    ref: "users",
     required: true,
   },
   createdAt: {
@@ -27,15 +37,6 @@ const TestimonialSchema: Schema = new Schema({
     default: false,
   },
 });
-
-export interface User extends Document {
-  username: string;
-  email: string;
-  password: string;
-  imageUrl: string;
-  role: string;
-  testimonials?: Testimonial;
-}
 
 const UserSchema: Schema = new Schema({
   username: {
@@ -56,7 +57,6 @@ const UserSchema: Schema = new Schema({
   },
   imageUrl: {
     type: String,
-    required: true,
   },
   role: {
     type: String,
@@ -64,11 +64,18 @@ const UserSchema: Schema = new Schema({
     default: "client",
     required: true,
   },
-  testimonials: TestimonialSchema,
+  testimonials: {
+    type: Schema.Types.ObjectId,
+    ref: "testimonials",
+  },
 });
 
 const UserModel =
   (mongoose.models.users as mongoose.Model<User>) ||
   mongoose.model<User>("users", UserSchema);
+
+const TestimonialModel =
+  (mongoose.models.testimonials as mongoose.Model<Testimonial>) ||
+  mongoose.model<Testimonial>("testimonials", TestimonialSchema);
 
 export default UserModel;
