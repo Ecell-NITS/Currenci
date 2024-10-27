@@ -74,7 +74,7 @@ const UserModel =
   (mongoose.models.users as mongoose.Model<User>) ||
   mongoose.model<User>("users", UserSchema);
 
-const TestimonialModel =
+export const TestimonialModel =
   (mongoose.models.testimonials as mongoose.Model<Testimonial>) ||
   mongoose.model<Testimonial>("testimonials", TestimonialSchema);
 

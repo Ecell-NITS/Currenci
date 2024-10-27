@@ -70,6 +70,7 @@
       2,
       // "ignorePackages",
       { "js": "never", "jsx": "never", "mjs": "never" }
-    ]
+    ],
+    "no-underscore-dangle": ["error", { "allow": ["_id"] }]
   }
 }
