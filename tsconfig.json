@@ -23,8 +23,8 @@
     ".next/types/**/*.ts",
     "**/*.ts",
     "**/*.tsx",
-    "src/middleware.ts",
-    "src/app/schema/teamMemberSchema.ts",
+    "src/app/middlewares/middleware.js",
+    "src/app/schema/teamMemberSchema.js",
     "src/route.js"
   ],
   "exclude": ["node_modules"]

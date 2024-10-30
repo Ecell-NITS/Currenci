@@ -1,20 +1,26 @@
 /* eslint-disable consistent-return */
-const express = require("express");
-const mongoose = require("mongoose");
-const adminAuth = require("./middleware"); // The adminAuth middleware
-const TeamMember = require("./app/schema/teamMemberSchema"); // TeamMember model
+
+import express, { json } from "express";
+import { connect } from "mongoose";
+import adminAuth from "./app/middlewares/middleware"; // The adminAuth middleware
+import TeamMember, {
+  find,
+  findOne,
+  findById,
+  findByIdAndDelete,
+} from "./app/schema/teamMemberSchema"; // TeamMember model
 const app = express();
 
-app.use(express.json());
+app.use(json());
 
-mongoose.connect(process.env.MONGODB_URI || " ", {});
+connect(process.env.MONGODB_URI || " ", {});
 
 // List all the team member
 
 app.get("/api/v1/getAllTeamMembers", adminAuth, async (req, res) => {
   try {
     // Find all team members in the database
-    const teamMembers = await TeamMember.find();
+    const teamMembers = await find();
 
     // Return the list of team members
     res.status(200).json({
@@ -45,7 +51,7 @@ app.post("/api/v1/addTeamMember", adminAuth, async (req, res) => {
 
   try {
     // Check if the email already exists
-    const existingMember = await TeamMember.findOne({ email });
+    const existingMember = await findOne({ email });
     if (existingMember) {
       return res.status(400).json({
         status: "error",
@@ -92,7 +98,7 @@ app.put("/api/v1/editTeamMember/:memberId", adminAuth, async (req, res) => {
 
   try {
     // Find the team member by ID
-    const teamMember = await TeamMember.findById(req.params.memberId);
+    const teamMember = await findById(req.params.memberId);
     if (!teamMember) {
       return res.status(404).json({
         status: "error",
@@ -129,9 +135,7 @@ app.delete(
   async (req, res) => {
     try {
       // Find the team member by ID and delete
-      const teamMember = await TeamMember.findByIdAndDelete(
-        req.params.memberId,
-      );
+      const teamMember = await findByIdAndDelete(req.params.memberId);
       if (!teamMember) {
         return res.status(404).json({
           status: "error",
@@ -152,6 +156,20 @@ app.delete(
     }
   },
 );
+
+const response = await fetch("/api/validateTeamMember", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify({
+    name: "Alice",
+    email: "alice@example.com",
+    role: "admin",
+  }),
+});
+const result = await response.json();
+console.log(result);
 
 // Start the server
 
