@@ -13,7 +13,10 @@ const app = express();
 
 app.use(json());
 
-connect(process.env.MONGODB_URI || " ", {});
+connect(
+  process.env.MONGODB_URI ||
+    " Environment variable 'VARIABLE_NAME' is missing.",
+);
 
 // List all the team member
 
@@ -39,7 +42,7 @@ app.get("/api/v1/getAllTeamMembers", adminAuth, async (req, res) => {
 // Add Team Members
 
 app.post("/api/v1/addTeamMember", adminAuth, async (req, res) => {
-  const { name, email, role } = await req.body;
+  const { name, email, role } = req.body;
 
   // Validate incoming request
   if (!name || !email || !role) {
