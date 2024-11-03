@@ -1,3 +1,4 @@
+/* eslint-disable import/no-unresolved */
 /* eslint-disable consistent-return */
 
 import express, { json } from "express";

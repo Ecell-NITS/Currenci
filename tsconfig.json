@@ -18,14 +18,6 @@
       }
     ]
   },
-  "include": [
-    "next-env.d.ts",
-    ".next/types/**/*.ts",
-    "**/*.ts",
-    "**/*.tsx",
-    "src/app/middlewares/middleware.js",
-    "src/app/schema/teamMemberSchema.js",
-    "src/route.js"
-  ],
+  "include": ["next-env.d.ts", ".next/types/**/*.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]
 }
