@@ -1,9 +1,9 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import sendEmail from "../../../../helpers/SendEmail";
 import dbConnect from "../../../../lib/dbConnect";
 import OtpModel from "../../../../model/OTP";
 
-export async function POST(req) {
+export async function POST(req: NextRequest) {
   await dbConnect();
 
   try {

@@ -1,16 +1,18 @@
 import bcrypt from "bcryptjs";
+import { NextRequest, NextResponse } from "next/server";
 import dbConnect from "../../../../lib/dbConnect";
+import { verifyOtp } from "../../../../helpers/verifyOtp";
 import UserModel from "../../../../model/User";
 
-export async function POST(req: Request) {
+export async function POST(req: NextRequest) {
   await dbConnect();
   try {
-    const { username, email, password } = await req.json();
+    const { username, email, password, otp } = await req.json();
 
     const existingUsername = await UserModel.findOne({ username });
 
     if (existingUsername) {
-      return Response.json(
+      return NextResponse.json(
         {
           success: false,
           message:
@@ -23,7 +25,7 @@ export async function POST(req: Request) {
     const existingUserByEmail = await UserModel.findOne({ email });
 
     if (existingUserByEmail) {
-      return Response.json(
+      return NextResponse.json(
         {
           success: false,
           message: "Email already exists. Please login with your credentials",
@@ -31,7 +33,13 @@ export async function POST(req: Request) {
         { status: 400 },
       );
     }
-
+    const otpVerified = await verifyOtp(email, otp);
+    if (!otpVerified) {
+      return NextResponse.json(
+        { success: false, message: "OTP verification failed" },
+        { status: 401 },
+      );
+    }
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password, salt);
     const newUser = new UserModel({
@@ -42,12 +50,13 @@ export async function POST(req: Request) {
 
     await newUser.save();
 
-    return Response.json(
+    return NextResponse.json(
       { success: true, message: "User created successfully" },
       { status: 201 },
     );
   } catch (error) {
-    return Response.json(
+    // console.error("Error:", error);
+    return NextResponse.json(
       { success: false, message: "Internal server error" },
       { status: 500 },
     );
