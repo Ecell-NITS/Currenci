@@ -17,13 +17,16 @@ const sendEmailToAdmin = (subject, text, html) => {
     html,
   };
 
-  transporter.sendMail(mailOptions, (error, info) => {
-    if (error) {
-      console.log("Error sending email:", error);
-      throw new Error(error.message);
-    } else {
-      console.log("Email sent:", info.response);
-    }
+  return new Promise((resolve, reject) => {
+    transporter.sendMail(mailOptions, (error, info) => {
+      if (error) {
+        console.error("Error sending email to admin:", error.message);
+        reject(new Error("Error sending email to admin"));
+      } else {
+        console.log("Email sent successfully to admin:", info.response);
+        resolve(info.response);
+      }
+    });
   });
 };
 
