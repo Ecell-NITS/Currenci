@@ -9,7 +9,7 @@ interface TestimonialI {
   role: string;
 }
 
-const testimonials: TestimonialI[] = [];
+
 
 export async function POST(req: NextRequest) {
   await dbConnect();
