@@ -49,7 +49,7 @@ export async function POST(req: NextRequest) {
     };
 
     testimonials.push(testimonial);
-    Testimonial.create(testimonial);
+   await Testimonial.create(testimonial);
     return NextResponse.json(
       { message: `Testimonial added successfully`, testimonial },
       { status: 201 },
