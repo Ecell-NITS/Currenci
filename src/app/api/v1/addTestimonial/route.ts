@@ -10,19 +10,19 @@ interface TestimonialInter {
 }
 
 const JWT_SECRET = process.env.JWT_TOKEN_SECRET;
-const testimonials: TestimonialInter[] = [];
 
 export async function POST(req: NextRequest) {
   await dbConnect();
+
+  if (req.method !== "POST") {
+    return NextResponse.json(
+      { message: `Method ${req.method} Not Allowed` },
+      { status: 405 },
+    );
+  }
+
   try {
     const { content } = await req.json();
-
-    if (req.method !== "POST") {
-      return NextResponse.json(
-        { message: `Method ${req.method} Not Allowed` },
-        { status: 405 },
-      );
-    }
 
     const token = req.headers.get("Authorization")?.split(" ")[1];
     if (!token) {
@@ -48,8 +48,8 @@ export async function POST(req: NextRequest) {
       createdAt: new Date(),
     };
 
-    testimonials.push(testimonial);
-   await Testimonial.create(testimonial);
+    await Testimonial.create(testimonial);
+
     return NextResponse.json(
       { message: `Testimonial added successfully`, testimonial },
       { status: 201 },
