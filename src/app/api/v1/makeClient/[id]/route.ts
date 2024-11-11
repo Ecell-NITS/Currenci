@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import mongoose from "mongoose";
 import dbConnect from "../../../../../lib/dbConnect";
 import UserModel from "../../../../../model/User";
 import { isSuperAdmin } from "../../../../../helpers/verifyAdmin";
@@ -17,6 +18,13 @@ export async function POST(req: NextRequest) {
   if (!id) {
     return NextResponse.json(
       { message: "User ID is required" },
+      { status: 400 },
+    );
+  }
+
+  if (!mongoose.isValidObjectId(id)) {
+    return NextResponse.json(
+      { message: "Invalid User ID format" },
       { status: 400 },
     );
   }

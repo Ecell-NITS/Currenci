@@ -1,4 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
+import { authenticator } from "otplib";
+import bcrypt from "bcryptjs";
 import sendEmail from "../../../../helpers/SendEmail";
 import dbConnect from "../../../../lib/dbConnect";
 import OtpModel from "../../../../model/OTP";
@@ -15,29 +17,44 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const otp = Math.floor(100000 + Math.random() * 900000).toString();
-    console.log(`Generated OTP for ${email}: ${otp}`);
+    authenticator.options = { digits: 6, step: 30 };
+    const secret = authenticator.generateSecret();
+    const otp = authenticator.generate(secret);
+
+    const salt = await bcrypt.genSalt(10);
+    const hashedOtp = await bcrypt.hash(otp, salt);
 
     await OtpModel.deleteMany({ email });
 
     const otpSent = await OtpModel.create({
       email,
-      otp,
+      hashedOtp,
     });
 
     if (!otpSent) {
       return NextResponse.json(
-        { message: "Failed to send OTP" },
+        { message: "Failed to save OTP in database" },
         { status: 400 },
       );
     }
 
-    sendEmail(
+    // Await sendEmail to check for success or failure
+    const emailResponse = await sendEmail(
       email,
       "OTP Verification",
       `Your OTP is ${otp}. It will expire in 5 minutes.`,
       "",
     );
+
+    // Check if email sending was successful
+    if (!emailResponse.success) {
+      // If email sending fails, delete the saved OTP entry
+      await OtpModel.deleteOne({ email });
+      return NextResponse.json(
+        { message: emailResponse.error || "Failed to send OTP email" },
+        { status: 500 },
+      );
+    }
 
     return NextResponse.json(
       { message: "OTP sent successfully" },
@@ -51,31 +68,3 @@ export async function POST(req: NextRequest) {
     );
   }
 }
-
-// const verifyOtp = async (email: string, otp: number) => {
-//     try {
-//         console.log(`OTP for ${email} is ${otp}`);
-
-//         const otpData = await OtpModel.findOne({email});
-//         if (!otpData) {
-//             Response.json({ message: "OTP not found" }, { status: 400 });
-//             return false;
-//         }
-//         if (otpData.otp !== otp) {
-//             Response.json({ message: "Incorrect OTP" }, { status: 401 });
-//             return false;
-//         }
-//         if (otpData.otp === otp) {
-//             await OtpModel.findByIdAndDelete({
-//                 where: {
-//                     id: otpData.id,
-//                 },
-//             });
-//         }
-//         return true;
-//     } catch (error) {
-//         console.log(error);
-//         Response.json({ message: "Internal server error" }, { status: 500 });
-//         return false;
-//     }
-// };

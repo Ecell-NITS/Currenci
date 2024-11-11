@@ -8,7 +8,7 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-const sendEmail = (to, subject, text, html) => {
+const sendEmail = async (to, subject, text, html) => {
   const mailOptions = {
     from: process.env.EMAIL_CURRENCI,
     to,
@@ -17,13 +17,23 @@ const sendEmail = (to, subject, text, html) => {
     html,
   };
 
-  transporter.sendMail(mailOptions, (error, info) => {
-    if (error) {
-      console.log("Error sending email:", error);
-    } else {
-      console.log("Email sent:", info.response);
+  try {
+    const info = await transporter.sendMail(mailOptions);
+    return { success: true, info };
+  } catch (error) {
+    if (
+      error.responseCode === 421 ||
+      error.responseCode === 450 ||
+      error.responseCode === 451
+    ) {
+      return {
+        success: false,
+        error: "The email server might be down. Please try again later.",
+      };
     }
-  });
+
+    return { success: false, error: "Error sending email" };
+  }
 };
 
 export default sendEmail;
