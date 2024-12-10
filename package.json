@@ -13,6 +13,8 @@
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "dotenv": "^16.4.5",
+    "embla-carousel-autoplay": "^8.5.1",
+    "embla-carousel-react": "^8.5.1",
     "eslint-config-airbnb": "^19.0.4",
     "jsonwebtoken": "^9.0.2",
     "moment-timezone": "^0.5.46",
