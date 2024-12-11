@@ -49,7 +49,7 @@ export default function Home() {
               />
               <div className="mx-0 w-[65%]">
                 <h1
-                  className="text-[3.6vw] text-[#F2B263] text-start leading-[4.2vw] tracking-wide"
+                  className="text-[3.6vw] text-[#F2B263] text-start leading-[4.2vw]"
                   style={{ fontFamily: "Sofia Pro Light" }}
                 >
                   {item.title}

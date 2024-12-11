@@ -76,7 +76,7 @@ export default function Projects() {
                   </p>
                   <p
                     className="text-start text-[2.4vw] md:text-[1.8vw] mt-[1vw] leading-[2.6vw] md:leading-[2vw] tracking-wide"
-                    style={{ fontFamily: "Sofia Pro UltraLight" }}
+                    style={{ fontFamily: "Sofia Pro ExtraLight" }}
                   >
                     {item.content}
                   </p>

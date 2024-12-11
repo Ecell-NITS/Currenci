@@ -141,7 +141,7 @@ export default function Testimonial() {
         <div className="flex">
           {testData.map((item, index) => (
             <div
-              className="min-w-0 flex-[0_0_60%] md:flex-[0_0_100%]"
+              className="min-w-0 flex-[0_0_60vw] md:flex-[0_0_100%] flex justify-center"
               key={item.user.userId}
             >
               <div className="w-[80vw] hidden mx-[10vw] p-10 h-max rounded-3xl md:flex items-center justify-evenly bg-[#14342F] text-center border border-[#F2B263]">
@@ -222,7 +222,7 @@ export default function Testimonial() {
                 </div>
               </div>
               <div
-                className={`w-[50vw] md:hidden mx-[10vw] py-[2vw] h-[80vw] rounded-3xl flex flex-col items-center justify-evenly text-center duration-700 border border-[#F2B263] ${index === selectedIndex ? "bg-[#14342F]" : ""}`}
+                className={`w-[50vw] md:hidden py-[2vw] h-[80vw] rounded-3xl flex flex-col items-center justify-evenly text-center duration-700 border border-[#F2B263] ${index === selectedIndex ? "bg-[#14342F]" : ""}`}
               >
                 <div>
                   <Image
