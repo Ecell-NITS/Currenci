@@ -1,0 +1,150 @@
+body {
+  background-color: white;
+  overflow-y: visible;
+}
+.dev-container {
+  text-align: center;
+  padding: 40px;
+  background-color: #fff;
+}
+
+.dev-container h1 {
+  color: #1e3432;
+  margin-bottom: 20px;
+  font-size: 60px;
+}
+.dev-grid {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 4rem;
+  flex-wrap: wrap;
+  gap: 10rem;
+  margin-left: 8rem;
+}
+.dev-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 1px solid #ccc;
+  width: 20rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  height: 26rem;
+  background-color: #1e3432;
+  border-radius: 25px;
+}
+.dev-image {
+  width: 20rem;
+  height: 24rem;
+  overflow: hidden;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+}
+.dev-name {
+  color: gold;
+  font-size: 35px;
+  margin: 0;
+  padding: 0.3rem;
+}
+.dev-role {
+  font-size: 25px;
+  color: #ccc;
+  margin: 0;
+  padding: 0.3rem;
+}
+@media (max-width: 1100px) {
+  .dev-grid {
+    margin-left: 1rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+  }
+  .dev-container {
+    padding: 1px;
+  }
+}
+@media (max-width: 700px) {
+  .dev-grid {
+    margin-left: 1rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 5rem;
+  }
+  .dev-container {
+    padding: 0px;
+  }
+  .dev-image {
+    width: 10rem;
+    height: 10rem;
+  }
+  .dev-card {
+    width: 10rem;
+    height: 15rem;
+  }
+  .dev-name {
+    font-size: 25px;
+  }
+  .dev-role {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .dev-grid {
+    margin-left: 1rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+  }
+  .dev-container {
+    padding: 0px;
+  }
+  .dev-image {
+    width: 10rem;
+    height: 10rem;
+  }
+  .dev-card {
+    width: 10rem;
+    height: 15rem;
+  }
+  .dev-name {
+    font-size: 25px;
+  }
+  .dev-role {
+    font-size: 20px;
+  }
+}
+@media (max-width: 400px) {
+  .dev-grid {
+    margin-left: 1rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+  }
+  .dev-container {
+    padding: 0px;
+  }
+  .dev-image {
+    width: 10rem;
+    height: 10rem;
+  }
+  .dev-card {
+    width: 10rem;
+    height: 15rem;
+  }
+  .dev-name {
+    font-size: 25px;
+  }
+  .dev-role {
+    font-size: 20px;
+  }
+}

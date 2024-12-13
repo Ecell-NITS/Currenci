@@ -1,0 +1,250 @@
+body {
+  background-color: white;
+  color: black;
+}
+.box-content {
+  display: flex;
+  flex-direction: column;
+  padding-left: 15rem;
+}
+.content {
+  font-size: 5rem;
+  display: flex;
+  flex-direction: column;
+  font-weight: 500;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+.content1 {
+  font-size: 2rem;
+  font-weight: 200;
+  display: flex;
+  margin-bottom: 2rem;
+}
+.boxes {
+  display: flex;
+  flex-direction: row;
+  text-align: left;
+  justify-content: left;
+  gap: 15rem;
+}
+.options {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  gap: 2rem;
+}
+.option-1 {
+  border-radius: 35px;
+  height: 75px;
+  width: 400px;
+  border: 1px solid grey;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  text-align: left;
+  gap: 12rem;
+}
+.option-1 h4 {
+  font-size: 25px;
+  padding-left: 3rem;
+  text-align: left;
+  font-weight: 200;
+}
+.option-2 {
+  border-radius: 35px;
+  height: 65px;
+  width: 400px;
+  border: 1px solid grey;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  text-align: left;
+  gap: 14rem;
+}
+.option-2 h4 {
+  font-size: 25px;
+  padding-left: 3rem;
+  text-align: left;
+  font-weight: 200;
+}
+.option-3 {
+  border-radius: 35px;
+  height: 65px;
+  width: 400px;
+  border: 1px solid grey;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  text-align: left;
+  gap: 13rem;
+}
+.option-3 h4 {
+  font-size: 25px;
+  padding-left: 3rem;
+  text-align: left;
+  font-weight: 200;
+}
+.option-4 {
+  border-radius: 35px;
+  height: 65px;
+  width: 400px;
+  border: 1px solid grey;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  text-align: left;
+  gap: 9rem;
+}
+.option-4 h4 {
+  font-size: 25px;
+  padding-left: 3rem;
+  text-align: left;
+  font-weight: 200;
+}
+.option-5 {
+  border-radius: 35px;
+  height: 65px;
+  width: 400px;
+  border: 1px solid grey;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  text-align: left;
+  gap: 13rem;
+}
+.option-5 h4 {
+  font-size: 25px;
+  padding-left: 3rem;
+  text-align: left;
+  font-weight: 200;
+}
+.circle {
+  border-radius: 50%;
+  border: 2px solid black;
+  height: 35px;
+  width: 35px;
+}
+.feedback-box {
+  display: flex;
+  align-items: center;
+  justify-content: top;
+  flex-direction: column;
+}
+
+.box-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+}
+.share-box {
+  font-size: 2rem;
+  font-weight: 200;
+  display: flex;
+}
+.text-content {
+  border: 1px solid grey;
+}
+.submit-btn {
+  border: 1px solid goldenrod;
+  width: 150px;
+  height: 50px;
+  border-radius: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 30px;
+  font-weight: 600;
+  margin-top: 5rem;
+}
+#circle {
+  border-radius: 50%;
+  border: 2px solid black;
+}
+@media (max-width: 400px) {
+  .boxes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-left: 2rem;
+    gap: 1rem;
+  }
+  .box-content {
+    padding-left: 1rem;
+  }
+  .content {
+    font-size: 1.5rem;
+  }
+  .conten1 {
+    font-size: 1rem;
+  }
+  .share-box {
+    font-size: 1rem;
+  }
+  .text-content {
+    width: 300px;
+    height: 200px;
+  }
+  .options {
+    gap: 0.5rem;
+  }
+}
+@media (max-width: 600px) {
+  .boxes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-left: 2rem;
+    gap: 1rem;
+  }
+  .box-content {
+    padding-left: 1rem;
+  }
+  .content {
+    font-size: 1.5rem;
+  }
+  .conten1 {
+    font-size: 1rem;
+  }
+  .share-box {
+    font-size: 1rem;
+  }
+  .text-content {
+    width: 300px;
+    height: 200px;
+  }
+  .options {
+    gap: 0.5rem;
+  }
+}
+@media (max-width: 800px) {
+  .boxes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-left: 2rem;
+    gap: 1rem;
+  }
+  .box-content {
+    padding-left: 1rem;
+  }
+  .content {
+    font-size: 2rem;
+  }
+  .conten1 {
+    font-size: 1rem;
+  }
+  .share-box {
+    font-size: 1rem;
+  }
+  .text-content {
+    width: 300px;
+    height: 200px;
+  }
+  .options {
+    gap: 0.5rem;
+  }
+}

@@ -1,0 +1,150 @@
+body {
+  background-color: white;
+  overflow-y: visible;
+}
+.team-container {
+  text-align: center;
+  padding: 40px;
+  background-color: #fff;
+}
+
+.team-container h1 {
+  color: #1e3432;
+  margin-bottom: 20px;
+  font-size: 60px;
+}
+.team-grid {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 4rem;
+  flex-wrap: wrap;
+  gap: 10rem;
+  margin-left: 8rem;
+}
+.team-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 1px solid #ccc;
+  width: 20rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  height: 26rem;
+  background-color: #1e3432;
+  border-radius: 25px;
+}
+.team-image {
+  width: 20rem;
+  height: 24rem;
+  overflow: hidden;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+}
+.team-name {
+  color: gold;
+  font-size: 35px;
+  margin: 0;
+  padding: 0.3rem;
+}
+.team-role {
+  font-size: 25px;
+  color: #ccc;
+  margin: 0;
+  padding: 0.3rem;
+}
+@media (max-width: 1100px) {
+  .team-grid {
+    margin-left: 1rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+  }
+  .team-container {
+    padding: 1px;
+  }
+}
+@media (max-width: 700px) {
+  .team-grid {
+    margin-left: 1rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 5rem;
+  }
+  .team-container {
+    padding: 0px;
+  }
+  .team-image {
+    width: 10rem;
+    height: 10rem;
+  }
+  .team-card {
+    width: 10rem;
+    height: 15rem;
+  }
+  .team-name {
+    font-size: 25px;
+  }
+  .team-role {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .team-grid {
+    margin-left: 1rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+  }
+  .team-container {
+    padding: 0px;
+  }
+  .team-image {
+    width: 10rem;
+    height: 10rem;
+  }
+  .team-card {
+    width: 10rem;
+    height: 15rem;
+  }
+  .team-name {
+    font-size: 25px;
+  }
+  .team-role {
+    font-size: 20px;
+  }
+}
+@media (max-width: 400px) {
+  .team-grid {
+    margin-left: 1rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+  }
+  .team-container {
+    padding: 0px;
+  }
+  .team-image {
+    width: 10rem;
+    height: 10rem;
+  }
+  .team-card {
+    width: 10rem;
+    height: 15rem;
+  }
+  .team-name {
+    font-size: 25px;
+  }
+  .team-role {
+    font-size: 20px;
+  }
+}

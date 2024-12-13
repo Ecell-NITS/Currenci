@@ -15,6 +15,11 @@ export default function Home() {
     >
       <h1>Home page</h1>
       <Link href="/about">About</Link>
+      <br />
+      <Link href="/team">Team Page</Link> <br />
+      <Link href="/developers">Developers Page</Link>
+      <br />
+      <Link href="/feedback">Feedback Page</Link>
     </div>
   );
 }
