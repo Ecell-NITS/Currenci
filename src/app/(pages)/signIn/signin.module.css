@@ -1,0 +1,266 @@
+@media (min-width: 862px) {
+  .container {
+    display: flex;
+    height: 100vh;
+    flex-wrap: wrap;
+  }
+
+  .logoContainer {
+    width: 45%;
+    background-color: #1e3432;
+    overflow: hidden;
+    padding: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .logoImage {
+    width: 500px;
+    height: 500px;
+  }
+
+  .signForm {
+    flex: 1;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    margin: 2.5rem 2.5rem;
+  }
+
+  .welcomeTitle {
+    font-family: "Sofia Pro Regular";
+    font-size: 60px;
+    font-weight: 500;
+    line-height: 64px;
+    text-align: center;
+    color: #000000;
+  }
+
+  .loginTitle {
+    font-family: "Sofia Pro Regular";
+    margin-top: 40px;
+    font-size: 45px;
+    font-weight: 400;
+    line-height: 48px;
+    text-align: center;
+    color: #000000;
+    margin-bottom: 40px;
+  }
+
+  .submitButton {
+    font-size: 25px;
+    font-family: "Sofia Pro Regular";
+    text-align: center;
+    align-self: center;
+    width: fit-content;
+    border-radius: 50px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: #ffffff;
+    background-color: #1e3432;
+    border: 3px solid #fac16a;
+    padding: 0.5rem 2rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+
+  .submitButton:hover {
+    background-color: #172625;
+  }
+
+  .forgotPasswordText {
+    margin-top: 4px;
+    margin-bottom: 1px;
+    font-family: "Sofia Pro Light";
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 16px;
+    text-align: center;
+    align-self: center;
+    color: #000000;
+  }
+
+  .signUpText {
+    margin-bottom: 0px;
+    margin-top: 0px;
+    margin-right: 3px;
+    font-family: "Sofia Pro Light";
+    font-size: 16px;
+    font-weight: 300;
+    text-align: center;
+    align-self: center;
+    color: #000000;
+  }
+
+  .signUpRedirect {
+    text-decoration: underline;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    margin-right: 3px;
+    font-family: "Sofia Pro Light";
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    align-self: center;
+    color: #1e3432;
+  }
+  .closeButton {
+    position: absolute; /* Position the button */
+    top: 10px; /* Adjust the top position */
+    right: 10px; /* Adjust the right position */
+    z-index: 1000; /* Ensure it appears above all other elements */
+    background: none; /* No background */
+    border: none; /* Remove border */
+    padding: 0; /* Remove extra padding */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: ease 0.3s; /* Add a smooth transition */
+  }
+
+  .closeImage {
+    width: 50px; /* Adjust size as needed */
+    height: 50px; /* Adjust size as needed */
+    object-fit: cover; /* Maintain aspect ratio */
+  }
+
+  .closeButton:hover {
+    scale: 1.1; /* Scale the image on hover */
+  }
+}
+
+@media (max-width: 862px) {
+  .container {
+    background-color: #1e3432;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .logoContainer {
+    width: 100%;
+    height: 128px;
+    background-color: #1e3432;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 40px;
+  }
+
+  .logoImage {
+    align-self: center;
+    width: 400px;
+    height: 128px;
+    object-fit: cover;
+  }
+
+  .signForm {
+    width: 100%;
+    padding: 0 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 0px;
+  }
+
+  .welcomeTitle {
+    font-size: 50px;
+    font-family: "Sofia Pro Regular";
+    font-weight: 500;
+    line-height: 10px;
+    text-align: center;
+    color: #ffffff;
+    margin-bottom: 1rem;
+  }
+
+  .loginTitle {
+    margin-top: 40px;
+    font-family: "Sofia Pro Regular";
+    font-size: 40px;
+    font-weight: 400;
+    line-height: 48px;
+    text-align: left;
+    color: #ffffff;
+    margin-bottom: 40px;
+  }
+
+  .submitButton {
+    font-size: 25px;
+    font-weight: 400;
+    font-family: "Sofia Pro Regular";
+    text-align: center;
+    align-self: center;
+    width: fit-content;
+    border-radius: 50px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: #ffffff;
+    background-color: #1e3432;
+    border: 3px solid #fac16a;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+
+  .submitButton:hover {
+    background-color: #000000;
+  }
+
+  .forgotPasswordText {
+    margin-top: 4px;
+    margin-bottom: 1px;
+    font-family: "Sofia Pro Light";
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 16px;
+    text-align: center;
+    align-self: center;
+    color: #ffffff;
+  }
+
+  .signUpText {
+    margin-bottom: 0px;
+    margin-top: 0px;
+    margin-right: 3px;
+    font-family: "Sofia Pro Light";
+    font-size: 16px;
+    font-weight: 300;
+    text-align: center;
+    align-self: center;
+    color: #ffffff;
+  }
+
+  .signUpRedirect {
+    text-decoration: underline;
+    color: #ffffff;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    margin-right: 3px;
+    font-family: "Sofia Pro Light";
+    font-size: 16px;
+    font-weight: 300;
+    text-align: center;
+    align-self: center;
+  }
+
+  .closeButton {
+    position: absolute; /* Position the button */
+    top: 10px; /* Adjust the top position */
+    right: 10px; /* Adjust the right position */
+    z-index: 1000; /* Ensure it appears above all other elements */
+    background: none; /* No background */
+    border: none; /* Remove border */
+    padding: 0; /* Remove extra padding */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: ease 0.3s; /* Add a smooth transition */
+  }
+
+  .closeImage {
+    width: 50px; /* Adjust size as needed */
+    height: 50px; /* Adjust size as needed */
+    object-fit: cover; /* Maintain aspect ratio */
+  }
+
+  .closeButton:hover {
+    scale: 1.1; /* Scale the image on hover */
+  }
+}

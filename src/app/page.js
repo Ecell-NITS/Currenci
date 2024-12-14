@@ -14,7 +14,11 @@ export default function Home() {
       }}
     >
       <h1>Home page</h1>
-      <Link href="/about">About</Link>
+      <div style={{ display: "flex", flexDirection: "column" }}>
+        <Link href="/about">About</Link>
+        <Link href="/signIn">Sign in</Link>
+        <Link href="/signUp">Sign up</Link>
+      </div>
     </div>
   );
 }
