@@ -1,11 +1,11 @@
-body {
-  background-color: white;
-  color: black;
-}
-.box-content {
+.boxContent {
   display: flex;
   flex-direction: column;
   padding-left: 15rem;
+  background-color: white;
+  color: black;
+  height: 100vh;
+  width: 100vw;
 }
 .content {
   font-size: 5rem;
@@ -27,13 +27,13 @@ body {
   justify-content: left;
   gap: 15rem;
 }
-.options {
+.boxSelection {
   display: flex;
   flex-direction: column;
   width: 400px;
   gap: 2rem;
 }
-.option-1 {
+.option1 {
   border-radius: 35px;
   height: 75px;
   width: 400px;
@@ -44,13 +44,13 @@ body {
   text-align: left;
   gap: 12rem;
 }
-.option-1 h4 {
+.option1 h4 {
   font-size: 25px;
   padding-left: 3rem;
   text-align: left;
   font-weight: 200;
 }
-.option-2 {
+.option2 {
   border-radius: 35px;
   height: 65px;
   width: 400px;
@@ -61,13 +61,13 @@ body {
   text-align: left;
   gap: 14rem;
 }
-.option-2 h4 {
+.option2 h4 {
   font-size: 25px;
   padding-left: 3rem;
   text-align: left;
   font-weight: 200;
 }
-.option-3 {
+.option3 {
   border-radius: 35px;
   height: 65px;
   width: 400px;
@@ -78,13 +78,13 @@ body {
   text-align: left;
   gap: 13rem;
 }
-.option-3 h4 {
+.option3 h4 {
   font-size: 25px;
   padding-left: 3rem;
   text-align: left;
   font-weight: 200;
 }
-.option-4 {
+.option4 {
   border-radius: 35px;
   height: 65px;
   width: 400px;
@@ -95,13 +95,13 @@ body {
   text-align: left;
   gap: 9rem;
 }
-.option-4 h4 {
+.option4 h4 {
   font-size: 25px;
   padding-left: 3rem;
   text-align: left;
   font-weight: 200;
 }
-.option-5 {
+.option5 {
   border-radius: 35px;
   height: 65px;
   width: 400px;
@@ -112,7 +112,7 @@ body {
   text-align: left;
   gap: 13rem;
 }
-.option-5 h4 {
+.option5 h4 {
   font-size: 25px;
   padding-left: 3rem;
   text-align: left;
@@ -124,27 +124,27 @@ body {
   height: 35px;
   width: 35px;
 }
-.feedback-box {
+.feedbackBox {
   display: flex;
   align-items: center;
   justify-content: top;
   flex-direction: column;
 }
 
-.box-container {
+.boxContainer {
   display: flex;
   flex-direction: column;
   justify-content: left;
 }
-.share-box {
+.shareBox {
   font-size: 2rem;
   font-weight: 200;
   display: flex;
 }
-.text-content {
+.textContent {
   border: 1px solid grey;
 }
-.submit-btn {
+.submitBtn {
   border: 1px solid goldenrod;
   width: 150px;
   height: 50px;
@@ -170,23 +170,23 @@ body {
     padding-left: 2rem;
     gap: 1rem;
   }
-  .box-content {
+  .boxContent {
     padding-left: 1rem;
   }
   .content {
     font-size: 1.5rem;
   }
-  .conten1 {
+  .content1 {
     font-size: 1rem;
   }
-  .share-box {
+  .shareBox {
     font-size: 1rem;
   }
-  .text-content {
+  .textContent {
     width: 300px;
     height: 200px;
   }
-  .options {
+  .boxSelection {
     gap: 0.5rem;
   }
 }
@@ -199,23 +199,23 @@ body {
     padding-left: 2rem;
     gap: 1rem;
   }
-  .box-content {
+  .boxContent {
     padding-left: 1rem;
   }
   .content {
     font-size: 1.5rem;
   }
-  .conten1 {
+  .content1 {
     font-size: 1rem;
   }
-  .share-box {
+  .shareBox {
     font-size: 1rem;
   }
-  .text-content {
+  .textContent {
     width: 300px;
     height: 200px;
   }
-  .options {
+  .boxSelection {
     gap: 0.5rem;
   }
 }
@@ -228,23 +228,23 @@ body {
     padding-left: 2rem;
     gap: 1rem;
   }
-  .box-content {
+  .boxContent {
     padding-left: 1rem;
   }
   .content {
     font-size: 2rem;
   }
-  .conten1 {
+  .content1 {
     font-size: 1rem;
   }
-  .share-box {
+  .shareBox {
     font-size: 1rem;
   }
-  .text-content {
+  .textContent {
     width: 300px;
     height: 200px;
   }
-  .options {
+  .boxSelection {
     gap: 0.5rem;
   }
 }

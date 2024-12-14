@@ -1,19 +1,16 @@
-body {
-  background-color: white;
-  overflow-y: visible;
-}
-.dev-container {
+.teamContainer {
   text-align: center;
   padding: 40px;
   background-color: #fff;
+  overflow-y: visible;
 }
 
-.dev-container h1 {
+.teamContainer h1 {
   color: #1e3432;
   margin-bottom: 20px;
   font-size: 60px;
 }
-.dev-grid {
+.teamGrid {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -23,7 +20,7 @@ body {
   gap: 10rem;
   margin-left: 8rem;
 }
-.dev-card {
+.teamCard {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -34,27 +31,29 @@ body {
   background-color: #1e3432;
   border-radius: 25px;
 }
-.dev-image {
+
+.teamImage {
   width: 20rem;
   height: 24rem;
   overflow: hidden;
   border-top-left-radius: 25px;
   border-top-right-radius: 25px;
 }
-.dev-name {
+.teamName {
   color: gold;
   font-size: 35px;
   margin: 0;
   padding: 0.3rem;
 }
-.dev-role {
+.teamRole {
   font-size: 25px;
   color: #ccc;
   margin: 0;
   padding: 0.3rem;
 }
+
 @media (max-width: 1100px) {
-  .dev-grid {
+  .teamGrid {
     margin-left: 1rem;
     display: flex;
     flex-direction: row;
@@ -62,12 +61,12 @@ body {
     justify-content: center;
     gap: 2rem;
   }
-  .dev-container {
+  .teamContainer {
     padding: 1px;
   }
 }
 @media (max-width: 700px) {
-  .dev-grid {
+  .teamGrid {
     margin-left: 1rem;
     display: flex;
     flex-direction: row;
@@ -75,27 +74,27 @@ body {
     justify-content: center;
     gap: 5rem;
   }
-  .dev-container {
+  .teamContainer {
     padding: 0px;
   }
-  .dev-image {
+  .teamImage {
     width: 10rem;
     height: 10rem;
   }
-  .dev-card {
+  .teamCard {
     width: 10rem;
     height: 15rem;
   }
-  .dev-name {
+  .teamName {
     font-size: 25px;
   }
-  .dev-role {
+  .teamRole {
     font-size: 20px;
   }
 }
 
 @media (max-width: 600px) {
-  .dev-grid {
+  .teamGrid {
     margin-left: 1rem;
     display: flex;
     flex-direction: row;
@@ -103,26 +102,26 @@ body {
     justify-content: center;
     gap: 3rem;
   }
-  .dev-container {
+  .teamContainer {
     padding: 0px;
   }
-  .dev-image {
+  .teamImage {
     width: 10rem;
     height: 10rem;
   }
-  .dev-card {
+  .teamCard {
     width: 10rem;
     height: 15rem;
   }
-  .dev-name {
+  .teamName {
     font-size: 25px;
   }
-  .dev-role {
+  .teamRole {
     font-size: 20px;
   }
 }
 @media (max-width: 400px) {
-  .dev-grid {
+  .teamGrid {
     margin-left: 1rem;
     display: flex;
     flex-direction: row;
@@ -130,21 +129,21 @@ body {
     justify-content: center;
     gap: 1rem;
   }
-  .dev-container {
+  .teamContainer {
     padding: 0px;
   }
-  .dev-image {
+  .teamImage {
     width: 10rem;
     height: 10rem;
   }
-  .dev-card {
+  .teamCard {
     width: 10rem;
     height: 15rem;
   }
-  .dev-name {
+  .teamName {
     font-size: 25px;
   }
-  .dev-role {
+  .teamRole {
     font-size: 20px;
   }
 }

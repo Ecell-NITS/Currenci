@@ -1,19 +1,15 @@
-body {
-  background-color: white;
-  overflow-y: visible;
-}
-.team-container {
+.devContainer {
   text-align: center;
   padding: 40px;
   background-color: #fff;
 }
 
-.team-container h1 {
+.devContainer h1 {
   color: #1e3432;
   margin-bottom: 20px;
   font-size: 60px;
 }
-.team-grid {
+.devGrid {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -23,7 +19,7 @@ body {
   gap: 10rem;
   margin-left: 8rem;
 }
-.team-card {
+.devCard {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -34,27 +30,27 @@ body {
   background-color: #1e3432;
   border-radius: 25px;
 }
-.team-image {
+.devImage {
   width: 20rem;
   height: 24rem;
   overflow: hidden;
   border-top-left-radius: 25px;
   border-top-right-radius: 25px;
 }
-.team-name {
+.devName {
   color: gold;
   font-size: 35px;
   margin: 0;
   padding: 0.3rem;
 }
-.team-role {
+.devRole {
   font-size: 25px;
   color: #ccc;
   margin: 0;
   padding: 0.3rem;
 }
 @media (max-width: 1100px) {
-  .team-grid {
+  .devGrid {
     margin-left: 1rem;
     display: flex;
     flex-direction: row;
@@ -62,12 +58,12 @@ body {
     justify-content: center;
     gap: 2rem;
   }
-  .team-container {
+  .devContainer {
     padding: 1px;
   }
 }
 @media (max-width: 700px) {
-  .team-grid {
+  .devGrid {
     margin-left: 1rem;
     display: flex;
     flex-direction: row;
@@ -75,27 +71,27 @@ body {
     justify-content: center;
     gap: 5rem;
   }
-  .team-container {
+  .devContainer {
     padding: 0px;
   }
-  .team-image {
+  .devImage {
     width: 10rem;
     height: 10rem;
   }
-  .team-card {
+  .devCard {
     width: 10rem;
     height: 15rem;
   }
-  .team-name {
+  .devName {
     font-size: 25px;
   }
-  .team-role {
+  .devRole {
     font-size: 20px;
   }
 }
 
 @media (max-width: 600px) {
-  .team-grid {
+  .devGrid {
     margin-left: 1rem;
     display: flex;
     flex-direction: row;
@@ -103,26 +99,26 @@ body {
     justify-content: center;
     gap: 3rem;
   }
-  .team-container {
+  .devContainer {
     padding: 0px;
   }
-  .team-image {
+  .devImage {
     width: 10rem;
     height: 10rem;
   }
-  .team-card {
+  .devCard {
     width: 10rem;
     height: 15rem;
   }
-  .team-name {
+  .devName {
     font-size: 25px;
   }
-  .team-role {
+  .devRole {
     font-size: 20px;
   }
 }
 @media (max-width: 400px) {
-  .team-grid {
+  .devGrid {
     margin-left: 1rem;
     display: flex;
     flex-direction: row;
@@ -130,21 +126,21 @@ body {
     justify-content: center;
     gap: 1rem;
   }
-  .team-container {
+  .devContainer {
     padding: 0px;
   }
-  .team-image {
+  .devImage {
     width: 10rem;
     height: 10rem;
   }
-  .team-card {
+  .devCard {
     width: 10rem;
     height: 15rem;
   }
-  .team-name {
+  .devName {
     font-size: 25px;
   }
-  .team-role {
+  .devRole {
     font-size: 20px;
   }
 }

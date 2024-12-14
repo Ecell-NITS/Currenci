@@ -4,21 +4,28 @@
 /* eslint-disable no-unused-vars */
 
 import React from "react";
-import "./developers.scss";
+import Image from "next/image";
+import styles from "./developers.module.scss";
 import developers from "../../../../public/data/developer.json";
 
 const Developers = () => {
   return (
-    <div className="dev-container">
+    <div className={styles.devContainer}>
       <h1>Developed by E-cell ,Nit Silchar</h1>
 
-      <div className="dev-grid">
+      <div className={styles.devGrid}>
         {developers.map((member) => {
           return (
-            <div className="dev-card">
-              <img className="dev-image" src={member.image} alt={member.name} />
-              <h2 className="dev-name">{member.name}</h2>
-              <p className="dev-role">{member.role}</p>
+            <div className={styles.devCard}>
+              <Image
+                className={styles.devImage}
+                src={member.image}
+                alt={member.name}
+                width={300}
+                height={300}
+              ></Image>
+              <h2 className={styles.devName}>{member.name}</h2>
+              <p className={styles.devRole}>{member.role}</p>
             </div>
           );
         })}
