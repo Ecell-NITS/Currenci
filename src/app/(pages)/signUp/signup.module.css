@@ -32,7 +32,7 @@
     margin-top: 20px;
     font-size: 40px;
     font-weight: 400;
-    line-height: 48px;
+    line-height: 40px;
     text-align: center;
     color: #000000;
     margin-bottom: 30px;
@@ -43,7 +43,7 @@
     margin-top: 100px;
     font-size: 40px;
     font-weight: 400;
-    line-height: 48px;
+    line-height: 40px;
     text-align: center;
     color: #000000;
     margin-bottom: 10px;
@@ -116,25 +116,25 @@
   } */
 
   .closeButton {
-    position: absolute; /* Position the button */
-    top: 10px; /* Adjust the top position */
-    right: 10px; /* Adjust the right position */
-    z-index: 1000; /* Ensure it appears above all other elements */
-    background: none; /* No background */
-    border: none; /* Remove border */
-    padding: 0; /* Remove extra padding */
-    cursor: pointer; /* Pointer cursor on hover */
-    transition: ease 0.3s; /* Add a smooth transition */
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 1000;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: ease 0.3s;
   }
 
   .closeImage {
-    width: 50px; /* Adjust size as needed */
-    height: 50px; /* Adjust size as needed */
-    object-fit: cover; /* Maintain aspect ratio */
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
   }
 
   .closeButton:hover {
-    scale: 1.1; /* Scale the image on hover */
+    scale: 1.1;
   }
 }
 
@@ -178,7 +178,7 @@
     font-size: 40px;
     font-weight: 400;
     font-family: "Sofia Pro Regular";
-    line-height: 48px;
+    line-height: 40px;
     text-align: center;
     color: #ffffff;
     margin-bottom: 30px;
@@ -188,7 +188,7 @@
     margin-top: 10px;
     font-size: 40px;
     font-weight: 400;
-    line-height: 48px;
+    line-height: 40px;
     font-family: "Sofia Pro Regular";
     text-align: left;
     color: #ffffff;
@@ -263,24 +263,24 @@
   }
 
   .closeButton {
-    position: absolute; /* Position the button */
-    top: 10px; /* Adjust the top position */
-    right: 10px; /* Adjust the right position */
-    z-index: 1000; /* Ensure it appears above all other elements */
-    background: none; /* No background */
-    border: none; /* Remove border */
-    padding: 0; /* Remove extra padding */
-    cursor: pointer; /* Pointer cursor on hover */
-    transition: ease 0.3s; /* Add a smooth transition */
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 1000;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: ease 0.3s;
   }
 
   .closeImage {
-    width: 50px; /* Adjust size as needed */
-    height: 50px; /* Adjust size as needed */
-    object-fit: cover; /* Maintain aspect ratio */
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
   }
 
   .closeButton:hover {
-    scale: 1.1; /* Scale the image on hover */
+    scale: 1.1;
   }
 }

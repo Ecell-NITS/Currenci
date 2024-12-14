@@ -22,7 +22,7 @@
     height: 60px;
     padding: 0.5rem 0.75rem;
     font-size: 1.5rem;
-    color: #4a5568;
+    color: #000000;
     outline: none;
     transition:
       border-color 0.2s ease,
@@ -67,7 +67,7 @@
     padding: 0.5rem 0.75rem;
     font-size: 1.5rem;
     font-family: "Sofia Pro Light";
-    color: #4a5568;
+    color: #000000;
     outline: none;
     transition:
       border-color 0.2s ease,

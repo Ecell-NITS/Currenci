@@ -149,6 +149,7 @@ const SignIn = () => {
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
+            marginBottom: "50px",
           }}
         >
           <p className={styles.signUpText}>Don&apos;t have an account?</p>
