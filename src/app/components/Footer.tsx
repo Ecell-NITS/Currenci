@@ -1,5 +1,5 @@
-
 import Link from "next/link";
+import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faFacebook,
@@ -7,23 +7,22 @@ import {
   faWhatsapp,
   faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
-import React from "react";
+// import React from "react";
 
 export default function Footer() {
   return (
-    <footer
-      className="bg-[#1E3432] absolute bottom-11 text-white w-full  md:h-[40vh] h-[60vh] "
-    
-    >
+    <footer className="bg-[#1E3432] absolute bottom-11 text-white w-full  md:h-[40vh] h-[60vh] ">
       <div className="container mx-auto px-3 py-8  lg:py-10 lg:w-[80%] md:w-[90%] sm:w-full  md:h-[40vh] h-[60vh]">
         {/* Desktop View */}
         <div className="hidden md:flex justify-between items-start">
           {/* Logo */}
           <div className="w-24 md:w-36 lg:w-44 h-auto">
-            <img
+            <Image
               src="/images/LOGO.png"
               alt="Currenci Logo"
               className="w-full h-auto"
+              width={150} // Set appropriate width
+              height={150} // Set appropriate height
             />
           </div>
 
@@ -218,14 +217,16 @@ export default function Footer() {
                 <Link
                   href="https://facebook.com"
                   target="_blank"
-                  className="hover:text-[#F2B263]"style={{ margin: '0', padding: '.5rem' }}
+                  className="hover:text-[#F2B263]"
+                  style={{ margin: "0", padding: ".5rem" }}
                 >
                   <FontAwesomeIcon icon={faFacebook} size="xl" />
                 </Link>
                 <Link
                   href="https://instagram.com"
                   target="_blank"
-                  className="hover:text-[#F2B263]"style={{ margin: '0', padding: '0.5rem' }}
+                  className="hover:text-[#F2B263]"
+                  style={{ margin: "0", padding: "0.5rem" }}
                 >
                   <FontAwesomeIcon icon={faInstagram} size="xl" />
                 </Link>
@@ -244,18 +245,18 @@ export default function Footer() {
                   <FontAwesomeIcon icon={faTwitter} size="xl" />
                 </Link>
               </div>
-      
             </div>
-      
           </div>
-        {/* Logo Centered at Bottom */}
-      <div className="  mt-4 mb-4">
-        <img
-          src="/images/LOGO.png"
-          alt="Currenci Logo"
-          className="w-32 h-auto mx-auto"
-        />
-      </div>
+          {/* Logo Centered at Bottom */}
+          <div className="  mt-4 mb-4">
+            <Image
+              src="/images/LOGO.png"
+              alt="Currenci Logo"
+              className="w-32 h-auto mx-auto"
+              width={150} // Set appropriate width
+              height={150} // Set appropriate height
+            />
+          </div>
         </div>
       </div>
 

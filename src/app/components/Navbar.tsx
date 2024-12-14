@@ -1,6 +1,7 @@
 "use client";
 
-import React, { useState } from "react";
+import Image from "next/image";
+import { useState } from "react";
 import Link from "next/link";
 
 export default function Navbar() {
@@ -12,9 +13,19 @@ export default function Navbar() {
   return (
     <nav className="bg-[#1E3432] text-white py-4 rounded-full shadow-lg w-[90%] mx-auto mt-6 relative z-50">
       <div className="container mx-auto flex justify-between items-center px-4 md:px-8">
-        
         {/* Left Section (Hamburger Icon for Mobile) */}
-        <div className="md:hidden flex items-center ml-10" onClick={toggleMenu}>
+        <div
+          className="md:hidden flex items-center ml-10"
+          onClick={toggleMenu}
+          role="button" // Define as a button for accessibility
+          tabIndex={0} // Make it focusable
+          onKeyUp={(e) => {
+            if (e.key === "Enter" || e.key === " ") {
+              // Handle Enter and Space keys for accessibility
+              toggleMenu();
+            }
+          }}
+        >
           {isMenuOpen ? (
             <div className="space-y-2">
               <div className="w-6 h-0.5 bg-[#F2B263] mb-1"></div>
@@ -30,24 +41,37 @@ export default function Navbar() {
         </div>
 
         {/* Center Section (Logo) */}
-        <div className={`flex justify-center md:justify-start flex-1 ${isMenuOpen ? "hidden" : ""}`}>
-          <img 
-            src="/images/LOGO.png" 
-            alt="Currenci Logo" 
+        <div
+          className={`flex justify-center md:justify-start flex-1 ${isMenuOpen ? "hidden" : ""}`}
+        >
+          <Image
+            src="/images/LOGO.png"
+            alt="Currenci Logo"
             className="w-28 sm:w-34 md:w-36 lg:w-42 xl:w-48 h-auto"
+            width={150} // Set appropriate width
+            height={150} // Set appropriate height
           />
         </div>
 
         {/* Right Section (Login Button for Desktop) */}
         <div className="hidden md:flex items-center gap-6 md:gap-8">
           {/* Links */}
-          <Link href="/about" className="text-sm md:text-base lg:text-lg font-semibold text-white hover:text-[#F2B263]">
+          <Link
+            href="/about"
+            className="text-sm md:text-base lg:text-lg font-semibold text-white hover:text-[#F2B263]"
+          >
             About
           </Link>
-          <Link href="/fees" className="text-sm md:text-base lg:text-lg font-semibold text-white hover:text-[#F2B263]">
+          <Link
+            href="/fees"
+            className="text-sm md:text-base lg:text-lg font-semibold text-white hover:text-[#F2B263]"
+          >
             Fees
           </Link>
-          <Link href="/team" className="text-sm md:text-base lg:text-lg font-semibold text-white hover:text-[#F2B263]">
+          <Link
+            href="/team"
+            className="text-sm md:text-base lg:text-lg font-semibold text-white hover:text-[#F2B263]"
+          >
             Team
           </Link>
 
@@ -66,23 +90,36 @@ export default function Navbar() {
       </div>
 
       {/* Mobile Menu (when hamburger is clicked) */}
-      <div 
+      <div
         className={`md:hidden fixed top-0 left-0 w-[75%] h-full bg-[#1E3432] p-6 transition-all duration-300 ease-in-out z-40 transform ${isMenuOpen ? "translate-x-0" : "-translate-x-full"}`}
       >
         {/* Cross Icon and Menu Links */}
         <div className="flex justify-between items-center mb-6">
           {/* Close (Cross) Icon */}
-          <div className="cursor-pointer" onClick={toggleMenu}>
+          <div
+            className="cursor-pointer"
+            onClick={toggleMenu}
+            role="button" // Defines it as an interactive button
+            tabIndex={0} // Makes it focusable
+            onKeyUp={(e) => {
+              if (e.key === "Enter" || e.key === " ") {
+                toggleMenu(); // Close menu on 'Enter' or 'Space'
+              }
+            }}
+            aria-label="Close menu" // Adds an accessible label for screen readers
+          >
             <div className="w-6 h-0.5 bg-[#F2B263]  transform rotate-45 "></div>
             <div className="w-6 h-0.5 bg-[#F2B263] transform -rotate-45 mt-[-0.15rem]"></div>
           </div>
 
           {/* Logo */}
           <div className="flex-1 text-center">
-            <img 
-              src="/images/LOGO.png" 
-              alt="Currenci Logo" 
-              className="w-28 sm:w-32 md:w-36 lg:w-32 h-auto" 
+            <Image
+              src="/images/LOGO.png"
+              alt="Currenci Logo"
+              className="w-28 sm:w-32 md:w-36 lg:w-32 h-auto"
+              width={150} // Set appropriate width
+              height={150} // Set appropriate height
             />
           </div>
 
@@ -103,19 +140,34 @@ export default function Navbar() {
               Book an Appointment
             </div>
           </Link>
-          <Link href="/about" className="text-white text-lg font-semibold hover:text-[#F2B263]">
+          <Link
+            href="/about"
+            className="text-white text-lg font-semibold hover:text-[#F2B263]"
+          >
             About
           </Link>
-          <Link href="/fees" className="text-white text-lg font-semibold hover:text-[#F2B263]">
+          <Link
+            href="/fees"
+            className="text-white text-lg font-semibold hover:text-[#F2B263]"
+          >
             Fees
           </Link>
-          <Link href="/team" className="text-white text-lg font-semibold hover:text-[#F2B263]">
+          <Link
+            href="/team"
+            className="text-white text-lg font-semibold hover:text-[#F2B263]"
+          >
             Team
           </Link>
-          <Link href="/testimonials" className="text-white text-lg font-semibold hover:text-[#F2B263]">
+          <Link
+            href="/testimonials"
+            className="text-white text-lg font-semibold hover:text-[#F2B263]"
+          >
             Testimonials
           </Link>
-          <Link href="/faqs" className="text-white text-lg font-semibold hover:text-[#F2B263]">
+          <Link
+            href="/faqs"
+            className="text-white text-lg font-semibold hover:text-[#F2B263]"
+          >
             FAQs
           </Link>
         </div>

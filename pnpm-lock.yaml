@@ -7,6 +7,18 @@ settings:
 importers:
   .:
     dependencies:
+      "@fortawesome/fontawesome-svg-core":
+        specifier: ^6.7.1
+        version: 6.7.1
+      "@fortawesome/free-brands-svg-icons":
+        specifier: ^6.7.1
+        version: 6.7.1
+      "@fortawesome/free-solid-svg-icons":
+        specifier: ^6.7.1
+        version: 6.7.1
+      "@fortawesome/react-fontawesome":
+        specifier: ^0.2.2
+        version: 0.2.2(@fortawesome/fontawesome-svg-core@6.7.1)(react@18.2.0)
       bcryptjs:
         specifier: ^2.4.3
         version: 2.4.3
@@ -15,7 +27,6 @@ importers:
         version: 16.4.5
       eslint-config-airbnb:
         specifier: ^19.0.4
-
         version: 19.0.4(eslint-plugin-import@2.29.1(@typescript-eslint/parser@6.21.0(eslint@8.56.0)(typescript@5.6.3))(eslint-import-resolver-typescript@3.6.1(@typescript-eslint/parser@6.21.0(eslint@8.56.0)(typescript@5.6.3))(eslint-import-resolver-node@0.3.9)(eslint-plugin-import@2.29.1(eslint@8.56.0))(eslint@8.56.0))(eslint@8.56.0))(eslint-plugin-jsx-a11y@6.8.0(eslint@8.56.0))(eslint-plugin-react-hooks@4.6.0(eslint@8.56.0))(eslint-plugin-react@7.33.2(eslint@8.56.0))(eslint@8.56.0)
       jsonwebtoken:
         specifier: ^9.0.2
@@ -23,7 +34,6 @@ importers:
       moment-timezone:
         specifier: ^0.5.46
         version: 0.5.46
-
       mongoose:
         specifier: ^8.7.2
         version: 8.7.2
@@ -49,6 +59,9 @@ importers:
       "@types/react":
         specifier: 18.3.2
         version: 18.3.2
+      "@types/react-dom":
+        specifier: ^19.0.2
+        version: 19.0.2(@types/react@18.3.2)
       autoprefixer:
         specifier: ^10.0.1
         version: 10.4.17(postcss@8.4.35)
@@ -1029,6 +1042,43 @@ packages:
       }
     engines: { node: ^12.22.0 || ^14.17.0 || >=16.0.0 }
 
+  "@fortawesome/fontawesome-common-types@6.7.1":
+    resolution:
+      {
+        integrity: sha512-gbDz3TwRrIPT3i0cDfujhshnXO9z03IT1UKRIVi/VEjpNHtSBIP2o5XSm+e816FzzCFEzAxPw09Z13n20PaQJQ==,
+      }
+    engines: { node: ">=6" }
+
+  "@fortawesome/fontawesome-svg-core@6.7.1":
+    resolution:
+      {
+        integrity: sha512-8dBIHbfsKlCk2jHQ9PoRBg2Z+4TwyE3vZICSnoDlnsHA6SiMlTwfmW6yX0lHsRmWJugkeb92sA0hZdkXJhuz+g==,
+      }
+    engines: { node: ">=6" }
+
+  "@fortawesome/free-brands-svg-icons@6.7.1":
+    resolution:
+      {
+        integrity: sha512-nJR76eqPzCnMyhbiGf6X0aclDirZriTPRcFm1YFvuupyJOGwlNF022w3YBqu+yrHRhnKRpzFX+8wJKqiIjWZkA==,
+      }
+    engines: { node: ">=6" }
+
+  "@fortawesome/free-solid-svg-icons@6.7.1":
+    resolution:
+      {
+        integrity: sha512-BTKc0b0mgjWZ2UDKVgmwaE0qt0cZs6ITcDgjrti5f/ki7aF5zs+N91V6hitGo3TItCFtnKg6cUVGdTmBFICFRg==,
+      }
+    engines: { node: ">=6" }
+
+  "@fortawesome/react-fontawesome@0.2.2":
+    resolution:
+      {
+        integrity: sha512-EnkrprPNqI6SXJl//m29hpaNzOp1bruISWaOiRtkMi/xSvHJlzc2j2JAYS7egxt/EbjSNV/k6Xy0AQI6vB2+1g==,
+      }
+    peerDependencies:
+      "@fortawesome/fontawesome-svg-core": ~1 || ~6
+      react: ">=16.3"
+
   "@humanwhocodes/config-array@0.11.14":
     resolution:
       {
@@ -1340,6 +1390,14 @@ packages:
         integrity: sha512-5zvhXYtRNRluoE/jAp4GVsSduVUzNWKkOZrCDBWYtE7biZywwdC2AcEzg+cSMLFRfVgeAFqpfNabiPjxFddV1Q==,
       }
 
+  "@types/react-dom@19.0.2":
+    resolution:
+      {
+        integrity: sha512-c1s+7TKFaDRRxr1TxccIX2u7sfCnc3RxkVyBIUA2lCpyqCF+QoAwQ/CBg7bsMdVwP120HEH143VQezKtef5nCg==,
+      }
+    peerDependencies:
+      "@types/react": ^19.0.0
+
   "@types/react@18.3.2":
     resolution:
       {
@@ -1529,6 +1587,7 @@ packages:
       {
         integrity: sha512-cmMwop9x+8KFhxvKrKfPYmN6/pKTYYHBqLa0DfvVZcKMJWNyWLnaqND7dx/qn66R7ewM1UX5XMaDVP5wlVTaVA==,
       }
+    deprecated: package has been renamed to acorn-import-attributes
     peerDependencies:
       acorn: ^8
 
@@ -3699,7 +3758,6 @@ packages:
       }
     engines: { node: ">=16 || 14 >=14.17" }
 
-
   moment-timezone@0.5.46:
     resolution:
       {
@@ -3711,7 +3769,6 @@ packages:
       {
         integrity: sha512-uEmtNhbDOrWPFS+hdjFCBfy9f2YoyzRpwcl+DqpC6taX21FzsTLQVbMV/W7PzNSX6x/bhC1zA3c2UQ5NzH6how==,
       }
-
 
   mongodb-connection-string-url@3.0.1:
     resolution:
@@ -6050,6 +6107,26 @@ snapshots:
 
   "@eslint/js@8.56.0": {}
 
+  "@fortawesome/fontawesome-common-types@6.7.1": {}
+
+  "@fortawesome/fontawesome-svg-core@6.7.1":
+    dependencies:
+      "@fortawesome/fontawesome-common-types": 6.7.1
+
+  "@fortawesome/free-brands-svg-icons@6.7.1":
+    dependencies:
+      "@fortawesome/fontawesome-common-types": 6.7.1
+
+  "@fortawesome/free-solid-svg-icons@6.7.1":
+    dependencies:
+      "@fortawesome/fontawesome-common-types": 6.7.1
+
+  "@fortawesome/react-fontawesome@0.2.2(@fortawesome/fontawesome-svg-core@6.7.1)(react@18.2.0)":
+    dependencies:
+      "@fortawesome/fontawesome-svg-core": 6.7.1
+      prop-types: 15.8.1
+      react: 18.2.0
+
   "@humanwhocodes/config-array@0.11.14":
     dependencies:
       "@humanwhocodes/object-schema": 2.0.2
@@ -6218,6 +6295,10 @@ snapshots:
       undici-types: 5.26.5
 
   "@types/prop-types@15.7.12": {}
+
+  "@types/react-dom@19.0.2(@types/react@18.3.2)":
+    dependencies:
+      "@types/react": 18.3.2
 
   "@types/react@18.3.2":
     dependencies:
@@ -6870,24 +6951,20 @@ snapshots:
 
   escape-string-regexp@4.0.0: {}
 
-
   eslint-config-airbnb-base@15.0.0(eslint-plugin-import@2.29.1(@typescript-eslint/parser@6.21.0(eslint@8.56.0)(typescript@5.6.3))(eslint-import-resolver-typescript@3.6.1(@typescript-eslint/parser@6.21.0(eslint@8.56.0)(typescript@5.6.3))(eslint-import-resolver-node@0.3.9)(eslint-plugin-import@2.29.1(eslint@8.56.0))(eslint@8.56.0))(eslint@8.56.0))(eslint@8.56.0):
     dependencies:
       confusing-browser-globals: 1.0.11
       eslint: 8.56.0
       eslint-plugin-import: 2.29.1(@typescript-eslint/parser@6.21.0(eslint@8.56.0)(typescript@5.6.3))(eslint-import-resolver-typescript@3.6.1(@typescript-eslint/parser@6.21.0(eslint@8.56.0)(typescript@5.6.3))(eslint-import-resolver-node@0.3.9)(eslint-plugin-import@2.29.1(eslint@8.56.0))(eslint@8.56.0))(eslint@8.56.0)
-
       object.assign: 4.1.5
       object.entries: 1.1.7
       semver: 6.3.1
-
 
   eslint-config-airbnb@19.0.4(eslint-plugin-import@2.29.1(@typescript-eslint/parser@6.21.0(eslint@8.56.0)(typescript@5.6.3))(eslint-import-resolver-typescript@3.6.1(@typescript-eslint/parser@6.21.0(eslint@8.56.0)(typescript@5.6.3))(eslint-import-resolver-node@0.3.9)(eslint-plugin-import@2.29.1(eslint@8.56.0))(eslint@8.56.0))(eslint@8.56.0))(eslint-plugin-jsx-a11y@6.8.0(eslint@8.56.0))(eslint-plugin-react-hooks@4.6.0(eslint@8.56.0))(eslint-plugin-react@7.33.2(eslint@8.56.0))(eslint@8.56.0):
     dependencies:
       eslint: 8.56.0
       eslint-config-airbnb-base: 15.0.0(eslint-plugin-import@2.29.1(@typescript-eslint/parser@6.21.0(eslint@8.56.0)(typescript@5.6.3))(eslint-import-resolver-typescript@3.6.1(@typescript-eslint/parser@6.21.0(eslint@8.56.0)(typescript@5.6.3))(eslint-import-resolver-node@0.3.9)(eslint-plugin-import@2.29.1(eslint@8.56.0))(eslint@8.56.0))(eslint@8.56.0))(eslint@8.56.0)
       eslint-plugin-import: 2.29.1(@typescript-eslint/parser@6.21.0(eslint@8.56.0)(typescript@5.6.3))(eslint-import-resolver-typescript@3.6.1(@typescript-eslint/parser@6.21.0(eslint@8.56.0)(typescript@5.6.3))(eslint-import-resolver-node@0.3.9)(eslint-plugin-import@2.29.1(eslint@8.56.0))(eslint@8.56.0))(eslint@8.56.0)
-
       eslint-plugin-jsx-a11y: 6.8.0(eslint@8.56.0)
       eslint-plugin-react: 7.33.2(eslint@8.56.0)
       eslint-plugin-react-hooks: 4.6.0(eslint@8.56.0)
@@ -6902,9 +6979,7 @@ snapshots:
       eslint: 8.56.0
       eslint-import-resolver-node: 0.3.9
       eslint-import-resolver-typescript: 3.6.1(@typescript-eslint/parser@6.21.0(eslint@8.56.0)(typescript@5.6.3))(eslint-import-resolver-node@0.3.9)(eslint-plugin-import@2.29.1(eslint@8.56.0))(eslint@8.56.0)
-
       eslint-plugin-import: 2.29.1(@typescript-eslint/parser@6.21.0(eslint@8.56.0)(typescript@5.6.3))(eslint-import-resolver-typescript@3.6.1(@typescript-eslint/parser@6.21.0(eslint@8.56.0)(typescript@5.6.3))(eslint-import-resolver-node@0.3.9)(eslint-plugin-import@2.29.1(eslint@8.56.0))(eslint@8.56.0))(eslint@8.56.0)
-
       eslint-plugin-jsx-a11y: 6.8.0(eslint@8.56.0)
       eslint-plugin-react: 7.33.2(eslint@8.56.0)
       eslint-plugin-react-hooks: 4.6.0(eslint@8.56.0)
@@ -6932,9 +7007,7 @@ snapshots:
       enhanced-resolve: 5.15.0
       eslint: 8.56.0
       eslint-module-utils: 2.8.0(@typescript-eslint/parser@6.21.0(eslint@8.56.0)(typescript@5.6.3))(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@3.6.1(@typescript-eslint/parser@6.21.0(eslint@8.56.0)(typescript@5.6.3))(eslint-import-resolver-node@0.3.9)(eslint-plugin-import@2.29.1(eslint@8.56.0))(eslint@8.56.0))(eslint@8.56.0)
-
       eslint-plugin-import: 2.29.1(@typescript-eslint/parser@6.21.0(eslint@8.56.0)(typescript@5.6.3))(eslint-import-resolver-typescript@3.6.1(@typescript-eslint/parser@6.21.0(eslint@8.56.0)(typescript@5.6.3))(eslint-import-resolver-node@0.3.9)(eslint-plugin-import@2.29.1(eslint@8.56.0))(eslint@8.56.0))(eslint@8.56.0)
-
       fast-glob: 3.3.2
       get-tsconfig: 4.7.2
       is-core-module: 2.13.1
@@ -6956,9 +7029,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-
   eslint-plugin-import@2.29.1(@typescript-eslint/parser@6.21.0(eslint@8.56.0)(typescript@5.6.3))(eslint-import-resolver-typescript@3.6.1(@typescript-eslint/parser@6.21.0(eslint@8.56.0)(typescript@5.6.3))(eslint-import-resolver-node@0.3.9)(eslint-plugin-import@2.29.1(eslint@8.56.0))(eslint@8.56.0))(eslint@8.56.0):
-
     dependencies:
       array-includes: 3.1.7
       array.prototype.findlastindex: 1.2.4
@@ -7732,13 +7803,11 @@ snapshots:
 
   minipass@7.0.4: {}
 
-
   moment-timezone@0.5.46:
     dependencies:
       moment: 2.30.1
 
   moment@2.30.1: {}
-
 
   mongodb-connection-string-url@3.0.1:
     dependencies:
@@ -8577,11 +8646,11 @@ snapshots:
 
   webpack@5.90.3:
     dependencies:
-      '@types/eslint-scope': 3.7.7
-      '@types/estree': 1.0.5
-      '@webassemblyjs/ast': 1.11.6
-      '@webassemblyjs/wasm-edit': 1.11.6
-      '@webassemblyjs/wasm-parser': 1.11.6
+      "@types/eslint-scope": 3.7.7
+      "@types/estree": 1.0.5
+      "@webassemblyjs/ast": 1.11.6
+      "@webassemblyjs/wasm-edit": 1.11.6
+      "@webassemblyjs/wasm-parser": 1.11.6
       acorn: 8.11.3
       acorn-import-assertions: 1.9.0(acorn@8.11.3)
       browserslist: 4.23.0
@@ -8602,7 +8671,7 @@ snapshots:
       watchpack: 2.4.0
       webpack-sources: 3.2.3
     transitivePeerDependencies:
-      - '@swc/core'
+      - "@swc/core"
       - esbuild
       - uglify-js
 
@@ -8670,14 +8739,14 @@ snapshots:
 
   workbox-build@6.6.0:
     dependencies:
-      '@apideck/better-ajv-errors': 0.3.6(ajv@8.12.0)
-      '@babel/core': 7.23.9
-      '@babel/preset-env': 7.23.9(@babel/core@7.23.9)
-      '@babel/runtime': 7.23.9
-      '@rollup/plugin-babel': 5.3.1(@babel/core@7.23.9)(rollup@2.79.1)
-      '@rollup/plugin-node-resolve': 11.2.1(rollup@2.79.1)
-      '@rollup/plugin-replace': 2.4.2(rollup@2.79.1)
-      '@surma/rollup-plugin-off-main-thread': 2.2.3
+      "@apideck/better-ajv-errors": 0.3.6(ajv@8.12.0)
+      "@babel/core": 7.23.9
+      "@babel/preset-env": 7.23.9(@babel/core@7.23.9)
+      "@babel/runtime": 7.23.9
+      "@rollup/plugin-babel": 5.3.1(@babel/core@7.23.9)(rollup@2.79.1)
+      "@rollup/plugin-node-resolve": 11.2.1(rollup@2.79.1)
+      "@rollup/plugin-replace": 2.4.2(rollup@2.79.1)
+      "@surma/rollup-plugin-off-main-thread": 2.2.3
       ajv: 8.12.0
       common-tags: 1.8.2
       fast-json-stable-stringify: 2.1.0
@@ -8708,7 +8777,7 @@ snapshots:
       workbox-sw: 6.6.0
       workbox-window: 6.6.0
     transitivePeerDependencies:
-      - '@types/babel__core'
+      - "@types/babel__core"
       - supports-color
 
   workbox-cacheable-response@6.6.0:
@@ -8776,12 +8845,12 @@ snapshots:
       webpack-sources: 1.4.3
       workbox-build: 6.6.0
     transitivePeerDependencies:
-      - '@types/babel__core'
+      - "@types/babel__core"
       - supports-color
 
   workbox-window@6.6.0:
     dependencies:
-      '@types/trusted-types': 2.0.7
+      "@types/trusted-types": 2.0.7
       workbox-core: 6.6.0
 
   wrap-ansi@7.0.0:
