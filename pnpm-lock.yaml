@@ -60,8 +60,8 @@ importers:
         specifier: 18.3.2
         version: 18.3.2
       "@types/react-dom":
-        specifier: ^19.0.2
-        version: 19.0.2(@types/react@18.3.2)
+        specifier: ^18.3.5
+        version: 18.3.5(@types/react@18.3.2)
       autoprefixer:
         specifier: ^10.0.1
         version: 10.4.17(postcss@8.4.35)
@@ -1390,13 +1390,13 @@ packages:
         integrity: sha512-5zvhXYtRNRluoE/jAp4GVsSduVUzNWKkOZrCDBWYtE7biZywwdC2AcEzg+cSMLFRfVgeAFqpfNabiPjxFddV1Q==,
       }
 
-  "@types/react-dom@19.0.2":
+  "@types/react-dom@18.3.5":
     resolution:
       {
-        integrity: sha512-c1s+7TKFaDRRxr1TxccIX2u7sfCnc3RxkVyBIUA2lCpyqCF+QoAwQ/CBg7bsMdVwP120HEH143VQezKtef5nCg==,
+        integrity: sha512-P4t6saawp+b/dFrUr2cvkVsfvPguwsxtH6dNIYRllMsefqFzkZk5UIjzyDOv5g1dXIPdG4Sp1yCR4Z6RCUsG/Q==,
       }
     peerDependencies:
-      "@types/react": ^19.0.0
+      "@types/react": ^18.0.0
 
   "@types/react@18.3.2":
     resolution:
@@ -6296,7 +6296,7 @@ snapshots:
 
   "@types/prop-types@15.7.12": {}
 
-  "@types/react-dom@19.0.2(@types/react@18.3.2)":
+  "@types/react-dom@18.3.5(@types/react@18.3.2)":
     dependencies:
       "@types/react": 18.3.2
 
