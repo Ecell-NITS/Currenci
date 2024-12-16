@@ -157,6 +157,11 @@
   font-weight: 600;
   margin-top: 5rem;
 }
+.submitBtn:hover {
+  width: 160px;
+  height: 60px;
+  border: 2px solid goldenrod;
+}
 #circle {
   border-radius: 50%;
   border: 2px solid black;
