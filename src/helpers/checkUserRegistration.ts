@@ -1,7 +1,7 @@
 import dbConnect from "../lib/dbConnect";
 import UserModel from "../model/User";
 
-async function CheckAlreadyRegisteredUser(username: string, email: string) {
+async function checkUserRegistration(username: string, email: string) {
   await dbConnect();
 
   try {
@@ -9,8 +9,9 @@ async function CheckAlreadyRegisteredUser(username: string, email: string) {
 
     if (existingUsername) {
       return {
-        success: false,
+        success: true,
         message: "Username already exists. Please choose a different username.",
+        email: existingUsername.email,
       };
     }
 
@@ -18,13 +19,14 @@ async function CheckAlreadyRegisteredUser(username: string, email: string) {
 
     if (existingUserByEmail) {
       return {
-        success: false,
+        success: true,
         message: "Email already exists. Please login with your credentials",
+        email: existingUserByEmail.email,
       };
     }
 
     return {
-      success: true,
+      success: false,
       message: "User does not exist",
     };
   } catch (err) {
@@ -35,4 +37,4 @@ async function CheckAlreadyRegisteredUser(username: string, email: string) {
   }
 }
 
-export default CheckAlreadyRegisteredUser;
+export default checkUserRegistration;

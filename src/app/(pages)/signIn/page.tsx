@@ -2,13 +2,11 @@
 
 import { useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
+import { X } from "lucide-react";
 import Link from "next/link";
 import styles from "./signin.module.css";
-import InputField from "../../components/InputFields/inputFields";
-import LoadingSpinner from "../../components/loadingSpinner";
-import ErrorText from "../../components/errorText";
-import SuccessText from "../../components/successText";
 import { signInSchema } from "../../../schemas/signInSchema";
+import Form from "../../components/Forms/basicForm";
 
 const SignIn = () => {
   const [error, setError] = useState(""); // State to manage if there is an error in the API call
@@ -31,6 +29,7 @@ const SignIn = () => {
 
   const handleChange = (e) => {
     e.preventDefault();
+    setError("");
     const { name, value } = e.target;
     setFormData((prevData) => ({ ...prevData, [name]: value }));
     setValidationErrors((prevErrors) => ({ ...prevErrors, [name]: "" }));
@@ -59,8 +58,8 @@ const SignIn = () => {
           throw new Error(data.message || "Something went wrong.");
         }
         setSuccess("Login Successful. Redirecting to home page...");
-        setLoading(false);
         setTimeout(() => {
+          setLoading(false);
           router.push("/");
         }, 3000);
       } catch (err) {
@@ -90,68 +89,49 @@ const SignIn = () => {
           setLoading(false);
           router.push("/");
         }}
+        aria-label="Close Button"
       >
-        <img
-          src="/images/close.webp"
-          alt="Close"
-          className={styles.closeImage}
-        />
+        <X width="50px" height="50px" />
       </button>
 
       <div className={styles.logoContainer}>
         <img src="/images/logo.png" alt="logo" className={styles.logoImage} />
       </div>
       <div className={styles.signForm}>
-        <h1 className={styles.welcomeTitle}>Welcome Back</h1>
-        <p className={styles.loginTitle}>Login</p>
-        {error && <ErrorText error={error} setError={setError} />}
-        {success && <SuccessText message={success} />}
-        <InputField
-          label="Username or Email"
-          type="text"
-          inputMode="text"
-          onChange={handleChange}
-          name="usernameOrEmail"
-          value={formData.usernameOrEmail}
-          placeholder="johnsmith1717"
-          validationError={validationErrors.usernameOrEmail}
+        <p className={styles.welcomeTitle}>Welcome Back</p>
+        <Form
+          title="Sign in"
+          fields={[
+            {
+              label: "Username or Email",
+              type: "text",
+              name: "usernameOrEmail",
+              value: formData.usernameOrEmail,
+              placeholder: "johnsmith1717",
+              validationError: validationErrors.usernameOrEmail,
+              onChange: handleChange,
+            },
+            {
+              label: "Password",
+              type: "password",
+              name: "password",
+              value: formData.password,
+              placeholder: "Your Password",
+              validationError: validationErrors.password,
+              onChange: handleChange,
+            },
+          ]}
+          onSubmit={login}
+          error={error}
+          success={success}
+          loading={loading}
+          buttonText="Login"
+          setError={setError}
         />
-        <InputField
-          label="Password"
-          type="password"
-          inputMode="text"
-          onChange={handleChange}
-          name="password"
-          value={formData.password}
-          placeholder="Your Password"
-          validationError={validationErrors.password}
-        />
-        <button
-          onClick={login}
-          className={styles.submitButton}
-          disabled={loading}
-        >
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              gap: "10px",
-            }}
-          >
-            {loading && <LoadingSpinner />}
-            <span>Login</span>
-          </div>{" "}
-        </button>
-        <p className={styles.forgotPasswordText}>Forgot Password?</p>
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            marginBottom: "50px",
-          }}
-        >
+        <Link href="/resetPassword" className={styles.forgotPasswordText}>
+          Forgot Password?
+        </Link>
+        <div className="flex items-center justify-center mb-7">
           <p className={styles.signUpText}>Don&apos;t have an account?</p>
           <Link className={styles.signUpRedirect} href="/signUp">
             SignUp Now

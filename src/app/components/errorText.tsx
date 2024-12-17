@@ -1,19 +1,17 @@
 const ErrorText = ({ error, setError }) => {
   return (
     <div
-      className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative"
+      className="w-full bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative"
       role="alert"
     >
-      <strong className="font-bold">Something went wrong!</strong>
-      <br></br>
-      <span className="block sm:inline">{error}</span>
+      <span className="block sm:inline me-5">{error}</span>
       <button
         onClick={(e) => {
           e.preventDefault();
           setError("");
         }}
         onKeyDown={(e) => e.preventDefault()}
-        className="absolute top-0 bottom-0 right-0 px-4 py-3"
+        className="absolute top-0 bottom-0 right-0 ms-1 px-4 py-3"
       >
         <svg
           className="fill-current h-6 w-6 text-red-500"

@@ -1,0 +1,202 @@
+@media (min-width: 862px) {
+  .inputLabel {
+    margin-top: 1rem;
+    font-family: "Sofia Pro Light";
+    font-size: 31.2px;
+    font-weight: 300;
+    line-height: 31.2px;
+    text-align: left;
+    color: #000000;
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  .inputField {
+    border: 1.3px solid #1e343233;
+    font-family: "Sofia Pro Light";
+    width: 100%;
+    height: 60px;
+    padding: 0.5rem 0.75rem;
+    font-size: 1.5rem;
+    color: #000000;
+    outline: none;
+    transition:
+      border-color 0.2s ease,
+      box-shadow 0.2s ease;
+  }
+
+  .inputField::placeholder {
+    color: #9f9f9f;
+    text-align: left;
+    font-size: 1.5rem;
+    font-family: "Sofia Pro Light";
+  }
+
+  .inputField:focus {
+    box-shadow: 0 0 0 2px #1e3432;
+  }
+
+  .formTitle {
+    font-family: "Sofia Pro Regular";
+    margin-top: 20px;
+    font-size: 40px;
+    font-weight: 400;
+    line-height: 40px;
+    text-align: center;
+    color: #000000;
+    margin-bottom: 30px;
+  }
+
+  .verificationCodeTitle {
+    font-family: "Sofia Pro Regular";
+    margin-top: 50px;
+    font-size: 40px;
+    font-weight: 400;
+    line-height: 40px;
+    text-align: center;
+    color: #000000;
+    margin-bottom: 10px;
+  }
+
+  .verificationCodePara {
+    margin-top: 2rem;
+    margin-left: 20px;
+    margin-right: 20px;
+    font-family: "Sofia Pro Light";
+    font-size: 31.2px;
+    font-weight: 300;
+    line-height: 31.2px;
+    text-align: center;
+    color: #000000;
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  .submitButton {
+    font-size: 25px;
+    font-family: "Sofia Pro Regular";
+    font-weight: 400;
+    text-align: center;
+    align-self: center;
+    width: fit-content;
+    border-radius: 50px;
+    margin-top: 20px;
+    margin-bottom: 0px;
+    color: #ffffff;
+    background-color: #1e3432;
+    border: 2px solid #fac16a;
+    padding: 0.5rem 2rem;
+    transition: background-color 0.2s ease;
+  }
+
+  .submitButton:hover {
+    background-color: #172625;
+  }
+
+  .submitButton:disabled {
+    background-color: #1e3432;
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+}
+
+@media (max-width: 862px) {
+  .inputLabel {
+    margin-top: 1rem;
+    font-family: "Sofia Pro Light";
+    font-size: 25px;
+    font-weight: 300;
+    line-height: 31.2px;
+    text-align: left;
+    color: #ffffff;
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  .inputField {
+    border: 1.3px solid #1e343233;
+    border-radius: 5px;
+    width: 100%;
+    height: 60px;
+    padding: 0.5rem 0.75rem;
+    font-size: 1.5rem;
+    font-family: "Sofia Pro Light";
+    color: #000000;
+    outline: none;
+    transition:
+      border-color 0.2s ease,
+      box-shadow 0.2s ease;
+  }
+
+  .inputField::placeholder {
+    color: #9f9f9f;
+    text-align: left;
+    font-family: "Sofia Pro Light";
+    font-size: 1.5rem;
+  }
+
+  .inputField:focus {
+    box-shadow: 0 0 0 2px #1e3432;
+  }
+
+  .formTitle {
+    margin-top: 10px;
+    font-size: 40px;
+    font-weight: 400;
+    font-family: "Sofia Pro Regular";
+    line-height: 40px;
+    text-align: center;
+    color: #ffffff;
+    margin-bottom: 30px;
+  }
+
+  .verificationCodeTitle {
+    margin-top: 10px;
+    font-size: 40px;
+    font-weight: 400;
+    line-height: 40px;
+    font-family: "Sofia Pro Regular";
+    text-align: center;
+    color: #ffffff;
+    margin-bottom: 30px;
+  }
+
+  .verificationCodePara {
+    margin-top: 0.5rem;
+    font-family: "Sofia Pro Light";
+    font-size: 25px;
+    font-weight: 300;
+    line-height: 31.2px;
+    text-align: center;
+    color: #ffffff;
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  .submitButton {
+    font-size: 25px;
+    font-family: "Sofia Pro Regular";
+    font-weight: 400;
+    text-align: center;
+    align-self: center;
+    width: fit-content;
+    border-radius: 50px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color: #ffffff;
+    background-color: #1e3432;
+    border: 3px solid #fac16a;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+
+  .submitButton:hover {
+    background-color: #172625;
+  }
+  .submitButton:disabled {
+    background-color: #1e3432;
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+}

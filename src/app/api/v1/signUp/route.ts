@@ -28,7 +28,7 @@ export async function POST(req: NextRequest) {
       await req.json(),
     );
 
-    // ALREADY CHECKED USER EXISTS OR NOT USING checkAlreadyRegisteredUser HELPER
+    // ALREADY CHECKED USER EXISTS OR NOT USING checkUserRegistration HELPER
     // const existingUsername = await UserModel.findOne({ username });
     // if (existingUsername) {
     //   return NextResponse.json(
@@ -50,7 +50,7 @@ export async function POST(req: NextRequest) {
     //     { status: 400 },
     //   );
     // }
-    // ALREADY CHECKED USER EXISTS OR NOT USING checkAlreadyRegisteredUser HELPER
+    // ALREADY CHECKED USER EXISTS OR NOT USING checkUserRegistration HELPER
 
     const otpVerified = await verifyOtp(email, otp);
     if (!otpVerified) {
