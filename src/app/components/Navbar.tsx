@@ -139,7 +139,7 @@ export default function Navbar() {
         </div>
 
         {/* Menu Links */}
-        <div className="flex flex-col gap-4 items-center">
+        <div className="flex flex-col gap-4 items-left">
           {buttons.map(({ name, href }) => (
             <Link key={name} href={href}>
               <div className="px-4 py-2 border-2 border-[#F2B263] text-sm font-semibold rounded-full text-white hover:bg-[#F2B263] hover:text-[#14342F] transition whitespace-nowrap">
