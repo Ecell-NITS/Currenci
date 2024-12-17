@@ -20,7 +20,7 @@ export default function Navbar() {
 
   const buttons = [
     { name: "Book an Appointment", href: "/book-appointment" },
-    { name: "Login", href: "/login" },
+    // { name: "Login", href: "/login" },
   ];
 
   return (
