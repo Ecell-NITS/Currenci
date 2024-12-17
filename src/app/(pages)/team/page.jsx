@@ -2,7 +2,6 @@
 
 /* eslint-disable import/extensions */
 /* eslint-disable no-unused-vars */
-import React from "react";
 import Image from "next/image";
 import styles from "./team.module.scss";
 import "../../globals.scss";

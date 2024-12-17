@@ -3,7 +3,6 @@
 /* eslint-disable import/extensions */
 /* eslint-disable no-unused-vars */
 
-import React from "react";
 import Image from "next/image";
 import styles from "./developers.module.scss";
 import developers from "../../../../public/data/developer.json";

@@ -2,14 +2,14 @@
 
 "use client";
 
-import React, { useState } from "react";
+import { useState } from "react";
 import styles from "./feedback.module.scss";
 
 const Feedback = () => {
   const [selectedOption, setSelectedOption] = useState("");
 
   const handleRadioChange = (e) => {
-    setSelectedOption(e.target.value);
+    setSelectedOption(e.target.name);
   };
 
   return (
@@ -19,56 +19,61 @@ const Feedback = () => {
         <h2 className={styles.content1}>How was the consultation?</h2>
         <div className={styles.boxes}>
           <div className={styles.boxSelection}>
-            <div className={styles.option1}>
-              <h4>Loved it!</h4>
+            <label className={styles.option1}>
+              <h4>Loved it</h4>
               <input
                 type="radio"
-                name="feedbackOption"
+                name="Loved it"
                 id="circle"
                 className={styles.circle}
+                checked={selectedOption === "Loved it"}
                 onChange={handleRadioChange}
               />
-            </div>
-            <div className={styles.option2}>
+            </label>
+            <label className={styles.option2}>
               <h4> Great</h4>
               <input
                 type="radio"
-                name="feedbackOption"
+                name="Great"
                 id="circle"
                 className={styles.circle}
+                checked={selectedOption === "Great"}
                 onChange={handleRadioChange}
               />
-            </div>
-            <div className={styles.option3}>
+            </label>
+            <label className={styles.option3}>
               <h4>Neutral</h4>
               <input
                 type="radio"
-                name="feedbackOption"
+                name="Neutral"
                 id="circle"
                 className={styles.circle}
+                checked={selectedOption === "Neutral"}
                 onChange={handleRadioChange}
               />
-            </div>
-            <div className={styles.option4}>
+            </label>
+            <label className={styles.option4}>
               <h4>Disappointing</h4>
               <input
                 type="radio"
-                name="feedbackOption"
+                name="Disappointing"
                 id="circle"
                 className={styles.circle}
+                checked={selectedOption === "Disappointing"}
                 onChange={handleRadioChange}
               />
-            </div>
-            <div className={styles.option5}>
+            </label>
+            <label className={styles.option5}>
               <h4>Terrible</h4>
               <input
                 type="radio"
-                name="feedbackOption"
+                name="Terrible"
                 id="circle"
                 className={styles.circle}
+                checked={selectedOption === "Terrible"}
                 onChange={handleRadioChange}
               />
-            </div>
+            </label>
           </div>
           <div className={styles.feedbackBox}>
             <h2 className={styles.shareBox}>Share Your Experience!</h2>
