@@ -17,9 +17,7 @@ export default function Navbar() {
     { name: "Testimonials", href: "/testimonials" },
     { name: "FAQs", href: "/faqs" },
   ];
-
   const buttons = [{ name: "Book an Appointment", href: "/book-appointment" }];
-
   return (
     <nav
       className={`${
