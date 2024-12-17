@@ -1,7 +1,8 @@
 @media (min-width: 862px) {
   .container {
     display: flex;
-    height: 100vh;
+    min-height: 100vh;
+    overflow-y: auto;
     flex-wrap: wrap;
   }
 
@@ -21,6 +22,7 @@
   }
 
   .signForm {
+    overflow-y: auto;
     flex: 1;
     padding: 2rem;
     display: flex;
@@ -70,7 +72,7 @@
   }
 
   .forgotPasswordText {
-    margin-top: 4px;
+    margin-top: 10px;
     margin-bottom: 1px;
     font-family: "Sofia Pro Light";
     font-size: 16px;
@@ -126,6 +128,7 @@
 
 @media (max-width: 862px) {
   .container {
+    min-height: 100vh;
     background-color: #1e3432;
     display: flex;
     flex-direction: row;
@@ -139,7 +142,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 40px;
+    margin-top: 80px;
   }
 
   .logoImage {
@@ -150,6 +153,7 @@
   }
 
   .signForm {
+    overflow-y: auto;
     width: 100%;
     padding: 0 2rem;
     display: flex;
@@ -159,6 +163,7 @@
   }
 
   .welcomeTitle {
+    display: none;
     font-size: 50px;
     font-family: "Sofia Pro Regular";
     font-weight: 500;
@@ -226,8 +231,7 @@
   }
 
   .signUpRedirect {
-    text-decoration: underline;
-    color: #ffffff;
+    color: #fac16a;
     margin-bottom: 0px;
     margin-top: 0px;
     margin-right: 3px;

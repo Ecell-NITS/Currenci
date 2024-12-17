@@ -100,7 +100,7 @@ const SignIn = () => {
       <div className={styles.signForm}>
         <p className={styles.welcomeTitle}>Welcome Back</p>
         <Form
-          title="Sign in"
+          title="Login"
           fields={[
             {
               label: "Username or Email",

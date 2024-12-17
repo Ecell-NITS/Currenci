@@ -13,7 +13,7 @@ import Form from "../../components/Forms/basicForm";
 
 const SignUp = () => {
   const [isOtpSent, setIsOtpSent] = useState(false); // State to manage if OTP is sent or not
-  const [usernameOrEmail, setUsernameOrEmail] = useState(""); // State to manage OTP input
+  const [usernameOrEmail, setUsernameOrEmail] = useState(); // State to manage OTP input
   const [validationErrors, setValidationErrors] = useState<{
     [key: string]: string;
   }>({}); // State to manage validation errors for form fields
@@ -144,10 +144,7 @@ const SignUp = () => {
   };
 
   return (
-    <div
-      className={styles.container}
-      style={success === "" ? {} : { height: "100vh" }}
-    >
+    <div className={styles.container}>
       <button
         className={styles.closeButton}
         onClick={() => {

@@ -189,10 +189,7 @@ const SignUp = () => {
   };
 
   return (
-    <div
-      className={styles.container}
-      style={isOtpSent ? { height: "100vh" } : {}}
-    >
+    <div className={styles.container}>
       <button
         className={styles.closeButton}
         onClick={() => {
