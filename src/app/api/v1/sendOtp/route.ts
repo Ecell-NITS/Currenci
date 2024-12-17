@@ -43,7 +43,7 @@ export async function POST(req: NextRequest) {
 
     if (!otpSent) {
       return NextResponse.json(
-        { message: "Failed to save OTP in database. Please try again later" },
+        { message: "Failed to save OTP in database" },
         { status: 400 },
       );
     }
