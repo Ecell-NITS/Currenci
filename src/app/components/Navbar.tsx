@@ -3,12 +3,25 @@
 import Image from "next/image";
 import { useState } from "react";
 import Link from "next/link";
+import { Icon } from "@iconify/react";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  // Toggle menu visibility
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+
+  const menuLinks = [
+    { name: "About", href: "/about" },
+    { name: "Fees", href: "/fees" },
+    { name: "Team", href: "/team" },
+    { name: "Testimonials", href: "/testimonials" },
+    { name: "FAQs", href: "/faqs" },
+  ];
+
+  const buttons = [
+    { name: "Book an Appointment", href: "/book-appointment" },
+    { name: "Login", href: "/login" },
+  ];
 
   return (
     <nav className="bg-[#1E3432] text-white py-4 rounded-full shadow-lg w-[90%] mx-auto mt-6 relative z-50">
@@ -17,27 +30,17 @@ export default function Navbar() {
         <div
           className="md:hidden flex items-center ml-10"
           onClick={toggleMenu}
-          role="button" // Define as a button for accessibility
-          tabIndex={0} // Make it focusable
-          onKeyUp={(e) => {
-            if (e.key === "Enter" || e.key === " ") {
-              // Handle Enter and Space keys for accessibility
-              toggleMenu();
-            }
-          }}
+          role="button"
+          tabIndex={0}
+          aria-label="Toggle menu"
+          onKeyUp={(e) => (e.key === "Enter" || e.key === " ") && toggleMenu()}
         >
-          {isMenuOpen ? (
-            <div className="space-y-2">
-              <div className="w-6 h-0.5 bg-[#F2B263] mb-1"></div>
-              <div className="w-6 h-0.5 bg-[#F2B263] mb-1"></div>
-            </div>
-          ) : (
-            <div className="space-y-2">
-              <div className="w-6 h-0.5 bg-[#F2B263]"></div>
-              <div className="w-6 h-0.5 bg-[#F2B263]"></div>
-              <div className="w-6 h-0.5 bg-[#F2B263]"></div>
-            </div>
-          )}
+          <Icon
+            icon={isMenuOpen ? "mdi:close" : "mdi:menu"}
+            width={32}
+            height={32}
+            className="text-[#F2B263]"
+          />
         </div>
 
         {/* Center Section (Logo) */}
@@ -47,129 +50,94 @@ export default function Navbar() {
           <Image
             src="/images/LOGO.png"
             alt="Currenci Logo"
-            className="w-28 sm:w-34 md:w-36 lg:w-42 xl:w-48 h-auto"
-            width={150} // Set appropriate width
-            height={150} // Set appropriate height
+            className="w-28 sm:w-34 md:w-36"
+            width={150}
+            height={150}
           />
         </div>
 
-        {/* Right Section (Login Button for Desktop) */}
-        <div className="hidden md:flex items-center gap-6 md:gap-8">
-          {/* Links */}
-          <Link
-            href="/about"
-            className="text-sm md:text-base lg:text-lg font-semibold text-white hover:text-[#F2B263]"
-          >
-            About
-          </Link>
-          <Link
-            href="/fees"
-            className="text-sm md:text-base lg:text-lg font-semibold text-white hover:text-[#F2B263]"
-          >
-            Fees
-          </Link>
-          <Link
-            href="/team"
-            className="text-sm md:text-base lg:text-lg font-semibold text-white hover:text-[#F2B263]"
-          >
-            Team
-          </Link>
+        {/* Right Section (Desktop Buttons) */}
+        <div className="hidden md:flex items-center gap-6">
+          {menuLinks.map(({ name, href }) => (
+            <Link
+              key={name}
+              href={href}
+              className="text-sm md:text-base lg:text-lg font-semibold text-white hover:text-[#F2B263]"
+            >
+              {name}
+            </Link>
+          ))}
+          {buttons.map(({ name, href }) => (
+            <Link key={name} href={href}>
+              <div className="px-4 py-2 border-2 border-[#F2B263] text-sm md:text-base lg:text-lg font-semibold rounded-full text-white hover:bg-[#F2B263] hover:text-[#14342F] transition">
+                {name}
+              </div>
+            </Link>
+          ))}
+        </div>
+      </div>
 
-          {/* Book Appointment Button */}
-          <Link href="/book-appointment">
-            <div className="px-4 py-2 border-2 border-[#F2B263] text-sm md:text-base lg:text-lg font-semibold rounded-full text-white hover:bg-[#F2B263] hover:text-[#14342F] transition duration-300">
-              Book an Appointment
-            </div>
-          </Link>
+      {/* Mobile Menu */}
+      <div
+        className={`md:hidden fixed top-0 left-0 w-[75%] h-full bg-[#1E3432] p-6 transition-all duration-300 z-40 transform ${
+          isMenuOpen ? "translate-x-0" : "-translate-x-full"
+        }`}
+      >
+        <div className="flex justify-between items-center mb-6">
+          {/* Close Icon */}
+          <div
+            className="cursor-pointer"
+            onClick={toggleMenu}
+            role="button"
+            tabIndex={0}
+            aria-label="Toggle menu"
+            onKeyUp={(e) =>
+              (e.key === "Enter" || e.key === " ") && toggleMenu()
+            }
+          >
+            <Icon
+              icon="mdi:close"
+              width={32}
+              height={32}
+              className="text-[#F2B263]"
+            />
+          </div>
+
+          {/* Logo */}
+          <Image
+            src="/images/LOGO.png"
+            alt="Currenci Logo"
+            className="w-28"
+            width={150}
+            height={150}
+          />
+
+          {/* Login Button */}
           <Link href="/login">
-            <div className="px-4 py-2 border-2 border-[#F2B263] text-sm md:text-base lg:text-lg font-semibold rounded-full text-white hover:bg-[#F2B263] hover:text-[#14342F] transition duration-300">
+            <div className="px-4 py-2 border-2 border-[#F2B263] text-sm font-semibold rounded-full text-white hover:bg-[#F2B263] hover:text-[#14342F] transition">
               Login
             </div>
           </Link>
         </div>
-      </div>
-
-      {/* Mobile Menu (when hamburger is clicked) */}
-      <div
-        className={`md:hidden fixed top-0 left-0 w-[75%] h-full bg-[#1E3432] p-6 transition-all duration-300 ease-in-out z-40 transform ${isMenuOpen ? "translate-x-0" : "-translate-x-full"}`}
-      >
-        {/* Cross Icon and Menu Links */}
-        <div className="flex justify-between items-center mb-6">
-          {/* Close (Cross) Icon */}
-          <div
-            className="cursor-pointer"
-            onClick={toggleMenu}
-            role="button" // Defines it as an interactive button
-            tabIndex={0} // Makes it focusable
-            onKeyUp={(e) => {
-              if (e.key === "Enter" || e.key === " ") {
-                toggleMenu(); // Close menu on 'Enter' or 'Space'
-              }
-            }}
-            aria-label="Close menu" // Adds an accessible label for screen readers
-          >
-            <div className="w-6 h-0.5 bg-[#F2B263]  transform rotate-45 "></div>
-            <div className="w-6 h-0.5 bg-[#F2B263] transform -rotate-45 mt-[-0.15rem]"></div>
-          </div>
-
-          {/* Logo */}
-          <div className="flex-1 text-center">
-            <Image
-              src="/images/LOGO.png"
-              alt="Currenci Logo"
-              className="w-28 sm:w-32 md:w-36 lg:w-32 h-auto"
-              width={150} // Set appropriate width
-              height={150} // Set appropriate height
-            />
-          </div>
-
-          {/* Login Button (Right Side) */}
-          <div className="flex justify-end">
-            <Link href="/login">
-              <div className="px-4 py-2 border-2 border-[#F2B263] text-sm md:text-base lg:text-lg font-semibold rounded-full text-white hover:bg-[#F2B263] hover:text-[#14342F] transition duration-300">
-                Login
-              </div>
-            </Link>
-          </div>
-        </div>
 
         {/* Menu Links */}
         <div className="flex flex-col gap-4 items-center">
-          <Link href="/book-appointment">
-            <div className="px-4 py-2 border-2 border-[#F2B263] text-sm md:text-base lg:text-lg font-semibold rounded-full text-white hover:bg-[#F2B263] hover:text-[#14342F] transition duration-300 whitespace-nowrap">
-              Book an Appointment
-            </div>
-          </Link>
-          <Link
-            href="/about"
-            className="text-white text-lg font-semibold hover:text-[#F2B263]"
-          >
-            About
-          </Link>
-          <Link
-            href="/fees"
-            className="text-white text-lg font-semibold hover:text-[#F2B263]"
-          >
-            Fees
-          </Link>
-          <Link
-            href="/team"
-            className="text-white text-lg font-semibold hover:text-[#F2B263]"
-          >
-            Team
-          </Link>
-          <Link
-            href="/testimonials"
-            className="text-white text-lg font-semibold hover:text-[#F2B263]"
-          >
-            Testimonials
-          </Link>
-          <Link
-            href="/faqs"
-            className="text-white text-lg font-semibold hover:text-[#F2B263]"
-          >
-            FAQs
-          </Link>
+          {buttons.map(({ name, href }) => (
+            <Link key={name} href={href}>
+              <div className="px-4 py-2 border-2 border-[#F2B263] text-sm font-semibold rounded-full text-white hover:bg-[#F2B263] hover:text-[#14342F] transition whitespace-nowrap">
+                {name}
+              </div>
+            </Link>
+          ))}
+          {menuLinks.map(({ name, href }) => (
+            <Link
+              key={name}
+              href={href}
+              className="text-white text-lg font-semibold hover:text-[#F2B263]"
+            >
+              {name}
+            </Link>
+          ))}
         </div>
       </div>
     </nav>
