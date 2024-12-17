@@ -1,4 +1,3 @@
-import React from "react";
 import LoadingSpinner from "../loadingSpinner";
 import ErrorText from "../errorText";
 import ErrorFormFieldText from "../errorFormFieldText";
@@ -28,7 +27,7 @@ const Form = ({
         className="w-full flex flex-col"
         onSubmit={(e) => e.preventDefault()}
       >
-        {fields.map((field, index) => (
+        {fields.map((field) => (
           <div key={`${field.name}basicForm`} className="w-full mb-4">
             <label htmlFor={field.name} className={styles.inputLabel}>
               {field.label}
