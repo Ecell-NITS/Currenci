@@ -18,13 +18,14 @@ export default function Navbar() {
     { name: "FAQs", href: "/faqs" },
   ];
 
-  const buttons = [
-    { name: "Book an Appointment", href: "/book-appointment" },
-    { name: "Login", href: "/login" },
-  ];
+  const buttons = [{ name: "Book an Appointment", href: "/book-appointment" }];
 
   return (
-    <nav className="bg-[#1E3432] text-white py-4 rounded-full shadow-lg w-[90%] mx-auto mt-6 relative z-50">
+    <nav
+      className={`${
+        isMenuOpen ? "bg-transparent shadow-none" : "bg-[#1E3432] shadow-lg"
+      } text-white py-4 rounded-full w-[90%] mx-auto mt-6 relative z-50 transition-all duration-300 ease-in-out`}
+    >
       <div className="container mx-auto flex justify-between items-center px-4 md:px-8">
         {/* Left Section (Hamburger Icon for Mobile) */}
         <div
@@ -76,6 +77,19 @@ export default function Navbar() {
           ))}
         </div>
       </div>
+      {/* Background Overlay when the menu is open */}
+      {isMenuOpen && (
+        <div
+          className="fixed inset-0 bg-black opacity-50 z-30"
+          onClick={toggleMenu} // Close menu when overlay is clicked
+          onKeyDown={(e) => {
+            if (e.key === "Enter" || e.key === " ") toggleMenu();
+          }}
+          role="button"
+          tabIndex={0}
+          aria-label="Close menu"
+        ></div>
+      )}
 
       {/* Mobile Menu */}
       <div
