@@ -75,6 +75,12 @@ export default function Navbar() {
               </div>
             </Link>
           ))}
+          {/* Login Button */}
+          <Link href="/login">
+            <div className="px-4 py-2 border-2 border-[#F2B263] text-sm md:text-base lg:text-lg font-semibold rounded-full text-white hover:bg-[#F2B263] hover:text-[#14342F] transition">
+              Login
+            </div>
+          </Link>
         </div>
       </div>
       {/* Background Overlay when the menu is open */}
