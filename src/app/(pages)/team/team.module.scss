@@ -52,7 +52,7 @@
   padding: 0.3rem;
 }
 
-@media (max-width: 1100px) {
+@media (max-width: 1000px) {
   .teamGrid {
     margin-left: 1rem;
     display: flex;
@@ -63,6 +63,19 @@
   }
   .teamContainer {
     padding: 1px;
+  }
+}
+@media (max-width: 800px) {
+  .teamGrid {
+    margin-left: 1rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+  }
+  .teamContainer {
+    padding: 0px;
   }
 }
 @media (max-width: 700px) {
@@ -78,36 +91,36 @@
     padding: 0px;
   }
   .teamImage {
-    width: 10rem;
-    height: 10rem;
+    width: 12rem;
+    height: 13rem;
   }
   .teamCard {
-    width: 10rem;
-    height: 15rem;
+    width: 12rem;
+    height: 17rem;
   }
   .teamName {
-    font-size: 25px;
+    font-size: 30px;
   }
   .teamRole {
-    font-size: 20px;
+    font-size: 25px;
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 500px) {
   .teamGrid {
     margin-left: 1rem;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    gap: 3rem;
+    gap: 1rem;
   }
   .teamContainer {
     padding: 0px;
   }
   .teamImage {
     width: 10rem;
-    height: 10rem;
+    height: 11rem;
   }
   .teamCard {
     width: 10rem;
@@ -133,17 +146,17 @@
     padding: 0px;
   }
   .teamImage {
-    width: 10rem;
-    height: 10rem;
+    width: 8rem;
+    height: 9rem;
   }
   .teamCard {
-    width: 10rem;
-    height: 15rem;
+    width: 8rem;
+    height: 13rem;
   }
   .teamName {
-    font-size: 25px;
+    font-size: 22px;
   }
   .teamRole {
-    font-size: 20px;
+    font-size: 17px;
   }
 }
