@@ -170,8 +170,7 @@
     min-height: 100vh;
     background-color: #1e3432;
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    flex-direction: column;
   }
 
   .logoContainer {
@@ -258,8 +257,7 @@
     min-height: 100vh;
     background-color: #1e3432;
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    flex-direction: column;
   }
 
   .logoContainer {
