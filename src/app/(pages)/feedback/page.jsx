@@ -14,8 +14,8 @@ const Feedback = () => {
 
   return (
     <div className={styles.boxContent}>
-      <h1 className={styles.Content}> Your feedback matter to us</h1>
       <div className={styles.boxContainer}>
+        <h1 className={styles.content}> Your feedback matter to us</h1>
         <h2 className={styles.content1}>How was the consultation?</h2>
         <div className={styles.boxes}>
           <div className={styles.boxSelection}>
