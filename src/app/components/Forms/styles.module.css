@@ -1,10 +1,9 @@
-@media (min-width: 862px) {
+@media (min-width: 1025px) {
   .inputLabel {
     margin-top: 1rem;
-    font-family: "Sofia Pro Light";
-    font-size: 31.2px;
+    font-size: 1.75rem;
     font-weight: 300;
-    line-height: 31.2px;
+    line-height: 1.75rem;
     text-align: left;
     color: #000000;
     display: block;
@@ -13,7 +12,6 @@
 
   .inputField {
     border: 1.3px solid #1e343233;
-    font-family: "Sofia Pro Light";
     width: 100%;
     height: 60px;
     padding: 0.5rem 0.75rem;
@@ -29,7 +27,6 @@
     color: #9f9f9f;
     text-align: left;
     font-size: 1.5rem;
-    font-family: "Sofia Pro Light";
   }
 
   .inputField:focus {
@@ -37,8 +34,7 @@
   }
 
   .formTitle {
-    font-family: "Sofia Pro Regular";
-    margin-top: 20px;
+    margin-top: 30px;
     font-size: 40px;
     font-weight: 400;
     line-height: 40px;
@@ -48,7 +44,6 @@
   }
 
   .verificationCodeTitle {
-    font-family: "Sofia Pro Regular";
     margin-top: 50px;
     font-size: 40px;
     font-weight: 400;
@@ -60,13 +55,10 @@
 
   .verificationCodePara {
     margin-top: 2rem;
-    margin-left: 20px;
-    margin-right: 20px;
-    font-family: "Sofia Pro Light";
-    font-size: 31.2px;
+    font-size: 1.75rem;
     font-weight: 300;
-    line-height: 31.2px;
-    text-align: center;
+    line-height: 1.75rem;
+    text-align: left;
     color: #000000;
     display: block;
     margin-bottom: 1rem;
@@ -74,7 +66,6 @@
 
   .submitButton {
     font-size: 25px;
-    font-family: "Sofia Pro Regular";
     font-weight: 400;
     text-align: center;
     align-self: center;
@@ -100,10 +91,102 @@
   }
 }
 
-@media (max-width: 862px) {
+@media (min-width: 769px) and (max-width: 1024px) {
   .inputLabel {
     margin-top: 1rem;
-    font-family: "Sofia Pro Light";
+    font-size: 1.5rem;
+    font-weight: 300;
+    line-height: 1.5rem;
+    text-align: left;
+    color: #000000;
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  .inputField {
+    border: 1.3px solid #1e343233;
+    width: 100%;
+    height: 60px;
+    padding: 0.5rem 0.75rem;
+    font-size: 1.25rem;
+    color: #000000;
+    outline: none;
+    transition:
+      border-color 0.2s ease,
+      box-shadow 0.2s ease;
+  }
+
+  .inputField::placeholder {
+    color: #9f9f9f;
+    text-align: left;
+    font-size: 1.25rem;
+  }
+
+  .inputField:focus {
+    box-shadow: 0 0 0 2px #1e3432;
+  }
+
+  .formTitle {
+    margin-top: 30px;
+    font-size: 2rem;
+    font-weight: 400;
+    line-height: 2rem;
+    text-align: center;
+    color: #000000;
+    margin-bottom: 30px;
+  }
+
+  .verificationCodeTitle {
+    margin-top: 50px;
+    font-size: 2.25rem;
+    font-weight: 400;
+    line-height: 2.25rem;
+    text-align: center;
+    color: #000000;
+    margin-bottom: 10px;
+  }
+
+  .verificationCodePara {
+    margin-top: 2rem;
+    font-size: 1.45rem;
+    font-weight: 300;
+    line-height: 1.45rem;
+    text-align: left;
+    color: #000000;
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  .submitButton {
+    font-size: 25px;
+    font-weight: 400;
+    text-align: center;
+    align-self: center;
+    width: fit-content;
+    border-radius: 50px;
+    margin-top: 20px;
+    margin-bottom: 0px;
+    color: #ffffff;
+    background-color: #1e3432;
+    border: 2px solid #fac16a;
+    padding: 0.5rem 2rem;
+    transition: background-color 0.2s ease;
+  }
+
+  .submitButton:hover {
+    background-color: #172625;
+  }
+
+  .submitButton:disabled {
+    background-color: #1e3432;
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+}
+
+@media (min-width: 425px) and (max-width: 768px) {
+  .inputLabel {
+    margin-top: 1rem;
     font-size: 25px;
     font-weight: 300;
     line-height: 31.2px;
@@ -120,7 +203,6 @@
     height: 60px;
     padding: 0.5rem 0.75rem;
     font-size: 1.5rem;
-    font-family: "Sofia Pro Light";
     color: #000000;
     outline: none;
     transition:
@@ -131,7 +213,6 @@
   .inputField::placeholder {
     color: #9f9f9f;
     text-align: left;
-    font-family: "Sofia Pro Light";
     font-size: 1.5rem;
   }
 
@@ -141,13 +222,12 @@
 
   .formTitle {
     margin-top: 10px;
-    font-size: 40px;
+    font-size: 2rem;
     font-weight: 400;
-    font-family: "Sofia Pro Regular";
-    line-height: 40px;
+    line-height: 2rem;
     text-align: center;
     color: #ffffff;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
   }
 
   .verificationCodeTitle {
@@ -155,7 +235,6 @@
     font-size: 40px;
     font-weight: 400;
     line-height: 40px;
-    font-family: "Sofia Pro Regular";
     text-align: center;
     color: #ffffff;
     margin-bottom: 30px;
@@ -163,19 +242,110 @@
 
   .verificationCodePara {
     margin-top: 0.5rem;
-    font-family: "Sofia Pro Light";
-    font-size: 25px;
+    font-size: 1.25rem;
     font-weight: 300;
-    line-height: 31.2px;
-    text-align: center;
+    line-height: 1.25rem;
+    text-align: left;
     color: #ffffff;
     display: block;
     margin-bottom: 1rem;
   }
 
   .submitButton {
-    font-size: 25px;
-    font-family: "Sofia Pro Regular";
+    font-size: 1.5rem;
+    font-weight: 400;
+    text-align: center;
+    align-self: center;
+    width: fit-content;
+    border-radius: 50px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color: #ffffff;
+    background-color: #1e3432;
+    border: 3px solid #fac16a;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+
+  .submitButton:hover {
+    background-color: #172625;
+  }
+  .submitButton:disabled {
+    background-color: #1e3432;
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+}
+
+@media (max-width: 424px) {
+  .inputLabel {
+    margin-top: 1rem;
+    font-size: 1.25rem;
+    font-weight: 300;
+    line-height: 1.25rem;
+    text-align: left;
+    color: #ffffff;
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  .inputField {
+    border: 1.3px solid #1e343233;
+    border-radius: 5px;
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    font-size: 1rem;
+    color: #000000;
+    outline: none;
+    transition:
+      border-color 0.2s ease,
+      box-shadow 0.2s ease;
+  }
+
+  .inputField::placeholder {
+    color: #9f9f9f;
+    text-align: left;
+    font-size: 1rem;
+  }
+
+  .inputField:focus {
+    box-shadow: 0 0 0 2px #fac16a;
+  }
+
+  .formTitle {
+    margin-top: 10px;
+    font-size: 1.75rem;
+    font-weight: 400;
+    line-height: 1.75rem;
+    text-align: center;
+    color: #ffffff;
+    margin-bottom: 40px;
+  }
+
+  .verificationCodeTitle {
+    margin-top: 10px;
+    font-size: 2rem;
+    font-weight: 400;
+    line-height: 2rem;
+    text-align: center;
+    color: #ffffff;
+    margin-bottom: 30px;
+  }
+
+  .verificationCodePara {
+    margin-top: 0.5rem;
+    font-size: 1.25rem;
+    font-weight: 300;
+    line-height: 1.25rem;
+    text-align: left;
+    color: #ffffff;
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  .submitButton {
+    font-size: 1.25rem;
     font-weight: 400;
     text-align: center;
     align-self: center;

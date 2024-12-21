@@ -20,11 +20,21 @@ const VerificationCode = ({
 }) => {
   return (
     <>
-      <p className={styles.verificationCodeTitle}>{title}</p>
+      <p
+        className={styles.verificationCodeTitle}
+        style={{ fontFamily: "Sofia Pro Regular" }}
+      >
+        {title}
+      </p>
       {error && <ErrorText error={error} setError={setError} />}
       {success && <SuccessText message={success} />}
       {description && (
-        <p className={styles.verificationCodePara}>{description}</p>
+        <p
+          className={styles.verificationCodePara}
+          style={{ fontFamily: "Sofia Pro Light" }}
+        >
+          {description}
+        </p>
       )}
       <form
         className="w-full flex flex-col"

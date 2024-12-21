@@ -1,4 +1,4 @@
-@media (min-width: 862px) {
+@media (min-width: 1025px) {
   .container {
     display: flex;
     min-height: 100vh;
@@ -10,71 +10,38 @@
     width: 45%;
     background-color: #1e3432;
     overflow: hidden;
-    padding: 2.5rem;
+    padding: 3rem;
     display: flex;
     align-items: center;
     justify-content: center;
   }
 
   .logoImage {
-    width: 500px;
-    height: 500px;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
   }
 
   .signForm {
     overflow-y: auto;
     flex: 1;
-    padding: 2rem;
+    padding: 3rem 1.5rem;
     display: flex;
     flex-direction: column;
     margin: 2.5rem 2.5rem;
   }
 
   .welcomeTitle {
-    font-family: "Sofia Pro Regular";
-    font-size: 60px;
+    font-size: 3.75rem;
     font-weight: 500;
-    line-height: 60px;
+    line-height: 3.75rem;
     text-align: center;
     color: #000000;
-  }
-
-  .loginTitle {
-    font-family: "Sofia Pro Regular";
-    margin-top: 40px;
-    font-size: 45px;
-    font-weight: 400;
-    line-height: 40px;
-    text-align: center;
-    color: #000000;
-    margin-bottom: 40px;
-  }
-
-  .submitButton {
-    font-size: 25px;
-    font-family: "Sofia Pro Regular";
-    text-align: center;
-    align-self: center;
-    width: fit-content;
-    border-radius: 50px;
-    margin-top: 20px;
-    margin-bottom: 10px;
-    color: #ffffff;
-    background-color: #1e3432;
-    border: 2px solid #fac16a;
-    padding: 0.5rem 2rem;
-    cursor: pointer;
-    transition: background-color 0.2s ease;
-  }
-
-  .submitButton:hover {
-    background-color: #172625;
   }
 
   .forgotPasswordText {
-    margin-top: 10px;
+    margin-top: 20px;
     margin-bottom: 1px;
-    font-family: "Sofia Pro Light";
     font-size: 16px;
     font-weight: 300;
     line-height: 16px;
@@ -87,7 +54,6 @@
     margin-bottom: 0px;
     margin-top: 0px;
     margin-right: 3px;
-    font-family: "Sofia Pro Light";
     font-size: 16px;
     font-weight: 300;
     text-align: center;
@@ -100,7 +66,6 @@
     margin-bottom: 0px;
     margin-top: 0px;
     margin-right: 3px;
-    font-family: "Sofia Pro Light";
     font-size: 16px;
     font-weight: bold;
     text-align: center;
@@ -126,7 +91,100 @@
   }
 }
 
-@media (max-width: 862px) {
+@media (min-width: 769px) and (max-width: 1024px) {
+  .container {
+    display: flex;
+    min-height: 100vh;
+    overflow-y: auto;
+    flex-wrap: wrap;
+  }
+
+  .logoContainer {
+    width: 45%;
+    background-color: #1e3432;
+    overflow: hidden;
+    padding: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .logoImage {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .signForm {
+    overflow-y: auto;
+    flex: 1;
+    padding: 3rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    margin: 2.5rem 2.5rem;
+  }
+
+  .welcomeTitle {
+    font-size: 2.75rem;
+    font-weight: 500;
+    line-height: 2.75rem;
+    text-align: center;
+    color: #000000;
+  }
+
+  .forgotPasswordText {
+    margin-top: 20px;
+    margin-bottom: 1px;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 16px;
+    text-align: center;
+    align-self: center;
+    color: #000000;
+  }
+
+  .signUpText {
+    margin-bottom: 0px;
+    margin-top: 0px;
+    margin-right: 3px;
+    font-size: 16px;
+    font-weight: 300;
+    text-align: center;
+    align-self: center;
+    color: #000000;
+  }
+
+  .signUpRedirect {
+    text-decoration: underline;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    margin-right: 3px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    align-self: center;
+    color: #1e3432;
+  }
+
+  .closeButton {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    z-index: 1000;
+    background: none;
+    color: #000000;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: ease 0.3s;
+  }
+
+  .closeButton:hover {
+    scale: 1.1;
+  }
+}
+
+@media (min-width: 425px) and (max-width: 768px) {
   .container {
     min-height: 100vh;
     background-color: #1e3432;
@@ -137,18 +195,19 @@
 
   .logoContainer {
     width: 100%;
-    height: 128px;
+    height: 100px;
     background-color: #1e3432;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 80px;
+    margin-top: 40px;
+    padding-inline: 30px;
   }
 
   .logoImage {
     align-self: center;
-    width: 400px;
-    height: 128px;
+    width: 350px;
+    height: 100px;
     object-fit: cover;
   }
 
@@ -165,7 +224,6 @@
   .welcomeTitle {
     display: none;
     font-size: 50px;
-    font-family: "Sofia Pro Regular";
     font-weight: 500;
     line-height: 50px;
     text-align: center;
@@ -173,46 +231,12 @@
     margin-bottom: 1rem;
   }
 
-  .loginTitle {
-    margin-top: 40px;
-    font-family: "Sofia Pro Regular";
-    font-size: 40px;
-    font-weight: 400;
-    line-height: 40px;
-    text-align: left;
-    color: #ffffff;
-    margin-bottom: 40px;
-  }
-
-  .submitButton {
-    font-size: 25px;
-    font-weight: 400;
-    font-family: "Sofia Pro Regular";
-    text-align: center;
-    align-self: center;
-    width: fit-content;
-    border-radius: 50px;
-    margin-top: 20px;
-    margin-bottom: 10px;
-    color: #ffffff;
-    background-color: #1e3432;
-    border: 3px solid #fac16a;
-    padding: 0.5rem 1rem;
-    cursor: pointer;
-    transition: background-color 0.2s ease;
-  }
-
-  .submitButton:hover {
-    background-color: #000000;
-  }
-
   .forgotPasswordText {
     margin-top: 4px;
     margin-bottom: 1px;
-    font-family: "Sofia Pro Light";
-    font-size: 16px;
+    font-size: 1rem;
     font-weight: 300;
-    line-height: 16px;
+    line-height: 1rem;
     text-align: center;
     align-self: center;
     color: #ffffff;
@@ -222,8 +246,7 @@
     margin-bottom: 0px;
     margin-top: 0px;
     margin-right: 3px;
-    font-family: "Sofia Pro Light";
-    font-size: 16px;
+    font-size: 1rem;
     font-weight: 300;
     text-align: center;
     align-self: center;
@@ -235,8 +258,7 @@
     margin-bottom: 0px;
     margin-top: 0px;
     margin-right: 3px;
-    font-family: "Sofia Pro Light";
-    font-size: 16px;
+    font-size: 1rem;
     font-weight: 300;
     text-align: center;
     align-self: center;
@@ -244,8 +266,106 @@
 
   .closeButton {
     position: absolute;
-    top: 20px;
-    right: 20px;
+    top: 10px;
+    right: 10px;
+    z-index: 1000;
+    background: none;
+    color: #ffffff;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: ease 0.3s;
+  }
+
+  .closeButton:hover {
+    scale: 1.1;
+  }
+}
+
+@media (max-width: 424px) {
+  .container {
+    min-height: 100vh;
+    background-color: #1e3432;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .logoContainer {
+    width: 100%;
+    height: 100px;
+    background-color: #1e3432;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 40px;
+    padding-inline: 30px;
+  }
+
+  .logoImage {
+    align-self: center;
+    width: 350px;
+    height: 100px;
+    object-fit: cover;
+  }
+
+  .signForm {
+    overflow-y: auto;
+    width: 100%;
+    padding: 0 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 0px;
+  }
+
+  .welcomeTitle {
+    display: none;
+    font-size: 50px;
+    font-weight: 500;
+    line-height: 50px;
+    text-align: center;
+    color: #ffffff;
+    margin-bottom: 1rem;
+  }
+
+  .forgotPasswordText {
+    margin-top: 4px;
+    margin-bottom: 1px;
+    font-size: 0.9rem;
+    font-weight: 300;
+    line-height: 0.9rem;
+    text-align: center;
+    align-self: center;
+    color: #ffffff;
+  }
+
+  .signUpText {
+    margin-bottom: 0px;
+    margin-top: 0px;
+    margin-right: 3px;
+    font-size: 0.9rem;
+    font-weight: 300;
+    text-align: center;
+    align-self: center;
+    color: #ffffff;
+  }
+
+  .signUpRedirect {
+    color: #fac16a;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    margin-right: 3px;
+    font-size: 0.9rem;
+    font-weight: 300;
+    text-align: center;
+    align-self: center;
+  }
+
+  .closeButton {
+    position: absolute;
+    top: 10px;
+    right: 10px;
     z-index: 1000;
     background: none;
     color: #ffffff;

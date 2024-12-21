@@ -155,7 +155,7 @@ const SignUp = () => {
         }}
         aria-label="Close"
       >
-        <X width="50px" height="50px" />
+        <X width="45px" height="45px" />
       </button>
       <div className={styles.logoContainer}>
         <img src="/images/logo.png" alt="logo" className={styles.logoImage} />
@@ -196,7 +196,7 @@ const SignUp = () => {
         {isOtpSent && success === "" && (
           <Form
             title="Set New Password"
-            description="Verify your OTP and set a new password."
+            description="A verification code has been sent to your email address. Enter the code and set a new password."
             fields={[
               {
                 label: "OTP",
@@ -234,7 +234,7 @@ const SignUp = () => {
           />
         )}
         {success && (
-          <div className="flex flex-col items-center justify-center gap-6 p-6 max-w-md mx-auto">
+          <div className="flex flex-col items-center justify-center gap-6 p-6 max-w-md mx-auto h-full">
             <CircleCheck className={`w-20 h-20 ${styles.circleCheck}`} />
             <p className={`text-center text-xl ${styles.successMessage}`}>
               {success}
@@ -245,6 +245,7 @@ const SignUp = () => {
                 setSuccess("");
               }}
               className={styles.submitButton}
+              style={{ fontFamily: "Sofia Pro Regular" }}
             >
               Continue
             </button>

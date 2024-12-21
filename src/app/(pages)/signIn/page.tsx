@@ -91,14 +91,19 @@ const SignIn = () => {
         }}
         aria-label="Close Button"
       >
-        <X width="50px" height="50px" />
+        <X width="45px" height="45px" />
       </button>
 
       <div className={styles.logoContainer}>
         <img src="/images/logo.png" alt="logo" className={styles.logoImage} />
       </div>
       <div className={styles.signForm}>
-        <p className={styles.welcomeTitle}>Welcome Back</p>
+        <p
+          className={styles.welcomeTitle}
+          style={{ fontFamily: "Sofia Pro Regular" }}
+        >
+          Welcome Back
+        </p>
         <Form
           title="Login"
           fields={[
@@ -128,12 +133,25 @@ const SignIn = () => {
           buttonText="Login"
           setError={setError}
         />
-        <Link href="/resetPassword" className={styles.forgotPasswordText}>
+        <Link
+          href="/resetPassword"
+          className={styles.forgotPasswordText}
+          style={{ fontFamily: "Sofia Pro Light" }}
+        >
           Forgot Password?
         </Link>
         <div className="flex items-center justify-center mb-7">
-          <p className={styles.signUpText}>Don&apos;t have an account?</p>
-          <Link className={styles.signUpRedirect} href="/signUp">
+          <p
+            className={styles.signUpText}
+            style={{ fontFamily: "Sofia Pro Light" }}
+          >
+            Don&apos;t have an account?
+          </p>
+          <Link
+            className={styles.signUpRedirect}
+            href="/signUp"
+            style={{ fontFamily: "Sofia Pro Light" }}
+          >
             SignUp Now
           </Link>
         </div>

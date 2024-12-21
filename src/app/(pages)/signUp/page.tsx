@@ -201,7 +201,7 @@ const SignUp = () => {
         }}
         aria-label="Close Button"
       >
-        <X width="50px" height="50px" />
+        <X width="45px" height="45px" />
       </button>
       <div className={styles.logoContainer}>
         <img src="/images/logo.png" alt="logo" className={styles.logoImage} />
@@ -257,8 +257,17 @@ const SignUp = () => {
               setError={setError}
             />
             <div className="flex items-center justify-center mb-12">
-              <p className={styles.signUpText}>Already have an account?</p>
-              <Link className={styles.signInRedirect} href="/signIn">
+              <p
+                className={styles.signUpText}
+                style={{ fontFamily: "Sofia Pro Light" }}
+              >
+                Already have an account?
+              </p>
+              <Link
+                className={styles.signInRedirect}
+                href="/signIn"
+                style={{ fontFamily: "Sofia Pro Light" }}
+              >
                 SignIn Now
               </Link>
             </div>
@@ -266,10 +275,10 @@ const SignUp = () => {
         )}
         {isOtpSent && (
           //  Signup Form when OTP is sent to the user
-          <>
+          <div className="flex flex-col items-center justify-center lg:h-full">
             <VerificationCode
               title="Verification Code"
-              description="We have sent a verification code to your email address. Please enter the code below."
+              description="We have sent a verification code to your email address."
               error={error}
               setError={setError}
               success={success}
@@ -281,18 +290,25 @@ const SignUp = () => {
               buttonText="Verify OTP"
             />
             <div className="flex flex-col self-start w-full text-slate-500">
-              <div className={styles.signUpText}>
+              <div
+                className={styles.signUpText}
+                style={{ fontFamily: "Sofia Pro Light" }}
+              >
                 Didn&apos;t receive code?{" "}
                 {timer > 0 ? (
                   `Resend OTP in ${timer} secs.`
                 ) : (
-                  <button onClick={resendOtp} className={styles.resendButton}>
+                  <button
+                    onClick={resendOtp}
+                    className={styles.resendButton}
+                    style={{ fontFamily: "Sofia Pro Light" }}
+                  >
                     Resend OTP
                   </button>
                 )}
               </div>
             </div>
-          </>
+          </div>
         )}
       </div>
     </div>

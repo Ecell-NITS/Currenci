@@ -17,9 +17,21 @@ const Form = ({
 }) => {
   return (
     <>
-      {title && <p className={styles.formTitle}>{title}</p>}
+      {title && (
+        <p
+          className={styles.formTitle}
+          style={{ fontFamily: "Sofia Pro Regular" }}
+        >
+          {title}
+        </p>
+      )}
       {description && (
-        <p className={styles.verificationCodePara}>{description}</p>
+        <p
+          className={styles.verificationCodePara}
+          style={{ fontFamily: "Sofia Pro Light" }}
+        >
+          {description}
+        </p>
       )}
       {error && <ErrorText error={error} setError={setError} />}
       {success && <SuccessText message={success} />}
@@ -29,7 +41,11 @@ const Form = ({
       >
         {fields.map((field) => (
           <div key={`${field.name}basicForm`} className="w-full mb-4">
-            <label htmlFor={field.name} className={styles.inputLabel}>
+            <label
+              htmlFor={field.name}
+              className={styles.inputLabel}
+              style={{ fontFamily: "Sofia Pro Light" }}
+            >
               {field.label}
             </label>
             <input
@@ -42,6 +58,7 @@ const Form = ({
               value={field.value}
               placeholder={field.placeholder}
               maxLength={field.name === "otp" ? 6 : 100}
+              style={{ fontFamily: "Sofia Pro Light" }}
             />
             {field.validationError && (
               <ErrorFormFieldText error={field.validationError} />
@@ -54,6 +71,7 @@ const Form = ({
             type="button"
             className={styles.submitButton}
             disabled={loading}
+            style={{ fontFamily: "Sofia Pro Regular" }}
           >
             <div className="flex flex-row items-center justify-center gap-3">
               {loading && <LoadingSpinner />}

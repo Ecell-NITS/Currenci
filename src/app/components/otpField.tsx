@@ -61,7 +61,7 @@ const OTPInput = ({ otp, onChange, length, validationError }) => {
 
   return (
     <div>
-      <div className="flex items-center justify-center gap-2">
+      <div className="flex items-center justify-center gap-2 sm:gap-3 xl:gap-6 lg:gap-3">
         {Array.from({ length }).map((_, index) => (
           <input
             key={ids[index]}
@@ -73,7 +73,7 @@ const OTPInput = ({ otp, onChange, length, validationError }) => {
             onChange={(e) => handleInputChange(e, index)}
             onKeyDown={(e) => handleKeyDown(e, index)}
             onPaste={handlePaste}
-            className="w-full max-w-[80px] aspect-square text-center text-2xl font-extrabold text-slate-900 bg-white border hover:border-slate-200 appearance-none rounded-xl p-2 border-2 outline-none focus:bg-white focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100"
+            className="w-full aspect-square text-center text-2xl font-extrabold  text-white md:text-slate-900  lg:text-slate-900 bg-transparent  hover:border-slate-200 appearance-none rounded-xl lg:rounded-2xl p-1 lg:p-2  border-2 outline-none focus:border-[#14342F]  focus:ring-2 focus:ring-indigo-100"
             maxLength={1}
           />
         ))}
