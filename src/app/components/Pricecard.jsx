@@ -1,23 +1,23 @@
 const Pricecard = () => {
   const slides = [
     {
-      name: "SILVER",
-      content1: "10 working days",
-      content2:
+      tier: "SILVER",
+      workingdays: "10 working days",
+      description:
         "This plan grants access to all the facilities offered by us, the best plan for long-term clients.",
       price: "₹3,100",
     },
     {
-      name: "GOLD",
-      content1: "7 working days",
-      content2:
+      tier: "GOLD",
+      workingdays: "7 working days",
+      description:
         "This plan grants access to all the facilities offered by us, the best plan for long-term clients.",
       price: "₹5,100",
     },
     {
-      name: "DIAMOND",
-      content1: "4 working days",
-      content2:
+      tier: "DIAMOND",
+      workingdays: "4 working days",
+      description:
         "This plan grants access to all the facilities offered by us, the best plan for long-term clients.",
       price: "₹11,100",
     },
@@ -38,20 +38,20 @@ const Pricecard = () => {
         <div className="flex flex-wrap justify-center gap-4">
           {slides.map((slide) => (
             <div
-              key={slide.name}
+              key={slide.tier}
               className="border-4 border-gold bg-green rounded-2xl lg:w-[307px] lg:h-[543px] p-6"
             >
               <h1 className="flex justify-center text-white text-4xl mt-[51px] mb-[44px]">
-                {slide.name}
+                {slide.tier}
               </h1>
               <ul className="text-greyish ml-[42px] mb-[85px] w-[241px] pr-2 font-light">
                 <li className="pb-[26px] w-[241px]">
                   <span className="text-gold mr-[14px] pt-2">◆</span>
-                  {slide.content1}
+                  {slide.workingdays}
                 </li>
                 <li>
                   <span className="text-gold mr-[14px] pt-2 w-[241px]">◆</span>
-                  {slide.content2}
+                  {slide.description}
                 </li>
               </ul>
               <h2 className="text-4xl text-white flex justify-center mb-[49px]">
