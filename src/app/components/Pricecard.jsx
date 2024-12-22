@@ -31,7 +31,6 @@ const Pricecard = () => {
         </h1>
         <p className="text-[12px] font-light md:text-[20px] lg:text-[24px]">
           Payment should be done before the work starts. <br />
-          Payment should be done through payment gateway.
         </p>
       </div>
       <div>
