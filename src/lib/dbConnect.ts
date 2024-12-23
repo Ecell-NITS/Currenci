@@ -12,7 +12,6 @@ async function dbConnect(): Promise<void> {
     return;
   }
 
-
   const mongoUri = process.env.MONGODB_URI;
 
   if (!mongoUri || mongoUri.trim() === "") {
@@ -22,7 +21,6 @@ async function dbConnect(): Promise<void> {
 
   try {
     const db = await mongoose.connect(mongoUri, {});
-
 
     connection.isConnected = db.connections[0].readyState;
 

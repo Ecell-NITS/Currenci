@@ -9,8 +9,6 @@ interface TestimonialI {
   role: string;
 }
 
-
-
 export async function POST(req: NextRequest) {
   await dbConnect();
 
