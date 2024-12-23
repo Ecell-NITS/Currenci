@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
 import { X } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import styles from "./signin.module.css";
 import { signInSchema } from "../../../schemas/signInSchema";
 import Form from "../../components/Forms/basicForm";
@@ -95,7 +96,14 @@ const SignIn = () => {
       </button>
 
       <div className={styles.logoContainer}>
-        <img src="/images/logo.png" alt="logo" className={styles.logoImage} />
+        <div className="relative w-full h-full max-w-[350px] md:max-w-[100] lg:max-w-[100%]">
+          <Image
+            src="/images/logo.png"
+            alt="logo"
+            fill
+            className={styles.logoImage}
+          />
+        </div>
       </div>
       <div className={styles.signForm}>
         <p
