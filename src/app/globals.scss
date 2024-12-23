@@ -2,8 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-* {
-  // height: 100%;
+body {
+  height: 100%;
   margin: 0; /* Remove any default margin */
   padding: 0; /* Remove any default padding */
   overflow-x: hidden; /* Prevent horizontal scrolling */
