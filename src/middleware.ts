@@ -9,7 +9,7 @@ export function middleware(request: NextRequest) {
 
   if (token && (path === "/signIn" || path === "/signUp")) {
     const response = NextResponse.redirect(new URL("/", url));
-    response.cookies.set("toastMessage", "Logged in successfully", {
+    response.cookies.set("toastMessage", "Already Logged In", {
       httpOnly: false,
       path: "/",
       maxAge: 60 * 5,
