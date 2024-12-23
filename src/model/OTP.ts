@@ -11,7 +11,7 @@ const otpSchema = new Schema({
       message: (props) => `${props.value} is not a valid email address!`,
     },
   },
-  otp: { type: String, required: [true, "OTP is required"] },
+  hashedOtp: { type: String, required: [true, "OTP is required"] },
   createdAt: { type: Date, default: Date.now, expires: 300 },
 });
 

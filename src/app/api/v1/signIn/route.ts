@@ -13,14 +13,17 @@ export async function POST(req: NextRequest) {
     });
     if (!user) {
       return Response.json(
-        { success: false, message: "User does not exist" },
+        {
+          success: false,
+          message: "User does not exist. Please create a new account",
+        },
         { status: 400 },
       );
     }
     const validPassword = await bcrypt.compare(password, user.password);
     if (!validPassword) {
       return Response.json(
-        { success: false, message: "Invalid password" },
+        { success: false, message: "Incorrect Password. Please try again." },
         { status: 400 },
       );
     }
@@ -30,9 +33,7 @@ export async function POST(req: NextRequest) {
       email: user.email,
     };
     const token = await jwt.sign(tokenData, process.env.JWT_TOKEN_SECRET, {
-
       expiresIn: "12h",
-
     });
 
     const response = NextResponse.json(
