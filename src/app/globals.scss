@@ -1,13 +1,12 @@
-// @tailwind base;
-// @tailwind components;
-// @tailwind utilities;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 body {
-  background-color: black;
-  color: white;
-  overflow: hidden;
-  overflow-y: visible;
-  background-color: white;
+  height: 100%;
+  margin: 0; /* Remove any default margin */
+  padding: 0; /* Remove any default padding */
+  overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
 .loader {
@@ -16,4 +15,67 @@ body {
   height: 100vh;
   justify-content: center;
   align-items: center;
+}
+
+@font-face {
+  font-family: "Sofia Pro Regular";
+  font-style: normal;
+  font-weight: normal;
+  src:
+    local("Sofia Pro Regular"),
+    url("../../public/fonts/Sofia Pro Regular Az.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Sofia Pro ExtraLight";
+  font-style: normal;
+  font-weight: normal;
+  src:
+    local("Sofia Pro ExtraLight"),
+    url("../../public/fonts/Sofia Pro ExtraLight Az.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Sofia Pro UltraLight";
+  font-style: normal;
+  font-weight: normal;
+  src:
+    local("Sofia Pro UltraLight"),
+    url("../../public/fonts/Sofia Pro UltraLight Az.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Sofia Pro Light";
+  font-style: normal;
+  font-weight: normal;
+  src:
+    local("Sofia Pro Light"),
+    url("../../public/fonts/Sofia Pro Light Az.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Sofia Pro Medium";
+  font-style: normal;
+  font-weight: normal;
+  src:
+    local("Sofia Pro Medium"),
+    url("../../public/fonts/Sofia Pro Medium Az.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Sofia Pro SemiBold";
+  font-style: normal;
+  font-weight: normal;
+  src:
+    local("Sofia Pro SemiBold"),
+    url("../../public/fonts/Sofia Pro Semi Bold Az.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Sofia Pro Bold";
+  font-style: normal;
+  font-weight: normal;
+  src:
+    local("Sofia Pro Bold"),
+    url("../../public/fonts/Sofia Pro Bold Az.woff") format("woff");
 }
