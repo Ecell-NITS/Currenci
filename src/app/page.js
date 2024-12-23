@@ -44,6 +44,7 @@ export default function Home() {
     <div>
       <ToastHandler />
       <h1>Home page</h1>
+
       <div style={{ display: "flex", flexDirection: "column" }}>
         <Link href="/about">About</Link>
         <a href="/signIn">Sign in</a>
