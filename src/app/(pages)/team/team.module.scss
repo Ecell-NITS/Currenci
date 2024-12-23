@@ -1,0 +1,162 @@
+.teamContainer {
+  text-align: center;
+  padding: 40px;
+  background-color: #fff;
+  overflow-y: visible;
+}
+
+.teamContainer h1 {
+  color: #1e3432;
+  margin-bottom: 20px;
+  font-size: 60px;
+}
+.teamGrid {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 4rem;
+  flex-wrap: wrap;
+  gap: 10rem;
+  margin-left: 8rem;
+}
+.teamCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 1px solid #ccc;
+  width: 20rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  height: 26rem;
+  background-color: #1e3432;
+  border-radius: 25px;
+}
+
+.teamImage {
+  width: 20rem;
+  height: 24rem;
+  overflow: hidden;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+}
+.teamName {
+  color: gold;
+  font-size: 35px;
+  margin: 0;
+  padding: 0.3rem;
+}
+.teamRole {
+  font-size: 25px;
+  color: #ccc;
+  margin: 0;
+  padding: 0.3rem;
+}
+
+@media (max-width: 1000px) {
+  .teamGrid {
+    margin-left: 1rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+  }
+  .teamContainer {
+    padding: 1px;
+  }
+}
+@media (max-width: 800px) {
+  .teamGrid {
+    margin-left: 1rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+  }
+  .teamContainer {
+    padding: 0px;
+  }
+}
+@media (max-width: 700px) {
+  .teamGrid {
+    margin-left: 1rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 5rem;
+  }
+  .teamContainer {
+    padding: 0px;
+  }
+  .teamImage {
+    width: 12rem;
+    height: 13rem;
+  }
+  .teamCard {
+    width: 12rem;
+    height: 17rem;
+  }
+  .teamName {
+    font-size: 30px;
+  }
+  .teamRole {
+    font-size: 25px;
+  }
+}
+
+@media (max-width: 500px) {
+  .teamGrid {
+    margin-left: 1rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+  }
+  .teamContainer {
+    padding: 0px;
+  }
+  .teamImage {
+    width: 10rem;
+    height: 11rem;
+  }
+  .teamCard {
+    width: 10rem;
+    height: 15rem;
+  }
+  .teamName {
+    font-size: 25px;
+  }
+  .teamRole {
+    font-size: 20px;
+  }
+}
+@media (max-width: 400px) {
+  .teamGrid {
+    margin-left: 1rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+  }
+  .teamContainer {
+    padding: 0px;
+  }
+  .teamImage {
+    width: 8rem;
+    height: 9rem;
+  }
+  .teamCard {
+    width: 8rem;
+    height: 13rem;
+  }
+  .teamName {
+    font-size: 22px;
+  }
+  .teamRole {
+    font-size: 17px;
+  }
+}
