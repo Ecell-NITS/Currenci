@@ -23,12 +23,26 @@ export default function Home() {
     <div>
       <ToastHandler />
       <h1>Home page</h1>
-      <Link href="/about">About</Link>
-      <br />
-      <Link href="/team">Team Page</Link> <br />
-      <Link href="/developers">Developers Page</Link>
-      <br />
-      <Link href="/feedback">Feedback Page</Link>
+
+      <div style={{ display: "flex", flexDirection: "column" }}>
+        <Link href="/about">About</Link>
+        <a href="/signIn">Sign in</a>
+        <a href="/signUp">Sign up</a>
+        <button
+          onClick={handleLogOut}
+          style={{
+            textAlign: "left",
+            width: "100px",
+            backgroundColor: "black",
+            color: "white",
+            marginTop: "10px",
+            padding: "10px",
+            cursor: "pointer",
+          }}
+        >
+          Log out
+        </button>
+      </div>
     </div>
   );
 }
