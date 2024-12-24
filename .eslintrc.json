@@ -39,7 +39,10 @@
     "react/prop-types": 0,
     "react/jsx-closing-tag-location": 0,
     "react/jsx-first-prop-new-line": [2, "multiline"],
-    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "react/jsx-filename-extension": [
+      1,
+      { "extensions": [".js", ".jsx", ".ts", ".tsx"] }
+    ],
     "react/jsx-props-no-spreading": 0,
     "react/jsx-no-target-blank": 0,
     "react/react-in-jsx-scope": 0,
@@ -67,6 +70,7 @@
       2,
       // "ignorePackages",
       { "js": "never", "jsx": "never", "mjs": "never" }
-    ]
+    ],
+    "no-underscore-dangle": ["error", { "allow": ["_id"] }]
   }
 }
