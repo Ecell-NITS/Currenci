@@ -35,7 +35,7 @@ export default function ToastHandler() {
           maxWidth: "90%",
           padding: "10px",
           margin: "10px",
-          width: "auto",
+          width: "200px",
           fontSize: "16px",
           color: "#ffffff",
         },

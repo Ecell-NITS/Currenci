@@ -4,6 +4,7 @@ import { X } from "lucide-react";
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 import styles from "./signup.module.css";
 import { signUpSchema, otpSchema } from "../../../schemas/signUpSchema";
 import Form from "../../components/Forms/basicForm";
@@ -204,7 +205,14 @@ const SignUp = () => {
         <X width="45px" height="45px" />
       </button>
       <div className={styles.logoContainer}>
-        <img src="/images/logo.png" alt="logo" className={styles.logoImage} />
+        <div className="relative w-full h-full max-w-[350px] md:max-w-[100] lg:max-w-[100%]">
+          <Image
+            src="/images/logo.png"
+            alt="logo"
+            fill
+            className={styles.logoImage}
+          />
+        </div>
       </div>
       <div className={styles.signForm}>
         {!isOtpSent && (

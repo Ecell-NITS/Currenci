@@ -21,13 +21,13 @@ export default function Navbar() {
   return (
     <nav
       className={`${
-        isMenuOpen ? "bg-transparent shadow-none" : "bg-[#1E3432] shadow-lg"
-      }whitespace-nowrap text-white  py-2 lg:py-4 rounded-full w-[90%]  mx-auto mt-6 relative z-50 transition-all duration-300 ease-in-out`}
+        isMenuOpen ? "hidden" : "bg-[#1E3432] "
+      }whitespace-nowrap text-white  py-2 lg:py-4 rounded-full max-w-[90%]  mx-auto mt-6 relative z-50 transition-all duration-300 ease-in-out`}
     >
-      <div className="container mx-auto flex justify-between items-center px-4 md:px-8">
+      <div className="container relative mx-auto flex justify-between items-center  md:px-8">
         {/* Left Section (Hamburger Icon for Mobile) */}
         <div
-          className="md:hidden flex items-center ml-10"
+          className="absolute left-8 md:hidden flex items-center"
           onClick={toggleMenu}
           role="button"
           tabIndex={0}
@@ -44,7 +44,7 @@ export default function Navbar() {
 
         {/* Center Section (Logo) */}
         <div
-          className={` ml-0 flex justify-center md:justify-start flex-1 ${isMenuOpen ? "hidden" : ""}`}
+          className={`w-full  flex justify-center items-center  md:justify-start flex-1   ${isMenuOpen ? "hidden" : ""}`}
         >
           <Image
             src="/images/CURRENCI.png"
@@ -61,7 +61,7 @@ export default function Navbar() {
             <Link
               key={name}
               href={href}
-              className="text-xs  lg:text-lg font-semibold text-white hover:text-[#F2B263]"
+              className="text-xs  lg:text-lg  text-white hover:text-[#F2B263]"
             >
               {name}
             </Link>
@@ -70,7 +70,7 @@ export default function Navbar() {
             <Link key={name} href={href}>
               <div
                 className="px-3 py-1 sm:px-4 sm:py-2 border-2 border-[#F2B263] 
-               text-sm sm:text-xs  lg:text-base font-semibold 
+               text-sm sm:text-xs  lg:text-base 
                rounded-lg sm:rounded-full 
                text-white hover:bg-[#F2B263] hover:text-[#14342F] transition"
               >
@@ -82,7 +82,7 @@ export default function Navbar() {
           <Link href="/login">
             <div
               className="px-3 py-1 sm:px-4 sm:py-2 border-2 border-[#F2B263] 
-        text-xs sm:text-xs  lg:text-base font-semibold 
+        text-xs sm:text-xs  lg:text-base 
         rounded-lg sm:rounded-full 
         text-white hover:bg-[#F2B263] hover:text-[#14342F] transition"
             >
@@ -107,14 +107,14 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       <div
-        className={`md:hidden fixed top-0 left-0 w-[75%] h-full bg-[#1E3432] p-6 transition-all duration-300 z-40 transform ${
+        className={`md:hidden fixed top-0 left-0    min-w-[75%] h-full bg-[#1E3432] p-6 transition-all duration-300 z-40 transform ${
           isMenuOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
-        <div className="flex justify-between items-center mb-6">
+        <div className="flex justify-between items-center w-full   ">
           {/* Close Icon */}
           <div
-            className="cursor-pointer"
+            className="cursor-pointer absolute top-7 "
             onClick={toggleMenu}
             role="button"
             tabIndex={0}
@@ -132,17 +132,18 @@ export default function Navbar() {
           </div>
 
           {/* Logo */}
+
           <Image
             src="/images/CURRENCI.png"
             alt="Currenci Logo"
-            className="w-35"
+            className="w-38 ml-6"
             width={150}
             height={150}
           />
 
           {/* Login Button */}
           <Link href="/login">
-            <div className="px-4 py-2 border-2 border-[#F2B263] text-sm font-semibold rounded-full text-white hover:bg-[#F2B263] hover:text-[#14342F] transition">
+            <div className="px-4 py-2 border-2 border-[#F2B263] text-sm  rounded-full text-white hover:bg-[#F2B263] hover:text-[#14342F] transition">
               Login
             </div>
           </Link>
@@ -152,7 +153,7 @@ export default function Navbar() {
         <div className="flex flex-col gap-4 items-left">
           {buttons.map(({ name, href }) => (
             <Link key={name} href={href}>
-              <div className=" inline-flex  px-4 py-2 border-2 border-[#F2B263] text-sm font-semibold rounded-full text-white hover:bg-[#F2B263] hover:text-[#14342F] transition whitespace-nowrap">
+              <div className=" inline-flex mt-6  px-6 py-2 border-2 border-[#F2B263] text-sm   rounded-full text-white hover:bg-[#F2B263] hover:text-[#14342F] transition whitespace-nowrap">
                 {name}
               </div>
             </Link>
@@ -161,7 +162,7 @@ export default function Navbar() {
             <Link
               key={name}
               href={href}
-              className="text-white text-lg font-semibold hover:text-[#F2B263]"
+              className=" text-white sm:text-xl md:text-2xl   hover:text-[#F2B263] "
             >
               {name}
             </Link>

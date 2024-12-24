@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { X, CircleCheck, ArrowLeft } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import styles from "./styles.module.css";
 import {
   resetPasswordSchema,
@@ -158,7 +159,14 @@ const SignUp = () => {
         <X width="45px" height="45px" />
       </button>
       <div className={styles.logoContainer}>
-        <img src="/images/logo.png" alt="logo" className={styles.logoImage} />
+        <div className="relative w-full h-full max-w-[350px] md:max-w-[100] lg:max-w-[100%]">
+          <Image
+            src="/images/logo.png"
+            alt="logo"
+            fill
+            className={styles.logoImage}
+          />
+        </div>
       </div>
       <div className={styles.signForm}>
         {!isOtpSent && success === "" && (
@@ -184,7 +192,7 @@ const SignUp = () => {
               setError={setError}
             />
             <div
-              className={`flex items-center justify-center mt-3 gap-2 hover:text-black cursor-pointer ${styles.backButton}`}
+              className={`flex items-center justify-center mt-3 gap-2 cursor-pointer ${styles.backButton}`}
             >
               <ArrowLeft className="w-5 h-5" />
               <Link href="/signIn" className="text-sm font-medium ">
