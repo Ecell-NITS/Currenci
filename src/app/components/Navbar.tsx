@@ -22,7 +22,7 @@ export default function Navbar() {
     <nav
       className={`${
         isMenuOpen ? "hidden" : "bg-[#1E3432] "
-      }whitespace-nowrap text-white  py-2 lg:py-4 rounded-full max-w-[90%]  mx-auto mt-6 relative z-50 transition-all duration-300 ease-in-out`}
+      }whitespace-nowrap text-white  py-2 lg:py-4 rounded-full max-w-[90%] sticky top-0   mx-auto mt-6 relative z-50 transition-all duration-300 ease-in-out`}
     >
       <div className="container relative mx-auto flex justify-between items-center  md:px-8">
         {/* Left Section (Hamburger Icon for Mobile) */}
