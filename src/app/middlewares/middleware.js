@@ -1,13 +1,7 @@
-/* eslint-disable import/no-unresolved */
-/* eslint-disable no-restricted-exports */
-
-export { default } from "next-auth/middleware";
-
 const jwt = require("jsonwebtoken");
 
-// Middleware to check if the user is authenticated and is an admin
 export async function adminAuth(req, res, next) {
-  const token = await req.header("Authorization").replace("Bearer ", "");
+  const token = await req.header("Authorization");
 
   if (!token) {
     return res
