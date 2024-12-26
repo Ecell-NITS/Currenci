@@ -7,6 +7,9 @@ settings:
 importers:
   .:
     dependencies:
+      "@iconify/react":
+        specifier: ^5.1.0
+        version: 5.1.0(react@18.2.0)
       bcryptjs:
         specifier: ^2.4.3
         version: 2.4.3
@@ -1063,6 +1066,20 @@ packages:
     resolution:
       {
         integrity: sha512-6EwiSjwWYP7pTckG6I5eyFANjPhmPjUX9JRLUSfNPC7FX7zK9gyZAfUEaECL6ALTpGX5AjnBq3C9XmVWPitNpw==,
+      }
+
+  "@iconify/react@5.1.0":
+    resolution:
+      {
+        integrity: sha512-vj2wzalywy23DR37AnsogMPIkDa1nKEqITjxpH4z44tiLV869Mh7VyydD4/t0yJLEs9tsxlrPWtXvMOe1Lcd5g==,
+      }
+    peerDependencies:
+      react: ">=16"
+
+  "@iconify/types@2.0.0":
+    resolution:
+      {
+        integrity: sha512-+wluvCrRhXrhyOmRDJ3q8mux9JkKy5SJ/v8ol2tu4FVjyYvtEzkc/3pK15ET6RKg4b4w4BmTk1+gsCUhf21Ykg==,
       }
 
   "@isaacs/cliui@8.0.2":
@@ -6163,6 +6180,13 @@ snapshots:
   "@humanwhocodes/module-importer@1.0.1": {}
 
   "@humanwhocodes/object-schema@2.0.2": {}
+
+  "@iconify/react@5.1.0(react@18.2.0)":
+    dependencies:
+      "@iconify/types": 2.0.0
+      react: 18.2.0
+
+  "@iconify/types@2.0.0": {}
 
   "@isaacs/cliui@8.0.2":
     dependencies:
