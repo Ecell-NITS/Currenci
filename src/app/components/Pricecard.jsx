@@ -29,7 +29,7 @@ const Pricecard = () => {
         <h1 className="text-[48px] mb-[10px] font-bold md:text-[40px] lg:text-[48px]">
           Pricing
         </h1>
-        <p className="text-[12px] font-light md:text-[20px] lg:text-[24px]">
+        <p className="text-[16px] font-light md:text-[20px] lg:text-[24px]">
           Payment should be done before the work starts. <br />
         </p>
       </div>
