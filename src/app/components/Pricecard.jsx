@@ -29,12 +29,13 @@ const Pricecard = () => {
         <h1 className="text-[48px] mb-[10px] font-bold md:text-[40px] lg:text-[48px]">
           Fees
         </h1>
-        <p className="text-[16px] font-light md:text-[20px] lg:text-[24px]">
+        <p className="text-[17px] font-light md:text-[20px] lg:text-[24px]">
           Payment should be done before the work starts. <br />
         </p>
       </div>
       <div>
-        <div className="flex flex-wrap justify-center gap-4">
+     <div className="flex flex-wrap justify-center gap-4 pl-2.5 pr-2.5">
+
           {slides.map((slide) => (
             <div
               key={slide.tier}
