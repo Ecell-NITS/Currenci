@@ -18,10 +18,7 @@ const userSchema = z.object({
     .regex(/[a-z]/, "Password must contain at least one lowercase letter")
     .regex(/\d/, "Password must contain at least one number")
     .regex(/[@$!%*?&]/, "Password must contain at least one special character"),
-  otp: z
-    .number()
-    .min(100000, "OTP must be a 6-digit number")
-    .max(999999, "OTP must be a 6-digit number"),
+  otp: z.string().length(6, "OTP must be 6 characters long"),
 });
 
 export async function POST(req: NextRequest) {
@@ -31,34 +28,34 @@ export async function POST(req: NextRequest) {
       await req.json(),
     );
 
-    const existingUsername = await UserModel.findOne({ username });
+    // ALREADY CHECKED USER EXISTS OR NOT USING checkUserRegistration HELPER
+    // const existingUsername = await UserModel.findOne({ username });
+    // if (existingUsername) {
+    //   return NextResponse.json(
+    //     {
+    //       success: false,
+    //       message:
+    //         "Username already exists. Please choose a different username",
+    //     },
+    //     { status: 400 },
+    //   );
+    //  }
+    //  const existingUserByEmail = await UserModel.findOne({ email });
+    //  if (existingUserByEmail) {
+    //   return NextResponse.json(
+    //     {
+    //       success: false,
+    //       message: "Email already exists. Please login with your credentials",
+    //     },
+    //     { status: 400 },
+    //   );
+    // }
+    // ALREADY CHECKED USER EXISTS OR NOT USING checkUserRegistration HELPER
 
-    if (existingUsername) {
-      return NextResponse.json(
-        {
-          success: false,
-          message:
-            "Username already exists. Please choose a different username",
-        },
-        { status: 400 },
-      );
-    }
-
-    const existingUserByEmail = await UserModel.findOne({ email });
-
-    if (existingUserByEmail) {
-      return NextResponse.json(
-        {
-          success: false,
-          message: "Email already exists. Please login with your credentials",
-        },
-        { status: 400 },
-      );
-    }
     const otpVerified = await verifyOtp(email, otp);
     if (!otpVerified) {
       return NextResponse.json(
-        { success: false, message: "OTP verification failed" },
+        { success: false, message: "Incorrect OTP. Please enter correct OTP" },
         { status: 401 },
       );
     }
@@ -80,7 +77,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json(
       {
         success: false,
-        message: "Internal server error",
+        message: "Internal server error. Please try again later",
         errors: error.errors,
       },
       { status: 500 },

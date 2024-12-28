@@ -10,6 +10,39 @@ export const metadata = {
 };
 
 export default function Home() {
+  // const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+  // useEffect(() => {
+  //   const fetchUserData = async () => {
+  //     try {
+  //       const response = await fetch("/api/v1/getUser");
+  //       if (response.ok) {
+  //         const data = await response.json();
+  //         if (data) {
+  //           setIsAuthenticated(true);
+  //         } else {
+  //           setIsAuthenticated(false);
+  //         }
+  //       }
+  //     } catch (error) {
+  //       console.error("Error fetching data:", error);
+  //     }
+  //   };
+  //   fetchUserData();
+  // }, []);
+
+  // const handleLogOut = async () => {
+  //   await fetch("/api/v1/signOut", {
+  //     method: "GET",
+  //   })
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       router.push("/signIn");
+  //       console.log(data.message);
+  //     })
+  //     .catch((err) => console.error(err));
+  // };
+
   return (
     <main className="bg-white w-screen min-h-screen flex flex-col items-center pb-16">
       <div className="w-[80vw] h-[45vw] mt-10 rounded-lg md:rounded-3xl">

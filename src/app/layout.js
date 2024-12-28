@@ -1,3 +1,4 @@
+import ToastHandler from "./components/ToastHandler";
 import "./globals.scss";
 
 export const metadata = {
@@ -8,7 +9,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <ToastHandler />
+        <main>{children}</main>
+      </body>
     </html>
   );
 }
