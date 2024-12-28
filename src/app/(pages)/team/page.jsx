@@ -7,6 +7,19 @@ import styles from "./team.module.scss";
 import "../../globals.scss";
 import teamMembers from "../../../../public/data/team.json";
 
+export async function generateMetadata() {
+  return {
+    title: "Meet Our Team | Dedicated Professionals",
+    description:
+      "Get to know our team of dedicated professionals committed to delivering excellence.",
+    openGraph: {
+      title: "Meet Our Team | Dedicated Professionals",
+      description:
+        "Get to know our team of dedicated professionals committed to delivering excellence.",
+    },
+  };
+}
+
 const Team = () => {
   return (
     <div className={styles.teamContainer}>
