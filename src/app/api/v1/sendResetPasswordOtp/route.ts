@@ -10,19 +10,19 @@ export async function POST(req: NextRequest) {
   await dbConnect();
 
   try {
-    const { username, email } = await req.json();
-    if (!email) {
+    const { usernameOrEmail } = await req.json();
+    if (!usernameOrEmail) {
       return NextResponse.json(
-        { message: "Email is required" },
+        { message: "Email or Username is required" },
         { status: 400 },
       );
     }
 
-    const alreadyRegistered = await checkUserRegistration(username, email); // Check if the user is already registered
+    const user = await checkUserRegistration(usernameOrEmail, usernameOrEmail); // Check if the user is registered or not
 
-    if (alreadyRegistered.success) {
+    if (!user.success) {
       return NextResponse.json(
-        { message: alreadyRegistered.message },
+        { message: "User does not exist. Please create a new account" },
         { status: 400 },
       );
     }
@@ -34,29 +34,31 @@ export async function POST(req: NextRequest) {
     const salt = await bcrypt.genSalt(10);
     const hashedOtp = await bcrypt.hash(otp, salt);
 
-    await OtpModel.deleteMany({ email });
+    const userEmail = user.email;
+
+    await OtpModel.deleteMany({ email: userEmail });
 
     const otpSent = await OtpModel.create({
-      email,
+      email: userEmail,
       hashedOtp,
     });
 
     if (!otpSent) {
       return NextResponse.json(
-        { message: "Failed to save OTP in database" },
+        { message: "Failed to save OTP in database. Please try again later" },
         { status: 400 },
       );
     }
 
     try {
       await sendEmail(
-        email,
+        userEmail,
         "OTP Verification",
-        `Your OTP is ${otp}. It will expire in 5 minutes.`,
+        `Your OTP for password reset is ${otp}. It will expire in 5 minutes.`,
         "",
       );
     } catch (error) {
-      await OtpModel.deleteOne({ email });
+      await OtpModel.deleteOne({ email: userEmail });
       return NextResponse.json(
         { message: "Failed to send OTP to email. Please try again later" },
         { status: 400 },
@@ -64,7 +66,7 @@ export async function POST(req: NextRequest) {
     }
 
     return NextResponse.json(
-      { message: "OTP sent successfully" },
+      { email: userEmail, message: "OTP sent successfully" },
       { status: 200 },
     );
   } catch (error) {

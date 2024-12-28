@@ -1,7 +1,7 @@
 import bcrypt from "bcryptjs";
 import OtpModel from "../model/OTP";
 
-export async function verifyOtp(email: string, otp: number) {
+export async function verifyOtp(email: string, otp: string) {
   try {
     const OTPData = await OtpModel.findOne({ email });
     const verifiedOtp = await bcrypt.compare(otp.toString(), OTPData.hashedOtp);
