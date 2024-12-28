@@ -27,7 +27,7 @@ const Pricecard = () => {
     <div className="bodie w-screen" style={{ fontFamily: "Sofia Pro Regular" }}>
       <div className="mb-[35px] ml-10 md:ml-44">
         <h1 className="text-[48px] mb-[10px] font-bold md:text-[40px] lg:text-[48px]">
-          Pricing
+          Fees
         </h1>
         <p className="text-[16px] font-light md:text-[20px] lg:text-[24px]">
           Payment should be done before the work starts. <br />
@@ -43,7 +43,7 @@ const Pricecard = () => {
               <h1 className="flex justify-center text-white text-4xl mt-[51px] mb-[44px]">
                 {slide.tier}
               </h1>
-              <ul className="text-greyish ml-[42px] mb-[85px] w-[241px] pr-2 font-light">
+              <ul className="text-greyish ml-[30px] mb-[85px] w-[241px] pr-2 font-light">
                 <li className="pb-[26px] w-[241px]">
                   <span className="text-gold mr-[14px] pt-2">◆</span>
                   {slide.workingdays}
