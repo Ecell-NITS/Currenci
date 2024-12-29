@@ -25,7 +25,7 @@ const Pricecard = () => {
 
   return (
     <div className="bodie w-screen" style={{ fontFamily: "Sofia Pro Regular" }}>
-      <div className="mb-[35px] ml-[1.7rem] md:ml-44 mt-24 mr-[1.3]">
+      <div className="mb-[35px] ml-[1.7rem] md:ml-44 mt-24 mr-[1.3rem]">
         <h1 className="text-[48px] mb-[10px] font-bold md:text-[40px] lg:text-[48px]">
           Fees
         </h1>
