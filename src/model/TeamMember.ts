@@ -1,10 +1,10 @@
 import mongoose, { Document, Schema } from "mongoose";
-import moment from "moment-timezone";
 import { v4 as uuidv4 } from "uuid";
 
 export interface ITeamMember extends Document {
   memberId: string;
   name: string;
+  image?: string;
   designation: string;
   email: string;
   linkedin?: string;
@@ -22,6 +22,9 @@ const TeamMemberSchema: Schema = new Schema({
     type: String,
     required: true,
   },
+  image: {
+    type: String,
+  },
   designation: {
     type: String,
     required: true,
@@ -36,18 +39,11 @@ const TeamMemberSchema: Schema = new Schema({
   createdAt: {
     type: Date,
     required: true,
-    default: () => moment().tz("Asia/Kolkata").format(),
   },
   updatedAt: {
     type: Date,
     required: true,
-    default: () => moment().tz("Asia/Kolkata").format(),
   },
-});
-
-TeamMemberSchema.pre("save", function (next) {
-  this.updatedAt = moment().tz("Asia/Kolkata").format();
-  next();
 });
 
 export default mongoose.models.TeamMember ||

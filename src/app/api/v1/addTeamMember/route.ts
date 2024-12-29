@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import jwt from "jsonwebtoken";
+import moment from "moment-timezone";
 import TeamMember from "../../../../model/TeamMember";
 import dbConnect from "../../../../lib/dbConnect";
 
@@ -8,6 +9,9 @@ export interface ITeamMember extends Document {
   designation: string;
   email: string;
   linkedin?: string;
+  image?: string;
+  createdAt: Date;
+  updatedAt: Date;
 }
 
 export async function POST(req: NextRequest) {
@@ -40,7 +44,7 @@ export async function POST(req: NextRequest) {
     }
 
     try {
-      const { name, designation, email, linkedin } = await req.json();
+      const { name, designation, email, linkedin, image } = await req.json();
 
       if (!name || !designation || !email) {
         return NextResponse.json(
@@ -51,9 +55,12 @@ export async function POST(req: NextRequest) {
 
       const teamMember: ITeamMember = await TeamMember.create({
         name,
+        image,
         designation,
         email,
         linkedin,
+        createdAt: moment().tz("Asia/Kolkata").format(),
+        updatedAt: moment().tz("Asia/Kolkata").format(),
       });
 
       return NextResponse.json(

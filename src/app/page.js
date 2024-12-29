@@ -1,14 +1,3 @@
-export async function generateMetadata() {
-  return {
-    title: "Currenci",
-    description: "Currenci is a Next.js app",
-    openGraph: {
-      title: "Currenci",
-      description: "Currenci is a Next.js app",
-    },
-  };
-}
-
 export default function Home() {
   return (
     <div>

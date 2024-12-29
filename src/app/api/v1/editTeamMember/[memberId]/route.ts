@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import jwt from "jsonwebtoken";
+import moment from "moment-timezone";
 import TeamMember from "../../../../../model/TeamMember";
 import dbConnect from "../../../../../lib/dbConnect";
 
@@ -34,7 +35,7 @@ export async function PUT(req: NextRequest) {
       );
     }
 
-    const { name, designation, email, linkedin } = await req.json();
+    const { name, designation, email, linkedin, image } = await req.json();
 
     const teamMember = await TeamMember.findOne({ memberId });
 
@@ -46,9 +47,11 @@ export async function PUT(req: NextRequest) {
     }
 
     teamMember.name = name || teamMember.name;
+    teamMember.image = image || teamMember.image;
     teamMember.designation = designation || teamMember.designation;
     teamMember.email = email || teamMember.email;
     teamMember.linkedin = linkedin || teamMember.linkedin;
+    teamMember.updatedAt = moment().tz("Asia/Kolkata").format();
 
     await teamMember.save();
 
