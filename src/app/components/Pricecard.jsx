@@ -25,7 +25,7 @@ const Pricecard = () => {
 
   return (
     <div className="bodie w-screen" style={{ fontFamily: "Sofia Pro Regular" }}>
-      <div className="mb-[35px] ml-10 md:ml-44">
+      <div className="mb-[35px] ml-10 md:ml-44 mt-24 mr-3">
         <h1 className="text-[48px] mb-[10px] font-bold md:text-[40px] lg:text-[48px]">
           Fees
         </h1>
@@ -34,8 +34,7 @@ const Pricecard = () => {
         </p>
       </div>
       <div>
-     <div className="flex flex-wrap justify-center gap-4 pl-2.5 pr-2.5">
-
+        <div className="flex flex-wrap justify-center gap-4 pl-2.5 pr-2.5">
           {slides.map((slide) => (
             <div
               key={slide.tier}
@@ -62,9 +61,14 @@ const Pricecard = () => {
               </h2>
               <div className="h-[2px] bg-gold"></div>
               <div className="relative flex justify-center -top-[25px]">
-                <button className="bg-gold text-2xl h-[50px] w-[130px] rounded-[57px] hover:bg-yellow-500 font-semibold">
+                <a
+                  href="https://wa.me/1234567890?text=Hello,%20I%20am%20interested%20in%20buying%20your%20product."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-gold text-2xl h-[50px] w-[130px] rounded-[57px] hover:bg-yellow-500 font-semibold flex items-center justify-center"
+                >
                   Buy now
-                </button>
+                </a>
               </div>
             </div>
           ))}
