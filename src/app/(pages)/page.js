@@ -1,51 +1,18 @@
 import Image from "next/image";
-import Button from "./components/Button";
-import SlideBox from "./components/Slidebox";
-import aboutData from "../../public/data/about";
-import Testimonial from "./components/Testimonial";
-import Projects from "./components/Projects";
+import Button from "../components/Button";
+import SlideBox from "../components/Slidebox";
+import aboutData from "../../../public/data/about";
+import Testimonial from "../components/Testimonial";
+import Projects from "../components/Projects";
 export const metadata = {
   title: "Currenci | Home",
   description: "Welcome",
 };
 
 export default function Home() {
-  // const [isAuthenticated, setIsAuthenticated] = useState(false);
-
-  // useEffect(() => {
-  //   const fetchUserData = async () => {
-  //     try {
-  //       const response = await fetch("/api/v1/getUser");
-  //       if (response.ok) {
-  //         const data = await response.json();
-  //         if (data) {
-  //           setIsAuthenticated(true);
-  //         } else {
-  //           setIsAuthenticated(false);
-  //         }
-  //       }
-  //     } catch (error) {
-  //       console.error("Error fetching data:", error);
-  //     }
-  //   };
-  //   fetchUserData();
-  // }, []);
-
-  // const handleLogOut = async () => {
-  //   await fetch("/api/v1/signOut", {
-  //     method: "GET",
-  //   })
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //       router.push("/signIn");
-  //       console.log(data.message);
-  //     })
-  //     .catch((err) => console.error(err));
-  // };
-
   return (
     <main className="bg-white w-screen min-h-screen flex flex-col items-center pb-16">
-      <div className="w-[80vw] h-[45vw] mt-10 rounded-lg md:rounded-3xl">
+      <div className="w-[80vw] h-[45vw] rounded-lg md:rounded-3xl mt-28">
         <video
           controls
           loop
@@ -54,7 +21,7 @@ export default function Home() {
           <source src="/aot.mp4" type="video/mp4" />
         </video>
       </div>
-      <div className="flex flex-col items-center justify-center mt-[5vw]">
+      <div className="flex flex-col items-center justify-center mt-[3vw]">
         <h1
           className="text-4xl text-center tracking-wide md:text-6xl text-gray-800"
           style={{ fontFamily: "Sofia Pro SemiBold" }}

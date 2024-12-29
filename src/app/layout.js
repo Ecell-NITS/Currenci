@@ -10,8 +10,8 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
+        {children}
         <ToastHandler />
-        <main>{children}</main>
       </body>
     </html>
   );
