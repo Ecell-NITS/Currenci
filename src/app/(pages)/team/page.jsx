@@ -14,7 +14,7 @@ const Team = () => {
       <div className={styles.teamGrid}>
         {teamMembers.map((member) => {
           return (
-            <div className={styles.teamCard}>
+            <div key={member.id} className={styles.teamCard}>
               <Image
                 className={styles.teamImage}
                 src={member.image}

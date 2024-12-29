@@ -8,16 +8,16 @@
   color: #1e3432;
   margin-bottom: 20px;
   font-size: 60px;
+  padding-top: 5rem;
 }
 .devGrid {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  margin-top: 4rem;
+  margin: 4rem 0rem 4rem 4rem;
   flex-wrap: wrap;
   gap: 10rem;
-  margin-left: 8rem;
 }
 .devCard {
   display: flex;
@@ -52,7 +52,7 @@
 
 @media (max-width: 1000px) {
   .devGrid {
-    margin-left: 1rem;
+    margin-left: 0rem;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -66,7 +66,7 @@
 
 @media (max-width: 800px) {
   .devGrid {
-    margin-left: 1rem;
+    margin-left: 0rem;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -79,7 +79,7 @@
 }
 @media (max-width: 700px) {
   .devGrid {
-    margin-left: 1rem;
+    margin-left: 0rem;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -106,7 +106,7 @@
 }
 @media (max-width: 500px) {
   .devGrid {
-    margin-left: 1rem;
+    margin-left: 0rem;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -133,7 +133,7 @@
 }
 @media (max-width: 400px) {
   .devGrid {
-    margin-left: 1rem;
+    margin-left: 0rem;
     display: flex;
     flex-direction: row;
     align-items: center;
