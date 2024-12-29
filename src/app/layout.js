@@ -6,12 +6,7 @@ import "./globals.scss";
 export const metadata = {
   title: "Currenci",
   description:
-    "Get to know our services and how we can help you with your financial needs.",
-  openGraph: {
-    title: "Currenci",
-    description:
-      "Get to know our services and how we can help you with your financial needs.",
-  },
+    "Currenci is a cutting-edge financial company providing innovative solutions to help you manage, grow, and optimize your finances.",
 };
 
 export default function RootLayout({ children }) {
