@@ -7,6 +7,17 @@ import Image from "next/image";
 import styles from "./developers.module.scss";
 import developers from "../../../../public/data/developer.json";
 
+export async function generateMetadata() {
+  return {
+    title: "Developers | E-cell, NIT Silchar",
+    description: "Meet the developers from E-cell, NIT Silchar.",
+    openGraph: {
+      title: "Developers | E-cell, NIT Silchar",
+      description: "Meet the developers from E-cell, NIT Silchar.",
+    },
+  };
+}
+
 const Developers = () => {
   return (
     <div className={styles.devContainer}>
