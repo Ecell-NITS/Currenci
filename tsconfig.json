@@ -24,7 +24,7 @@
     ".next/types/**/*.ts",
     "**/*.ts",
     "**/*.tsx",
-    "src/app/(pages)/team/page.jsx"
+    "src/app/(pages)/team/TeamMember.jsx"
   ],
   "exclude": ["node_modules"]
 }

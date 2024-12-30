@@ -8,14 +8,14 @@ const Pricing = () => {
   return (
     <div>
       <Pricecard />
-   <div style={{ textAlign: "center", paddingTop: "50px" }}>
-  <h1
-    className="text-[6vw] md:text-[4vw] text-gray-800"
-    style={{ fontFamily: "Sofia Pro" }}
-  >
-    What others are saying about us?
-  </h1>
-</div>
+      <div style={{ textAlign: "center", paddingTop: "50px" }}>
+        <h1
+          className="text-[6vw] md:text-[4vw] text-gray-800"
+          style={{ fontFamily: "Sofia Pro" }}
+        >
+          What others are saying about us?
+        </h1>
+      </div>
       <Testimonial />
       <Modeling />
       <FAQ />
