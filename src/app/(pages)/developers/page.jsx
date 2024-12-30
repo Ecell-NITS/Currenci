@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 /* eslint-disable @next/next/no-img-element */
 
 /* eslint-disable import/extensions */
@@ -24,9 +25,9 @@ const Developers = () => {
       <h1>Developed by E-cell ,Nit Silchar</h1>
 
       <div className={styles.devGrid}>
-        {developers.map((member) => {
+        {developers.map((member, index) => {
           return (
-            <div key={member.id} className={styles.devCard}>
+            <div key={index} className={styles.devCard}>
               <Image
                 className={styles.devImage}
                 src={member.image}

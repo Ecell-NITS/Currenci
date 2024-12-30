@@ -4,8 +4,10 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import styles from "./team.module.scss";
 import "../../globals.scss";
+import members from "../../../../public/data/team";
 
 const Team = () => {
+  // eslint-disable-next-line no-unused-vars
   const [teamMembers, setTeamMembers] = useState([]);
   const [error, setError] = useState("");
 
@@ -40,9 +42,10 @@ const Team = () => {
     <div className={styles.teamContainer}>
       <h1>Team Members</h1>
       <div className={styles.teamGrid}>
-        {teamMembers.map((member) => {
+        {members.map((member, index) => {
           return (
-            <div className={styles.teamCard}>
+            // eslint-disable-next-line react/no-array-index-key
+            <div key={index} className={styles.teamCard}>
               <Image
                 className={styles.teamImage}
                 src={member.image || "/images/placeholder_image.jpg"}
