@@ -144,7 +144,7 @@ export default function Testimonial() {
               className="min-w-0 flex-[0_0_60vw] md:flex-[0_0_100%] flex justify-center"
               key={item.user.userId}
             >
-              <div className="w-[80vw] hidden mx-[10vw] p-10 h-max rounded-3xl md:flex items-center justify-evenly bg-[#14342F] md:bg-white text-center border border-[#F2B263]">
+              <div className="w-[80vw] hidden mx-[10vw] p-10 h-max rounded-3xl md:flex items-center justify-evenly bg-[#14342F] text-white text-center border border-[#F2B263]">
                 <div>
                   <Image
                     src={item.user.image}
@@ -154,7 +154,7 @@ export default function Testimonial() {
                     className="h-[15vw] w-auto rounded-xl"
                   ></Image>
                   <p
-                    className="text-white md:text-black text-4xl mt-5"
+                    className="text-white text-4xl mt-5"
                     style={{ fontFamily: "Sofia Pro Regular" }}
                   >
                     {item.user.name}
@@ -188,10 +188,10 @@ export default function Testimonial() {
                     </svg>
                   </span>
                   <p
-                    className="text-white  md:text-black text-lg"
+                    className="text-white text-[1.2vw]"
                     style={{ fontFamily: "Sofia Pro UltraLight" }}
                   >
-                    {item.content}
+                    {item.content.split(" ").slice(0, 55).join(" ")}...
                   </p>
                   <span className="text-[#F2B662] text-8xl relative font-serif top-44 flex gap-2 transform scale-x-[-1]">
                     <svg

@@ -1,5 +1,4 @@
 import mongoose, { Document, Schema } from "mongoose";
-import moment from "moment-timezone";
 import type { User } from "./User";
 
 export interface ITestimonial extends Document {
@@ -23,12 +22,10 @@ const TestimonialSchema: Schema = new Schema({
   createdAt: {
     type: Date,
     required: true,
-    default: () => moment().tz("Asia/Kolkata").toDate(),
   },
   updatedAt: {
     type: Date,
     required: true,
-    default: () => moment().tz("Asia/Kolkata").toDate(),
   },
   isApproved: {
     type: Boolean,

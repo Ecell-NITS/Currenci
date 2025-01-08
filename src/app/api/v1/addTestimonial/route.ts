@@ -2,6 +2,7 @@ import jwt from "jsonwebtoken";
 import { NextRequest, NextResponse } from "next/server";
 import Testimonial from "../../../../model/Testimonial";
 import dbConnect from "../../../../lib/dbConnect";
+import moment from "moment-timezone";
 
 interface TestimonialInter {
   userId: number;
@@ -45,7 +46,7 @@ export async function POST(req: NextRequest) {
     const testimonial: TestimonialInter = {
       userId: (user as { id: number }).id,
       content,
-      createdAt: new Date(),
+      createdAt: moment().tz("Asia/Kolkata").toDate(),
     };
 
     await Testimonial.create(testimonial);

@@ -12,7 +12,7 @@ export const metadata = {
 export default function Home() {
   return (
     <main className="bg-white w-screen min-h-screen flex flex-col items-center pb-16">
-      <div className="w-[80vw] h-[45vw] rounded-lg md:rounded-3xl mt-28">
+      <div className="w-[70vw] h-[39vw] rounded-lg md:rounded-3xl mt-[6.75rem]">
         <video
           controls
           loop
@@ -21,10 +21,10 @@ export default function Home() {
           <source src="/aot.mp4" type="video/mp4" />
         </video>
       </div>
-      <div className="flex flex-col items-center justify-center mt-[3vw]">
+      <div className="flex flex-col items-center justify-center mt-[2.5vw]">
         <h1
-          className="text-4xl text-center tracking-wide md:text-6xl text-gray-800"
-          style={{ fontFamily: "Sofia Pro SemiBold" }}
+          className="text-4xl text-center md:text-5xl text-gray-800"
+          style={{ fontFamily: "Sofia Pro Medium" }}
         >
           Valuing Today, Shaping Tomorrow
         </h1>
@@ -33,7 +33,7 @@ export default function Home() {
       <section className="mt-[6vw]  flex flex-col items-center">
         <h1
           className="text-[6vw] md:text-[4vw] text-gray-800"
-          style={{ fontFamily: "Sofia Pro SemiBold" }}
+          style={{ fontFamily: "Sofia Pro Medium" }}
         >
           Our Areas of Expertise
         </h1>
@@ -68,7 +68,7 @@ export default function Home() {
       <section className="mt-[6vw] flex flex-col items-center">
         <h1
           className="text-[6vw] md:text-[4vw] text-gray-800"
-          style={{ fontFamily: "Sofia Pro SemiBold" }}
+          style={{ fontFamily: "Sofia Pro Medium" }}
         >
           Why Us?
         </h1>
@@ -77,7 +77,7 @@ export default function Home() {
       <section className="mt-[8vw] flex flex-col items-center">
         <h1
           className="text-[6vw] md:text-[4vw] text-gray-800"
-          style={{ fontFamily: "Sofia Pro SemiBold" }}
+          style={{ fontFamily: "Sofia Pro Medium" }}
         >
           Projects
         </h1>

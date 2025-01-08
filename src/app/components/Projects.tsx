@@ -69,8 +69,8 @@ export default function Projects() {
                 </div>
                 <div className="w-[65%] ml-4">
                   <p
-                    className="text-[3.6vw] text-[#F2B263] text-start leading-[4.2vw] tracking-wide"
-                    style={{ fontFamily: "Sofia Pro Light" }}
+                    className="text-[3.6vw] text-[#1E3432] text-start leading-[4.2vw] tracking-wide"
+                    style={{ fontFamily: "Sofia Pro Regular" }}
                   >
                     {item.title}
                   </p>
