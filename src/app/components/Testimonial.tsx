@@ -55,6 +55,7 @@ const testData = [
     user: {
       userId: 1,
       name: "Batman",
+      role: "CEO at Doe",
       image:
         "https://4kwallpapers.com/images/wallpapers/batman-dc-superheroes-dc-comics-cosplay-2048x2048-954.jpg",
     },
@@ -65,6 +66,7 @@ const testData = [
     user: {
       userId: 2,
       name: "Batman",
+      role: "CEO at Doe",
       image:
         "https://4kwallpapers.com/images/wallpapers/batman-dc-superheroes-dc-comics-cosplay-2048x2048-954.jpg",
     },
@@ -75,6 +77,7 @@ const testData = [
     user: {
       userId: 3,
       name: "Batman",
+      role: "CEO at Doe",
       image:
         "https://4kwallpapers.com/images/wallpapers/batman-dc-superheroes-dc-comics-cosplay-2048x2048-954.jpg",
     },
@@ -85,6 +88,7 @@ const testData = [
     user: {
       userId: 4,
       name: "Batman",
+      role: "CEO at Doe",
       image:
         "https://4kwallpapers.com/images/wallpapers/batman-dc-superheroes-dc-comics-cosplay-2048x2048-954.jpg",
     },
@@ -95,6 +99,7 @@ const testData = [
     user: {
       userId: 5,
       name: "Batman",
+      role: "CEO at Doe",
       image:
         "https://4kwallpapers.com/images/wallpapers/batman-dc-superheroes-dc-comics-cosplay-2048x2048-954.jpg",
     },
@@ -105,6 +110,7 @@ const testData = [
     user: {
       userId: 6,
       name: "Batman",
+      role: "CEO at Doe",
       image:
         "https://4kwallpapers.com/images/wallpapers/batman-dc-superheroes-dc-comics-cosplay-2048x2048-954.jpg",
     },
@@ -115,6 +121,7 @@ const testData = [
     user: {
       userId: 7,
       name: "Batman",
+      role: "CEO at Doe",
       image:
         "https://4kwallpapers.com/images/wallpapers/batman-dc-superheroes-dc-comics-cosplay-2048x2048-954.jpg",
     },
@@ -144,24 +151,29 @@ export default function Testimonial() {
               className="min-w-0 flex-[0_0_60vw] md:flex-[0_0_100%] flex justify-center"
               key={item.user.userId}
             >
-              <div className="w-[80vw] hidden mx-[10vw] p-10 h-max rounded-3xl md:flex items-center justify-evenly bg-[#14342F] text-white text-center border border-[#F2B263]">
-                <div>
+              <div
+                style={{ aspectRatio: "8/3" }}
+                className="w-[80vw] hidden h-max rounded-3xl p-10 md:flex items-center justify-between bg-[#14342F] text-white text-center border border-[#F2B263] realtive"
+              >
+                <div className="w-[26%] relative">
                   <Image
                     src={item.user.image}
                     alt="batman"
                     height={300}
                     width={300}
-                    className="h-[15vw] w-auto rounded-xl"
+                    className="w-full h-auto rounded-xl"
                   ></Image>
-                  <p
-                    className="text-white text-4xl mt-5"
-                    style={{ fontFamily: "Sofia Pro Regular" }}
-                  >
-                    {item.user.name}
-                  </p>
+                  <div className="text-white text-2xl mt-5">
+                    <p style={{ fontFamily: "Sofia Pro Regular" }}>
+                      {item.user.role}
+                    </p>
+                    <p style={{ fontFamily: "Sofia Pro Light" }}>
+                      {item.user.name}
+                    </p>
+                  </div>
                 </div>
-                <div className="w-[60%] max-h-[30vw] mt-10 flex">
-                  <span className="text-[#F2B662] text-8xl relative font-serif bottom-4 right-4 flex gap-2">
+                <div className="w-[65%] mt-10 mr-6">
+                  <span className="text-[#F2B662] text-8xl flex gap-2 mb-2 relative left-2">
                     <svg
                       width="20"
                       height="36"
@@ -188,12 +200,12 @@ export default function Testimonial() {
                     </svg>
                   </span>
                   <p
-                    className="text-white text-[1.2vw]"
+                    className="text-white mx-10"
                     style={{ fontFamily: "Sofia Pro UltraLight" }}
                   >
-                    {item.content.split(" ").slice(0, 55).join(" ")}...
+                    {item.content.split(" ").slice(0, 80).join(" ")}...
                   </p>
-                  <span className="text-[#F2B662] text-8xl relative font-serif top-44 flex gap-2 transform scale-x-[-1]">
+                  <span className="text-[#F2B662] text-8xl font-serif flex gap-2 transform scale-x-[-1]">
                     <svg
                       width="20"
                       height="36"

@@ -30,10 +30,10 @@ export default function SlideBox({ children, side }) {
   return (
     <div
       ref={ref}
-      className={`w-[80vw] h-[35vw] md:h-[25vw] bg-angled-gradient rounded-[1.5vw] p-[2px] opacity-0 mt-[5.5vw] mb-[3.5vw] animate-none text-center text-2xl transition flex items-center justify-between ${side ? "translateX(-100%) flex-row-reverse" : "translateX(100%)"}`}
+      className={`w-[80vw] md:aspect-[16/5] aspect-[16/7] bg-angled-gradient rounded-[1rem] p-[2px] opacity-0 md:mt-[5.5rem] md:mb-[3.5rem] mt-[1.75rem] mb-[1.75rem] animate-none text-center text-2xl transition flex items-center justify-between ${side ? "translateX(-100%) flex-row-reverse" : "translateX(100%)"}`}
     >
       <div
-        className={`h-full w-full p-[4vw] bg-white rounded-[1.5vw] flex items-center justify-between ${side ? "flex-row-reverse" : ""}`}
+        className={`h-full w-full p-[4vw] bg-white rounded-[1rem] flex items-center justify-between ${side ? "flex-row-reverse" : ""}`}
       >
         {children}
       </div>

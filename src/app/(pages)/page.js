@@ -12,7 +12,7 @@ export const metadata = {
 export default function Home() {
   return (
     <main className="bg-white w-screen min-h-screen flex flex-col items-center pb-16">
-      <div className="w-[70vw] h-[39vw] rounded-lg md:rounded-3xl mt-[6.75rem]">
+      <div className="w-[70vw] rounded-lg md:rounded-3xl mt-[6.75rem]">
         <video
           controls
           loop
@@ -21,18 +21,18 @@ export default function Home() {
           <source src="/aot.mp4" type="video/mp4" />
         </video>
       </div>
-      <div className="flex flex-col items-center justify-center mt-[2.5vw]">
+      <div className="flex flex-col items-center justify-center md:mt-[2.5rem] mt-[1.5rem]">
         <h1
-          className="text-4xl text-center md:text-5xl text-gray-800"
+          className="text-4xl text-center md:text-6xl text-gray-800"
           style={{ fontFamily: "Sofia Pro Medium" }}
         >
           Valuing Today, Shaping Tomorrow
         </h1>
         <Button href="/">Get Started</Button>
       </div>
-      <section className="mt-[6vw]  flex flex-col items-center">
+      <section className="md:mt-[6rem] mt-10  flex flex-col items-center">
         <h1
-          className="text-[6vw] md:text-[4vw] text-gray-800"
+          className="text-4xl md:text-6xl text-gray-800"
           style={{ fontFamily: "Sofia Pro Medium" }}
         >
           Our Areas of Expertise
@@ -45,17 +45,17 @@ export default function Home() {
                 alt="distribution"
                 width={350}
                 height={350}
-                className="h-[20vw] w-auto"
+                className="h-auto w-[20vw]"
               />
               <div className="mx-0 w-[65%]">
                 <h1
-                  className="text-[3.6vw] text-[#F2B263] text-start leading-[4.2vw]"
-                  style={{ fontFamily: "Sofia Pro Light" }}
+                  className="lg:text-5xl md:text-3xl text-lg md:leading-none leading-4  text-[#1E3432] text-start mb-4"
+                  style={{ fontFamily: "Sofia Pro Regular" }}
                 >
                   {item.title}
                 </h1>
                 <p
-                  className="text-start text-[2.4vw] md:text-[1.8vw] mt-[1vw] leading-[2.6vw] md:leading-[2vw]"
+                  className="lg:text-2xl md:text-[1rem] text-[0.5rem] lg:leading-none md:leading-5 leading-[0.6rem] text-start"
                   style={{ fontFamily: "Sofia Pro UltraLight" }}
                 >
                   {item.content}
@@ -65,18 +65,18 @@ export default function Home() {
           );
         })}
       </section>
-      <section className="mt-[6vw] flex flex-col items-center">
+      <section className="md:mt-[6rem] mt-10 flex flex-col items-center">
         <h1
-          className="text-[6vw] md:text-[4vw] text-gray-800"
+          className="text-4xl text-center md:text-6xl text-gray-800"
           style={{ fontFamily: "Sofia Pro Medium" }}
         >
           Why Us?
         </h1>
         <Testimonial />
       </section>
-      <section className="mt-[8vw] flex flex-col items-center">
+      <section className="md:mt-[6rem] mt-10 flex flex-col items-center">
         <h1
-          className="text-[6vw] md:text-[4vw] text-gray-800"
+          className="text-4xl text-center md:text-6xl text-gray-800"
           style={{ fontFamily: "Sofia Pro Medium" }}
         >
           Projects

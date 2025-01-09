@@ -47,7 +47,7 @@ export default function Projects() {
   const [emblaRef] = useEmblaCarousel({ loop: true }, [Autoplay()]);
   return (
     <section>
-      <div className="mt-12 w-screen overflow-hidden" ref={emblaRef}>
+      <div className="md:mt-12 mt-6 w-screen overflow-hidden" ref={emblaRef}>
         <div className="flex">
           {testData.map((item, index) => (
             <div
@@ -64,19 +64,19 @@ export default function Projects() {
                     alt="project"
                     height={300}
                     width={300}
-                    className="h-[20vw] w-auto "
+                    className="h-auto w-[20vw] "
                   ></Image>
                 </div>
                 <div className="w-[65%] ml-4">
-                  <p
-                    className="text-[3.6vw] text-[#1E3432] text-start leading-[4.2vw] tracking-wide"
+                  <h1
+                    className="lg:text-5xl md:text-3xl text-lg md:leading-none leading-4  text-[#1E3432] text-start mb-4"
                     style={{ fontFamily: "Sofia Pro Regular" }}
                   >
                     {item.title}
-                  </p>
+                  </h1>
                   <p
-                    className="text-start text-[2.4vw] md:text-[1.8vw] mt-[1vw] leading-[2.6vw] md:leading-[2vw] tracking-wide"
-                    style={{ fontFamily: "Sofia Pro ExtraLight" }}
+                    className="lg:text-2xl md:text-[1rem] text-[0.5rem] lg:leading-none md:leading-5 leading-[0.6rem] text-start"
+                    style={{ fontFamily: "Sofia Pro UltraLight" }}
                   >
                     {item.content}
                   </p>
