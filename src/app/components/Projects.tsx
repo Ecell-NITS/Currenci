@@ -75,7 +75,7 @@ export default function Projects() {
                     {item.title}
                   </h1>
                   <p
-                    className="lg:text-2xl md:text-[1rem] text-[0.5rem] lg:leading-none md:leading-5 leading-[0.6rem] text-start"
+                    className="lg:text-2xl md:text-[1rem] text-[0.6rem] lg:leading-none md:leading-5 leading-[0.6rem] text-start"
                     style={{ fontFamily: "Sofia Pro UltraLight" }}
                   >
                     {item.content}

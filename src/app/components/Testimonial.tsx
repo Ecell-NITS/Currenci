@@ -153,7 +153,7 @@ export default function Testimonial() {
             >
               <div
                 style={{ aspectRatio: "8/3" }}
-                className="w-[80vw] hidden h-max rounded-3xl p-10 md:flex items-center justify-between bg-[#14342F] text-white text-center border border-[#F2B263] realtive"
+                className="w-[80vw] hidden h-max rounded-3xl p-10 md:flex items-center gap-14 bg-[#14342F] text-white text-center border border-[#F2B263] realtive"
               >
                 <div className="w-[26%] relative">
                   <Image
@@ -163,7 +163,7 @@ export default function Testimonial() {
                     width={300}
                     className="w-full h-auto rounded-xl"
                   ></Image>
-                  <div className="text-white text-2xl mt-5">
+                  <div className="text-white xLarge:text-4xl text-2xl mt-5">
                     <p style={{ fontFamily: "Sofia Pro Regular" }}>
                       {item.user.role}
                     </p>
@@ -172,7 +172,7 @@ export default function Testimonial() {
                     </p>
                   </div>
                 </div>
-                <div className="w-[65%] mt-10 mr-6">
+                <div className="w-[65%] mt-10">
                   <span className="text-[#F2B662] text-8xl flex gap-2 mb-2 relative left-2">
                     <svg
                       width="20"
@@ -200,7 +200,7 @@ export default function Testimonial() {
                     </svg>
                   </span>
                   <p
-                    className="text-white mx-10"
+                    className="text-white mx-10 xLarge:text-2xl"
                     style={{ fontFamily: "Sofia Pro UltraLight" }}
                   >
                     {item.content.split(" ").slice(0, 80).join(" ")}...
@@ -234,7 +234,7 @@ export default function Testimonial() {
                 </div>
               </div>
               <div
-                className={`w-[50vw] md:hidden py-[2vw] h-[80vw] rounded-3xl flex flex-col items-center justify-evenly text-center duration-700 border border-[#F2B263] ${index === selectedIndex ? "bg-[#14342F]" : ""}`}
+                className={`w-[50vw] md:hidden py-[0.6rem] aspect-[5/8] rounded-3xl flex flex-col items-center justify-evenly text-center duration-700 border border-[#F2B263] ${index === selectedIndex ? "bg-[#14342F]" : ""}`}
               >
                 <div>
                   <Image
@@ -242,18 +242,18 @@ export default function Testimonial() {
                     alt="batman"
                     height={300}
                     width={300}
-                    className="h-[20vw] w-auto rounded-full"
+                    className="h-auto w-[20vw] rounded-full"
                   ></Image>
                   <p
-                    className="text-white  md:text-black text-[3.6vw]"
+                    className="text-white  md:text-black text-[0.9rem]"
                     style={{ fontFamily: "Sofia Pro Regular" }}
                   >
                     {item.user.name}
                   </p>
                 </div>
-                <div className="w-[70%] mt-[3vw]">
+                <div className="w-[70%] mt-[0.8rem]">
                   <p
-                    className={` text-[2.4vw] duration-700 ${index === selectedIndex ? "text-white" : ""}`}
+                    className={` text-[0.6rem] duration-700 ${index === selectedIndex ? "text-white" : ""}`}
                     style={{ fontFamily: "Sofia Pro UltraLight" }}
                   >
                     {truncateText(item.content, 50)}
