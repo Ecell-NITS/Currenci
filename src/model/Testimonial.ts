@@ -1,23 +1,38 @@
 import mongoose, { Document, Schema } from "mongoose";
+import type { User } from "./User";
 
 export interface ITestimonial extends Document {
-  userId: string;
   content: string;
-  isApproved: boolean;
+  givenBy: User;
   createdAt: Date;
+  isApproved: boolean;
   updatedAt: Date;
 }
 
-const TestimonialSchema: Schema = new Schema(
-  {
-    userId: { type: String, required: true },
-    content: { type: String, required: true },
-    isApproved: { type: Boolean, default: false },
+const TestimonialSchema: Schema = new Schema({
+  content: {
+    type: String,
+    required: true,
   },
-  {
-    timestamps: true,
+  givenBy: {
+    type: Schema.Types.ObjectId,
+    ref: "users",
+    required: true,
   },
-);
+  createdAt: {
+    type: Date,
+    required: true,
+  },
+  updatedAt: {
+    type: Date,
+    required: true,
+  },
+  isApproved: {
+    type: Boolean,
+    required: true,
+    default: false,
+  },
+});
 
 export default mongoose.models.Testimonial ||
   mongoose.model<ITestimonial>("Testimonial", TestimonialSchema);
