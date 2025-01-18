@@ -51,7 +51,7 @@ export async function PUT(req: NextRequest) {
     teamMember.designation = designation || teamMember.designation;
     teamMember.email = email || teamMember.email;
     teamMember.linkedin = linkedin || teamMember.linkedin;
-    teamMember.updatedAt = moment().tz("Asia/Kolkata").format();
+    teamMember.updatedAt = moment().tz("Asia/Kolkata").toDate();
 
     await teamMember.save();
 

@@ -4,9 +4,12 @@
 
 body {
   height: 100%;
-  margin: 0; /* Remove any default margin */
-  padding: 0; /* Remove any default padding */
-  overflow-x: hidden; /* Prevent horizontal scrolling */
+  margin: 0;
+  /* Remove any default margin */
+  padding: 0;
+  /* Remove any default padding */
+  overflow-x: hidden;
+  /* Prevent horizontal scrolling */
 }
 
 @font-face {
@@ -124,4 +127,23 @@ body {
   src:
     local("Sofia Pro Bold"),
     url("../../public/fonts/Sofia Pro Bold Az.woff") format("woff");
+}
+
+.btn {
+  --c1: #fff;
+  --c2: #fda085;
+  text-transform: uppercase;
+  transition: 1s;
+  background: linear-gradient(
+      90deg,
+      var(--c1, #f6d365),
+      var(--c2, #fda085) 51%,
+      var(--c2, #f6d365)
+    )
+    var(--x, 0) / 200%;
+  --x: 100%;
+}
+
+.btn:hover {
+  --x: 0%;
 }
