@@ -1,7 +1,7 @@
 "use client";
 
 const loading = () => {
-  return <div className="loader"></div>;
+  return <div>loading</div>;
 };
 
 export default loading;
