@@ -12,6 +12,11 @@ export async function GET() {
       expires: new Date(0),
     });
 
+    response.cookies.set("adminToken", "", {
+      httpOnly: true,
+      expires: new Date(0),
+    });
+
     return response;
   } catch (error: any) {
     return NextResponse.json({ message: "Sign out failed", success: false });
