@@ -9,7 +9,10 @@ export const metadata = {
   description: "Welcome",
 };
 
-export default function Home() {
+export default async function Home() {
+  await new Promise((resolve) => {
+    setTimeout(resolve, 4000);
+  });
   return (
     <main className="bg-white w-screen min-h-screen flex flex-col items-center pb-16">
       <div className="w-[70vw] rounded-lg md:rounded-3xl mt-[6.75rem]">
