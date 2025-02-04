@@ -5,15 +5,28 @@ import styles from "./feedback.module.scss";
 
 const Feedback = () => {
   const [selectedOption, setSelectedOption] = useState("");
-
-  const handleRadioChange = (e) => {
-    // setSelectedOption();
-    const { name } = e.target;
-    setSelectedOption(name);
-    console.log(name);
-  };
+  const [content, setContent] = useState("");
 
   const options = ["Loved it", "Great", "Neutral", "Disappointing", "Terrible"];
+  const handleRadioChange = (e) => {
+    const { name } = e.target;
+    setSelectedOption(name);
+    console.log(5 - options.indexOf(name));
+  };
+
+  const addTest = async () => {
+    fetch(`/api/v1/addTestimonial`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        content,
+        rating: 5 - options.indexOf(selectedOption),
+      }),
+    }).then((res) => res.json());
+  };
+
   return (
     <div className={styles.feedback}>
       <h2>Your feedback matter to us</h2>
@@ -41,10 +54,18 @@ const Feedback = () => {
         <div className={styles.feedbackMessageBox}>
           <h3>Share your experience</h3>
           <textarea
+            onChange={(e) => setContent(e.target.value)}
+            value={content}
             name="feedbackMessage"
             placeholder="Share your feedback with us"
           ></textarea>
-          <button type="submit">Submit</button>
+          <button
+            onClick={() => {
+              addTest();
+            }}
+          >
+            Submit
+          </button>
         </div>
       </div>
     </div>

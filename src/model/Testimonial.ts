@@ -1,9 +1,9 @@
 import mongoose, { Document, Schema } from "mongoose";
-import type { User } from "./User";
 
 export interface ITestimonial extends Document {
   content: string;
-  givenBy: User;
+  username: string;
+  rating: number;
   createdAt: Date;
   isApproved: boolean;
   updatedAt: Date;
@@ -14,9 +14,12 @@ const TestimonialSchema: Schema = new Schema({
     type: String,
     required: true,
   },
-  givenBy: {
-    type: Schema.Types.ObjectId,
-    ref: "users",
+  rating: {
+    type: Number,
+    required: true,
+  },
+  username: {
+    type: String,
     required: true,
   },
   createdAt: {
