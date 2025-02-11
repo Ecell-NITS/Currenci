@@ -1,9 +1,9 @@
 import Image from "next/image";
-import Button from "../components/Button";
-import SlideBox from "../components/Slidebox";
 import aboutData from "../../../public/data/about";
-import Testimonial from "../components/Testimonial";
+import Button from "../components/Button";
 import Projects from "../components/Projects";
+import SlideBox from "../components/Slidebox";
+import Testimonial from "../components/Testimonial";
 export const metadata = {
   title: "Currenci | Home",
   description: "Welcome",

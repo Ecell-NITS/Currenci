@@ -1,7 +1,7 @@
-import "./globals.scss";
 import { Suspense } from "react";
-import Loading from "./loading";
 import ToastHandler from "./components/ToastHandler";
+import "./globals.scss";
+import Loading from "./loading";
 
 export const metadata = {
   title: "Currenci",
