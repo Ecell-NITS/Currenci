@@ -8,7 +8,7 @@
 .teamContainer h1 {
   color: #1e3432;
   margin-top: 90px;
-  font-size: 60px;
+  font-size: clamp(2rem, 5vw, 4.5rem);
 }
 .teamGrid {
   display: flex;
