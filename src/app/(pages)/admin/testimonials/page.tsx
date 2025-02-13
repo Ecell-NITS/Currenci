@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { Filter, Star } from "lucide-react";
 import { toast } from "react-toastify";
+import { useRouter } from "next/navigation";
 import { ITestimonial } from "../../../../model/Testimonial";
 
 function truncateText(text, maxLength = 100) {
@@ -24,6 +25,7 @@ const Testimonials = () => {
   const [test, setTest] = useState<ITestimonial[]>([]);
   const [disp, setDisp] = useState<ITestimonial[]>([]);
   const [current, setCurrent] = useState<ITestimonial | null>(null);
+  const router = useRouter();
   const options = [
     "Loved it!",
     "Great!",
@@ -32,6 +34,15 @@ const Testimonials = () => {
     "Terrible",
   ];
   const approve = async (id) => {
+    const resp = await fetch("/api/v1/getUser");
+    const info = await resp.json();
+    if (info.role !== "admin" || info.role !== "superadmin") {
+      toast.error("You're not authenticated");
+      setTimeout(() => {
+        router.push("/");
+      }, 1000);
+      return;
+    }
     fetch(`/api/v1/approveTestimonial?Id=${id}`, {
       method: "PUT",
       headers: {

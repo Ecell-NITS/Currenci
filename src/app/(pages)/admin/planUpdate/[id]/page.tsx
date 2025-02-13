@@ -3,6 +3,7 @@
 import { ChevronLeft } from "lucide-react";
 import { useParams, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import { toast } from "react-toastify";
 
 const planUpdate = () => {
   const params = useParams();
@@ -12,17 +13,27 @@ const planUpdate = () => {
   const [days, setDays] = useState("");
 
   const updatePlan = async () => {
-    fetch(`/api/v1/updatePlan/${params.id}`, {
+    const resp = await fetch("/api/v1/getUser");
+    const info = await resp.json();
+    if (info.role !== "admin" || info.role !== "superadmin") {
+      toast.error("You're not authenticated");
+      setTimeout(() => {
+        router.push("/");
+      }, 1000);
+      return;
+    }
+    const res = await fetch(`/api/v1/updatePlan/${params.id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({ name, days, price }),
-    })
-      .then((res) => res.json())
-      .then(() => {
-        router.push("/pricing");
-      });
+    });
+    const data = await res.json();
+    if (data.status !== 403) {
+      toast.success("Plan Successfully edited");
+      router.push("/pricing");
+    }
   };
 
   useEffect(() => {
