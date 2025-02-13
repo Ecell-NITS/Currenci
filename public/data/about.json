@@ -1,0 +1,32 @@
+[
+    {
+        "title": "Financial Modeling",
+        "image" : "distri.png",
+        "content": "Lorem ipsum dolor sit amet consectetur. Malesuada pharetra senectus fames metus in. Elementum sodales vestibulum maecenas vivamus justo leo varius. Elit pretium commodo libero malesuada sed nunc et. Fringilla cursus viverra tellus enim sed molestie vitae eu eu."
+    },
+    {
+        "title": "Ratio Analysis",
+        "image":"plan.png",
+        "content": "Lorem ipsum dolor sit amet consectetur. Malesuada pharetra senectus fames metus in. Elementum sodales vestibulum maecenas vivamus justo leo varius. Elit pretium commodo libero malesuada sed nunc et. Fringilla cursus viverra tellus enim sed molestie vitae eu eu."
+    },
+    {
+        "title":"Forecasting",
+        "image":"pred.png",
+        "content": "Lorem ipsum dolor sit amet consectetur. Malesuada pharetra senectus fames metus in. Elementum sodales vestibulum maecenas vivamus justo leo varius. Elit pretium commodo libero malesuada sed nunc et. Fringilla cursus viverra tellus enim sed molestie vitae eu eu."
+    },
+    {
+        "title":"Discounted Cash Flow(DCF) (WACC)",
+        "image":"money.png",
+        "content": "Lorem ipsum dolor sit amet consectetur. Malesuada pharetra senectus fames metus in. Elementum sodales vestibulum maecenas vivamus justo leo varius. Elit pretium commodo libero malesuada sed nunc et. Fringilla cursus viverra tellus enim sed molestie vitae eu eu."
+    },
+    {
+        "title":"Terminal Value(FCFF)",
+        "image":"val.png",
+        "content": "Lorem ipsum dolor sit amet consectetur. Malesuada pharetra senectus fames metus in. Elementum sodales vestibulum maecenas vivamus justo leo varius. Elit pretium commodo libero malesuada sed nunc et. Fringilla cursus viverra tellus enim sed molestie vitae eu eu."
+    },
+    {
+        "title":"Intrinsic Growth",
+        "image":"career.png",
+        "content": "Lorem ipsum dolor sit amet consectetur. Malesuada pharetra senectus fames metus in. Elementum sodales vestibulum maecenas vivamus justo leo varius. Elit pretium commodo libero malesuada sed nunc et. Fringilla cursus viverra tellus enim sed molestie vitae eu eu."
+    }
+]

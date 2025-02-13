@@ -12,7 +12,7 @@ import {
 } from "../../../schemas/resetPasswordSchema";
 import Form from "../../components/Forms/basicForm";
 
-const SignUp = () => {
+const ResetPassword = () => {
   const [isOtpSent, setIsOtpSent] = useState(false); // State to manage if OTP is sent or not
   const [usernameOrEmail, setUsernameOrEmail] = useState(); // State to manage OTP input
   const [validationErrors, setValidationErrors] = useState<{
@@ -264,4 +264,4 @@ const SignUp = () => {
   );
 };
 
-export default SignUp;
+export default ResetPassword;
