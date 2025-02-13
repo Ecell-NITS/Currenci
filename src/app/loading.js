@@ -4,77 +4,54 @@ import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
 export default function Loading() {
-  const [loading, setLoading] = useState(true);
-  const [isScrolling, setIsScrolling] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const scrollContainerRef = useRef(null);
 
-  // Simulating actual content load (API Fetch or Data Processing)
-  useEffect(() => {
-    const fetchData = async () => {
-      await new Promise((resolve) => {
-        setTimeout(resolve, 3000);
-      }); // Simulated API call
-      console.log("Content Loaded Successfully");
-      setLoading(false); // Only hide loader when data is ready
-    };
-    fetchData();
-  }, []);
-
-  // Scroll Detection Logic
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolling(true);
-      setTimeout(() => setIsScrolling(false), 500);
+      if (scrollContainerRef.current) {
+        if (scrollContainerRef.current.scrollTop > 50) {
+          setIsLoading(false);
+        }
+      }
     };
-
-    const scrollContainer = scrollContainerRef.current;
-    if (scrollContainer) {
-      scrollContainer.addEventListener("scroll", handleScroll);
+    const container = scrollContainerRef.current;
+    if (container) {
+      container.addEventListener("scroll", handleScroll);
     }
 
     return () => {
-      if (scrollContainer) {
-        scrollContainer.removeEventListener("scroll", handleScroll);
+      if (container) {
+        container.removeEventListener("scroll", handleScroll);
       }
     };
-  }, []);
+  }, [scrollContainerRef]);
 
   return (
     <div
       ref={scrollContainerRef}
-      className="relative h-screen overflow-auto bg-gray-100 p-4"
+      className="relative h-screen overflow-auto bg-gray-50 p-6 flex flex-col items-center"
     >
-      {loading ? (
-        <div className="flex items-center justify-center h-screen">
+      {isLoading ? (
+        <div className="animate-pulse flex flex-col items-center justify-center h-screen">
           <Image
             src="/images/loading.png"
             alt="Loading"
-            width={100}
-            height={100}
+            width={80}
+            height={80}
           />
-          <p className="text-black mt-2">Loading...</p>
+          <p className="text-gray-600 text-lg font-semibold mt-2">Loading...</p>
         </div>
       ) : (
-        <>
-          <div className="flex items-center justify-center h-screen">
-            <Image
-              src={
-                isScrolling ? "/images/loading (1).png" : "/images/loading.png"
-              }
-              alt="Loading"
-              width={100}
-              height={100}
-            />
-            <p className="text-black mt-2">
-              {isScrolling ? "Loading & Scrolling..." : "Loaded"}
-            </p>
-          </div>
-          <h1 className="text-lg font-bold">Content Loaded</h1>
-          <p>Here is your loaded content.</p>
-          <div className="h-96 bg-blue-200 mt-4">
-            Scroll down for more content...
-          </div>
-        </>
+        <div className="flex flex-col items-center justify-center h-screen">
+          <Image
+            src="/images/loading1.png"
+            alt="Loaded"
+            width={80}
+            height={80}
+          />
+          <p className="text-green-600 text-lg font-semibold mt-2">Loaded</p>
+        </div>
       )}
     </div>
   );
