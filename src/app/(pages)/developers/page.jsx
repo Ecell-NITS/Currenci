@@ -4,8 +4,8 @@
 /* eslint-disable no-unused-vars */
 
 import Image from "next/image";
-import styles from "./developers.module.scss";
 import developers from "../../../../public/data/developer.json";
+import styles from "./developers.module.scss";
 
 export async function generateMetadata() {
   return {
