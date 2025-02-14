@@ -6,7 +6,7 @@ const sections = [
   {
     title: "About Us",
     links: [
-      { name: "About", href: "/about" },
+      { name: "About", href: "/#about" },
       { name: "Projects", href: "/projects" },
       { name: "Privacy Policy", href: "/privacy-policy" },
       { name: "Contact Us", href: "/contact" },
@@ -15,16 +15,16 @@ const sections = [
   {
     title: "Fees",
     links: [
-      { name: "Plans", href: "/plans" },
-      { name: "Why Us", href: "/why-us" },
-      { name: "FAQs", href: "/faqs" },
+      { name: "Plans", href: "/pricing" },
+      { name: "Why Us", href: "/Testimonial" },
+      { name: "FAQs", href: "/FAQ" },
     ],
   },
   {
     title: "Testimonials",
     links: [
-      { name: "Why Trust Us?", href: "/why-trust-us" },
-      { name: "Our Clients", href: "/our-clients" },
+      { name: "Why Trust Us?", href: "/Testimonial" },
+      { name: "Our Clients", href: "/Testimonial" },
     ],
   },
 ];

@@ -54,8 +54,6 @@ export default function Navbar() {
     { name: "About", href: "/#about" },
     { name: "Pricing", href: "/pricing" },
     { name: "Team", href: "/team" },
-    { name: "Testimonials", href: "/testimonials" },
-    { name: "FAQs", href: "/#faqs" },
   ];
   const buttons = [{ name: "Book an Appointment", href: "/book-appointment" }];
   return (
