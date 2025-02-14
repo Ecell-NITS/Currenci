@@ -1,102 +1,105 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
-import Image from "next/image";
-import "../../globals.scss";
 import NavbarAdmin from "../../components/NavbarAdmin";
 
-const Admin = () => {
+interface ITestimonial {
+  content: string;
+  username: string;
+  rating: number;
+}
+
+function truncateText(text, maxLength = 100) {
+  return text.length > maxLength ? `${text.slice(0, maxLength)}...` : text;
+}
+
+const testData: ITestimonial[] = [
+  {
+    content:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sorem ipsum dolor sit amet, consectetur adipiscing elit.Sorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    username: "test",
+    rating: 5,
+  },
+  {
+    content:
+      "lorem ipsum dolor sit amet, consectetur adipiscing elit. Sorem ipsum dolor sit amet, consectetur adipiscing elit.Sorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    username: "test",
+    rating: 3,
+  },
+];
+
+const Team = () => {
+  const [test, setTest] = useState<ITestimonial[]>();
+  const options = [
+    "Loved it!",
+    "Great!",
+    "Neutral",
+    "Disappointing",
+    "Terrible",
+  ];
   const router = useRouter();
-  const [teamMembers, setTeamMembers] = useState([]);
-  const [error, setError] = useState("");
 
   useEffect(() => {
-    const fetchTeamMembers = async () => {
-      try {
-        const res = await fetch("/api/v1/getAllTeamMembers", {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        });
-        const data = await res.json();
-
-        if (!res.ok) {
-          throw new Error(data.message || "Failed to fetch team members");
-        }
-        setTeamMembers(data.teamMembers);
-      } catch (err) {
-        console.error(err.message);
-        setError("Failed to load team members.");
-      }
-    };
-    fetchTeamMembers();
-  }, []);
-
-  if (error) {
-    return <p>{error}</p>;
-  }
+    setTest(testData);
+  }, [testData]);
 
   return (
-    <div className="flex flex-col">
+    <>
       <NavbarAdmin />
-      <div className="flex flex-col my-36 px-[5vw] ">
-        <p
-          className="px-[10.5vw] text-lg mb-8"
-          style={{ fontFamily: "Sofia Pro Regular" }}
-        >
-          Present Team:
-        </p>
-        <div className="flex px-[10.5vw] flex-wrap w-fit gap-[6vw]">
-          {teamMembers.map((member) => {
-            return (
-              <div className="bg-[#1E3432] flex flex-col justify-center items-center rounded-[3vw] md:rounded-[1vw] hover:scale-[1.1] transition-all duration-200">
-                <div className="relative md:w-[18vw] md:h-[18vw] w-[31vw] h-[30vw] ">
-                  <Image
-                    className="md:rounded-t-[1vw] rounded-t-[3vw] object-cover"
-                    src={member.image || "/images/placeholder_image.jpg"}
-                    alt={member.name}
-                    fill
-                  ></Image>
-                </div>
-                <p
-                  className="text-[#F2B263] md:text-lg  sm:text-sm text-[4vw]  mt-2"
-                  style={{ fontFamily: "Sofia Pro Light" }}
-                >
-                  {member.name}
-                </p>
-                <p
-                  className="text-white md:text-sm sm:text-xs text-[3vw] mb-2"
-                  style={{ fontFamily: "Sofia Pro Regular" }}
-                >
-                  {member.designation}
-                </p>
-              </div>
-            );
-          })}
+      <div className="flex flex-col md:flex-row my-36 px-[5vw] gap-10">
+        <div className="flex items-end flex-col gap-8 md:w-[50%] w-full">
           <button
-            onClick={() => router.push("admin/addTeamMember")}
-            className="bg-[#1E3432] flex flex-col justify-center items-center rounded-[3vw] md:rounded-[1vw] hover:scale-[1.1] transition-all duration-200"
+            onClick={() => router.push("/admin/team")}
+            className="text-white bg-[#1E3432] border-[#FAC16A] border-4 rounded-lg py-4 px-4 lg:text-4xl sm:text-2xl text-xl w-full"
           >
-            <div className="relative md:w-[18vw] md:h-[18vw] w-[31vw] h-[30vw] ">
-              <Image
-                className="md:rounded-t-[1vw] rounded-t-[3vw] object-cover"
-                src="/images/addTeamMemberButton.png"
-                alt="add member"
-                fill
-              ></Image>
-            </div>
-            <p
-              className="text-[#F2B263] md:text-lg  sm:text-sm text-[4vw]  my-2"
-              style={{ fontFamily: "Sofia Pro Light" }}
-            >
-              Add Employee
-            </p>
+            Team Management
+          </button>
+          <button
+            onClick={() => router.push("/admin/testimonials")}
+            className="text-white bg-[#1E3432] border-[#FAC16A] border-4 rounded-lg py-4 px-4 lg:text-4xl sm:text-2xl text-xl  w-full"
+          >
+            Testimonial Management
+          </button>
+          <button
+            onClick={() => router.push("/admin/plans")}
+            className="text-white bg-[#1E3432] border-[#FAC16A] border-4 rounded-lg py-4 px-4 lg:text-4xl sm:text-2xl text-xl  w-full"
+          >
+            Plan Update
+          </button>
+          <button
+            onClick={() => router.push("/admin/addTeamMember")}
+            className="text-white bg-[#1E3432] border-[#FAC16A] border-4 rounded-lg py-4 px-4 lg:text-4xl sm:text-2xl text-xl  w-full"
+          >
+            Add Member
           </button>
         </div>
+        <div className="md:w-[50%] w-full flex flex-col border-black border-2 rounded-sm p-6">
+          <button className="bg-[#1E3432] w-fit text-[#FAC16A] text-lg px-4 py-2 rounded-md flex gap-2 items-center hover:cursor-pointer">
+            <p>Total Reviews</p>
+            <span className="rounded-full px-2 aspect-square flex justify-center items-center bg-white text-black">
+              {test ? test.length : 0}
+            </span>
+          </button>
+          <p className="text-xl mt-10 mb-2">Recent Reviews</p>
+
+          {test &&
+            test.map((item) => (
+              <div
+                key={item.username + item.content.substring(0, 10).toString()}
+                className="border-[#D1D1D1] mb-2 border rounded-md p-4 pb-6 relative text-sm"
+              >
+                <p>{options[5 - item.rating]}</p>
+                <p style={{ fontFamily: "Sofia Pro Ultralight" }}>
+                  {truncateText(item.content, 175)}
+                </p>
+                <p className="absolute bottom-0 right-2">~{item.username}</p>
+              </div>
+            ))}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
-export default Admin;
+
+export default Team;

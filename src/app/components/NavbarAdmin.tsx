@@ -47,9 +47,9 @@ export default function NavbarAdmin() {
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   const menuLinks = [
-    { name: "Home", href: "/" },
-    { name: "Team Management", href: "/admin" },
-    { name: "Testimonial Management", href: "/admin" },
+    { name: "Admin Dashboard", href: "/admin" },
+    { name: "Team Management", href: "/admin/team" },
+    { name: "Testimonial Management", href: "/admin/testimonials" },
   ];
   return (
     <nav
