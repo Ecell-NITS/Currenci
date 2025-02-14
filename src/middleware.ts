@@ -18,7 +18,7 @@ export async function middleware(request: NextRequest) {
     return response;
   }
 
-  if (!adminToken && (path === "/admin" || path === "/admin/addTeamMember")) {
+  if (!adminToken && path.startsWith("/admin")) {
     const response = NextResponse.redirect(new URL("/", url));
     response.cookies.set("toastMessage", "Admin Access Required", {
       httpOnly: false,
@@ -32,5 +32,5 @@ export async function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/", "/signIn", "/signUp", "/admin", "/admin/addTeamMember"],
+  matcher: ["/", "/signIn", "/signUp", "/admin/:path*"],
 };
