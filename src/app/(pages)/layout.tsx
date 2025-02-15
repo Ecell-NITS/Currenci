@@ -8,15 +8,11 @@ export default function RootLayout({ children }) {
   const pathname = usePathname();
 
   // Paths where Navbar and Footer should be hidden
-  const noLayoutPaths = [
-    "/login",
-    "/signup",
-    "/resetPassword",
-    "/admin/addTeamMember",
-    "/admin",
-  ];
-
-  const shouldHideLayout = noLayoutPaths.includes(pathname);
+  const shouldHideLayout =
+    pathname.includes("/admin") ||
+    pathname.includes("/login") ||
+    pathname.includes("/signup") ||
+    pathname.includes("/resetPassword");
   return (
     <main>
       {!shouldHideLayout && <Navbar />}

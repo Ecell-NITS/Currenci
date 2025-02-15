@@ -1,5 +1,6 @@
 "use client";
 
+import { FilePenLine } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import Image from "next/image";
@@ -52,15 +53,20 @@ const Team = () => {
           {teamMembers.map((member) => {
             return (
               <div
-                key={member.designation + member.name.toString}
-                className="relative bg-[#1E3432] flex flex-col justify-center items-center rounded-[3vw] md:rounded-[1vw] hover:scale-[1.1] transition-all duration-200"
+                key={member.memberId}
+                className="group relative bg-[#1E3432] flex flex-col justify-center items-center rounded-[3vw] md:rounded-[1vw] hover:scale-[1.1] transition-all duration-200"
               >
-                {/* <button className="absolute text-red-500 right-0 top-0 z-10 mt-2 mr-2">
-                  <div className="flex gap-1">
-                    <span className="font-semibold">Edit</span>
-                    <FilePenLine />
+                <button
+                  onClick={() =>
+                    router.push(`/admin/editTeamMember/${member.memberId}`)
+                  }
+                  className="absolute hidden group-hover:block transition-all duration-200 bg-black md:rounded-tr-[1vw] rounded-tr-[3vw] text-white right-0 top-0 z-10 md:px-2 px-1 md:py-2 py-1"
+                >
+                  <div className="flex">
+                    {/* <span className="font-semibold">Edit</span> */}
+                    <FilePenLine className="w-4 h-4 md:w-6 md:h-6" />
                   </div>
-                </button> */}
+                </button>
                 <div className="relative md:w-[18vw] md:h-[18vw] w-[31vw] h-[30vw] ">
                   <Image
                     className="md:rounded-t-[1vw] rounded-t-[3vw] object-cover"
@@ -86,7 +92,7 @@ const Team = () => {
           })}
           <button
             onClick={() => router.push("addTeamMember")}
-            className="bg-[#1E3432] flex flex-col justify-center items-center rounded-[3vw] md:rounded-[1vw] hover:scale-[1.1] transition-all duration-200"
+            className="bg-[#1E3432] h-fit flex flex-col justify-center items-center rounded-[3vw] md:rounded-[1vw] hover:scale-[1.1] transition-all duration-200"
           >
             <div className="relative md:w-[18vw] md:h-[18vw] w-[31vw] h-[30vw] ">
               <Image
