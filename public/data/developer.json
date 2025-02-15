@@ -1,57 +1,28 @@
 [
     {
-        "name":"John Doe",
+        "name":"Anirban Bora",
         "role": "Developer",
-        "image":"https://res.cloudinary.com/dtt4ftdrw/image/upload/v1733921066/id_photo_osbr1g.jpg"
+        "image":"https://res.cloudinary.com/dtt4ftdrw/image/upload/v1739606358/anirbanPhoto_b6jgay.jpg"
     },
     {
-        "name":"John Doe",
+        "name":"Bishal das",
         "role": "Developer",
-        "image":"https://res.cloudinary.com/dtt4ftdrw/image/upload/v1733921066/id_photo_osbr1g.jpg"
+        "image":"https://res.cloudinary.com/dtt4ftdrw/image/upload/v1739606459/bishalPhoto_dy5vgq.jpg"
     },
     {
-        "name":"John Doe",
+        "name":"Muskan Bharti",
         "role": "Developer",
-        "image":"https://res.cloudinary.com/dtt4ftdrw/image/upload/v1733921066/id_photo_osbr1g.jpg"
+        "image":"https://res.cloudinary.com/dtt4ftdrw/image/upload/v1739606439/MuskanPhoto_gg4jwc.jpg"
     },
     {
-        "name":"John Doe",
+        "name":"Vaishali Kesharwani",
         "role": "Developer",
-        "image":"https://res.cloudinary.com/dtt4ftdrw/image/upload/v1733921066/id_photo_osbr1g.jpg"
+        "image":"https://res.cloudinary.com/dtt4ftdrw/image/upload/v1739606382/vaishaliPhoto_wc1pwp.jpg"
     },
     {
-        "name":"John Doe",
+        "name":"Binit Agarwalla",
         "role": "Developer",
-        "image":"https://res.cloudinary.com/dtt4ftdrw/image/upload/v1733921066/id_photo_osbr1g.jpg"
-    },
-    {
-        "name":"John Doe",
-        "role": "Developer",
-        "image":"https://res.cloudinary.com/dtt4ftdrw/image/upload/v1733921066/id_photo_osbr1g.jpg"
-    },
-    {
-        "name":"John Doe",
-        "role": "Developer",
-        "image":"https://res.cloudinary.com/dtt4ftdrw/image/upload/v1733921066/id_photo_osbr1g.jpg"
-    },
-    {
-        "name":"John Doe",
-        "role": "Developer",
-        "image":"https://res.cloudinary.com/dtt4ftdrw/image/upload/v1733921066/id_photo_osbr1g.jpg"
-    },
-    {
-        "name":"John Doe",
-        "role": "Developer",
-        "image":"https://res.cloudinary.com/dtt4ftdrw/image/upload/v1733921066/id_photo_osbr1g.jpg"
-    },
-    {
-        "name":"John Doe",
-        "role": "Developer",
-        "image":"https://res.cloudinary.com/dtt4ftdrw/image/upload/v1733921066/id_photo_osbr1g.jpg"
-    },
-    {
-        "name":"John Doe",
-        "role": "Developer",
-        "image":"https://res.cloudinary.com/dtt4ftdrw/image/upload/v1733921066/id_photo_osbr1g.jpg"
+        "image":"https://res.cloudinary.com/dtt4ftdrw/image/upload/v1739616819/binitPhoto_ydc06b.jpg"
     }
+    
 ]
