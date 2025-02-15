@@ -1,19 +1,23 @@
 "use client";
 
-import { useRouter } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import Image from "next/image";
-import { X } from "lucide-react";
-import { useState } from "react";
-import ErrorText from "../../../components/errorText";
-import SuccessText from "../../../components/successText";
-import ErrorFormFieldText from "../../../components/errorFormFieldText";
-import { teamMemberSchema } from "../../../../schemas/teamMember";
-import LoadingSpinner from "../../../components/loadingSpinner";
+import { X, Trash2 } from "lucide-react";
+import { useEffect, useState } from "react";
+import ErrorText from "../../../../components/errorText";
+import SuccessText from "../../../../components/successText";
+import ErrorFormFieldText from "../../../../components/errorFormFieldText";
+import { teamMemberSchema } from "../../../../../schemas/teamMember";
+import LoadingSpinner from "../../../../components/loadingSpinner";
 
-const AddTeamMember = () => {
+const EditTeam = () => {
+  const params = useParams();
   const router = useRouter();
+  const [showDeletePopup, setShowDeletePopup] = useState(false);
   const [loading, setLoading] = useState(false); // State to manage loading state of API Call
+  const [deleteLoading, setDeleteLoading] = useState(false); // State to manage loading state of API Call
   const [uploadedImageUrl, setUploadedImageUrl] = useState(null);
+  const [newUploadedImageUrl, setNewUploadedImageUrl] = useState(null);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
   const [validationErrors, setValidationErrors] = useState<{
@@ -25,6 +29,48 @@ const AddTeamMember = () => {
     email: "",
     linkedin: "",
   });
+  const [newFormData, setNewFormData] = useState({
+    name: "",
+    designation: "",
+    email: "",
+    linkedin: "",
+  });
+
+  useEffect(() => {
+    const fetchTeamMember = async () => {
+      try {
+        const res = await fetch(`/api/v1/getTeamMember/${params.id}`, {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+        const data = await res.json();
+
+        if (!res.ok) {
+          throw new Error(data.message || "Failed to fetch team member");
+        }
+        setFormData({
+          name: data.teamMember.name,
+          designation: data.teamMember.designation,
+          email: data.teamMember.email,
+          linkedin: data.teamMember.linkedin || "",
+        });
+        setNewFormData({
+          name: data.teamMember.name,
+          designation: data.teamMember.designation,
+          email: data.teamMember.email,
+          linkedin: data.teamMember.linkedin || "",
+        });
+        setUploadedImageUrl(data.teamMember.image || null);
+        setNewUploadedImageUrl(data.teamMember.image || null);
+      } catch (err) {
+        console.error(err.message);
+        setError("Failed to load team member.");
+      }
+    };
+    fetchTeamMember();
+  }, [params.id]);
 
   const handleImageUpload = async (event) => {
     setError("");
@@ -35,7 +81,7 @@ const AddTeamMember = () => {
       imageFormData.append(
         "upload_preset",
         process.env.NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET,
-      ); // Replace with your preset
+      );
 
       try {
         const response = await fetch(
@@ -46,7 +92,7 @@ const AddTeamMember = () => {
           },
         );
         const data = await response.json();
-        setUploadedImageUrl(data.secure_url);
+        setNewUploadedImageUrl(data.secure_url);
       } catch (err) {
         console.error("Upload failed:", err);
         setError("Failed to upload image. Please try again.");
@@ -60,26 +106,35 @@ const AddTeamMember = () => {
     e.preventDefault();
     setError("");
     const { name, value } = e.target;
-    setFormData((prevData) => ({ ...prevData, [name]: value }));
+    setNewFormData((prevData) => ({ ...prevData, [name]: value }));
     setValidationErrors((prevErrors) => ({ ...prevErrors, [name]: "" }));
   };
 
-  const addMember = async (e) => {
+  const saveTeamMember = async (e) => {
     e.preventDefault();
     try {
       teamMemberSchema.parse(formData);
       try {
-        const response = await fetch("/api/v1/addTeamMember", {
-          method: "POST",
+        setLoading(true);
+        const response = await fetch(`/api/v1/editTeamMember/${params.id}`, {
+          method: "PUT",
           headers: {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            name: formData.name,
-            designation: formData.designation,
-            email: formData.email,
-            ...(formData.linkedin && { linkedin: formData.linkedin }),
-            ...(uploadedImageUrl && { image: uploadedImageUrl }),
+            name: newFormData.name === formData.name ? null : newFormData.name,
+            designation:
+              newFormData.designation === formData.designation
+                ? null
+                : newFormData.designation,
+            email:
+              newFormData.email === formData.email ? null : newFormData.email,
+            ...(newFormData.linkedin !== formData.linkedin && {
+              linkedin: newFormData.linkedin,
+            }),
+            ...(newUploadedImageUrl !== uploadedImageUrl && {
+              image: newUploadedImageUrl,
+            }),
           }),
         });
 
@@ -89,7 +144,7 @@ const AddTeamMember = () => {
           setError(data.message || "Something went wrong.");
           throw new Error(data.message || "Something went wrong.");
         }
-        setSuccess("Team member added successfully. You can add more members.");
+        setSuccess("Team member updated successfully");
         setError("");
         setTimeout(() => {
           setLoading(false);
@@ -101,13 +156,42 @@ const AddTeamMember = () => {
       }
     } catch (err) {
       if (err.errors) {
-        // Mapping the error messages to the respective fields
         const newValidationErrors = {};
         err.errors.forEach((errr) => {
           newValidationErrors[errr.path[0]] = errr.message;
         });
         setValidationErrors(newValidationErrors);
       }
+    }
+  };
+
+  const DeleteMember = async (e) => {
+    setDeleteLoading(true);
+    e.preventDefault();
+    try {
+      const response = await fetch(`/api/v1/removeTeamMember/${params.id}`, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      const data = await response.json();
+      if (!response.ok) {
+        setDeleteLoading(false);
+        setShowDeletePopup(false);
+        setError(data.message || "Something went wrong.");
+        throw new Error(data.message || "Something went wrong.");
+      }
+      setTimeout(() => {
+        setDeleteLoading(false);
+        setShowDeletePopup(false);
+        router.push("/admin/team");
+      }, 3000);
+    } catch (err) {
+      setDeleteLoading(false);
+      setShowDeletePopup(false);
+      setError(`${err}`);
     }
   };
 
@@ -132,7 +216,7 @@ const AddTeamMember = () => {
           className="md:text-3xl text-2xl font-semibold ms-2"
           style={{ fontFamily: "Sofia Pro Light" }}
         >
-          Add Member
+          Team Member Details
         </h1>
         <X
           onClick={() => router.push("/admin/team")}
@@ -147,12 +231,14 @@ const AddTeamMember = () => {
           >
             <Image
               className="object-cover rounded-lg"
-              src={uploadedImageUrl || "/images/addTeamMemberPlaceholder.png"}
+              src={
+                newUploadedImageUrl || "/images/addTeamMemberPlaceholder.png"
+              }
               alt="addMember"
               fill
             />
           </button>
-          {uploadedImageUrl && (
+          {newUploadedImageUrl && (
             <button
               className="text-md text-red-500 cursor-pointer underline"
               onClick={() => document.getElementById("fileInput").click()}
@@ -182,7 +268,7 @@ const AddTeamMember = () => {
             <input
               id="nameInput"
               onChange={handleChange}
-              value={formData.name}
+              value={newFormData.name}
               name="name"
               type="text"
               placeholder="John Smith"
@@ -203,7 +289,7 @@ const AddTeamMember = () => {
             <input
               id="designationInput"
               onChange={handleChange}
-              value={formData.designation}
+              value={newFormData.designation}
               name="designation"
               type="text"
               placeholder="Manager"
@@ -224,7 +310,7 @@ const AddTeamMember = () => {
             <input
               id="emailInput"
               onChange={handleChange}
-              value={formData.email}
+              value={newFormData.email}
               name="email"
               type="text"
               placeholder="john@gmail.com"
@@ -245,7 +331,7 @@ const AddTeamMember = () => {
             <input
               id="linkedinInput"
               onChange={handleChange}
-              value={formData.linkedin}
+              value={newFormData.linkedin}
               name="linkedin"
               type="text"
               placeholder="Linkdin url"
@@ -258,23 +344,72 @@ const AddTeamMember = () => {
         </form>
         <div></div>
       </div>
-      <button
-        onClick={addMember}
-        disabled={!formData.name || !formData.designation || !formData.email} // Disable the button if any required field is empty
-        className={`md:relative fixed bottom-0 mt-10 md:rounded-3xl rounded-none px-5 py-1 text-2xl md:w-fit w-full font-medium text-center self-center ${
-          !formData.name || !formData.designation || !formData.email
-            ? "bg-gray-400 text-white cursor-not-allowed" // Disabled styles
-            : "text-white bg-[#1e3432] hover:bg-[#172625] cursor-pointer" // Active styles
-        } md:border-2 border-none border-[#fac16a] transition-all ease-in-out duration-200`}
-        style={{ fontFamily: "Sofia Pro Light" }}
-      >
-        <div className="flex flex-row items-center justify-center gap-3">
-          {loading && <LoadingSpinner />}
-          <span>Save</span>
+      <div className="md:relative w-full fixed bottom-0 flex flex-col md:flex-row items-center justify-center md:gap-2">
+        <button
+          onClick={saveTeamMember}
+          disabled={
+            formData.name === newFormData.name &&
+            formData.designation === newFormData.designation &&
+            formData.email === newFormData.email &&
+            formData.linkedin === newFormData.linkedin &&
+            uploadedImageUrl === newUploadedImageUrl
+          } // Disable the button if all fields are the same
+          className={`mt-10 md:rounded-3xl rounded-none px-5 py-1 text-2xl md:w-fit w-full font-medium text-center self-center ${
+            formData.name === newFormData.name &&
+            formData.designation === newFormData.designation &&
+            formData.email === newFormData.email &&
+            formData.linkedin === newFormData.linkedin &&
+            uploadedImageUrl === newUploadedImageUrl
+              ? "bg-gray-400 text-white cursor-not-allowed" // Disabled styles
+              : "text-white bg-[#1e3432] hover:bg-[#172625] cursor-pointer" // Active styles
+          } md:border-2 border-none border-[#fac16a] transition-all ease-in-out duration-200`}
+          style={{ fontFamily: "Sofia Pro Light" }}
+        >
+          <div className="flex flex-row items-center justify-center gap-3">
+            {loading && <LoadingSpinner />}
+            <span>Save</span>
+          </div>
+        </button>
+        <button
+          onClick={() => setShowDeletePopup(true)}
+          className="mt-0 md:mt-10 md:rounded-3xl rounded-none px-8 py-2 text-2xl md:w-fit w-full font-medium text-center self-center text-white bg-red-500 hover:bg-red-900 cursor-pointer "
+          style={{ fontFamily: "Sofia Pro Light" }}
+        >
+          <div className="w-full flex items-center justify-center">
+            <Trash2 />
+          </div>
+        </button>
+      </div>
+
+      {showDeletePopup && (
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
+          <div className="bg-white p-6 rounded-lg shadow-lg">
+            <h2 className="text-xl font-semibold mb-4">Confirm Deletion</h2>
+            <p className="mb-6">
+              Are you sure you want to delete this team member?
+            </p>
+            <div className="flex justify-end gap-4">
+              <button
+                onClick={() => setShowDeletePopup(false)}
+                className="px-4 py-2 bg-gray-300 rounded hover:bg-gray-400"
+              >
+                Cancel
+              </button>
+              <button
+                onClick={DeleteMember}
+                className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600"
+              >
+                <div className="flex items-center justify-center gap-2">
+                  {deleteLoading && <LoadingSpinner />}
+                  <span>Delete</span>
+                </div>
+              </button>
+            </div>
+          </div>
         </div>
-      </button>
+      )}
     </div>
   );
 };
 
-export default AddTeamMember;
+export default EditTeam;
