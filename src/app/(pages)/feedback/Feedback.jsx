@@ -1,11 +1,13 @@
 "use client";
 
 import { useState } from "react";
+import { toast } from "react-toastify";
 import styles from "./feedback.module.scss";
 
 const Feedback = () => {
   const [selectedOption, setSelectedOption] = useState("");
   const [content, setContent] = useState("");
+  const [submitting, setSubmitting] = useState(false);
 
   const options = ["Loved it", "Great", "Neutral", "Disappointing", "Terrible"];
   const handleRadioChange = (e) => {
@@ -15,7 +17,7 @@ const Feedback = () => {
   };
 
   const addTest = async () => {
-    fetch(`/api/v1/addTestimonial`, {
+    const res = await fetch(`/api/v1/addTestimonial`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -24,7 +26,15 @@ const Feedback = () => {
         content,
         rating: 5 - options.indexOf(selectedOption),
       }),
-    }).then((res) => res.json());
+    });
+    const data = await res.json();
+    console.log(data);
+    if (data.testimonial) {
+      toast.success("Feedback submitted successfully");
+    } else {
+      toast.error("Error in submitting feedback");
+    }
+    setSubmitting(false);
   };
 
   return (
@@ -60,7 +70,10 @@ const Feedback = () => {
             placeholder="Share your feedback with us"
           ></textarea>
           <button
+            className={submitting ? "bg-[#a1a1a1] cursor-not-allowed" : ""}
+            disabled={submitting}
             onClick={() => {
+              setSubmitting(true);
               addTest();
             }}
           >

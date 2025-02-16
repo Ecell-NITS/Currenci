@@ -1,5 +1,11 @@
 import mongoose, { Document, Schema } from "mongoose";
 
+interface IUser {
+  _id: string;
+  imgUrl?: string;
+  role?: string;
+}
+
 export interface ITestimonial extends Document {
   content: string;
   username: string;
@@ -7,6 +13,7 @@ export interface ITestimonial extends Document {
   createdAt: Date;
   isApproved: boolean;
   updatedAt: Date;
+  user: IUser;
 }
 
 const TestimonialSchema: Schema = new Schema({
@@ -20,6 +27,11 @@ const TestimonialSchema: Schema = new Schema({
   },
   username: {
     type: String,
+    required: true,
+  },
+  user: {
+    type: Schema.Types.ObjectId,
+    ref: "users",
     required: true,
   },
   createdAt: {
