@@ -25,6 +25,7 @@ const Testimonials = () => {
   const [test, setTest] = useState<ITestimonial[]>([]);
   const [disp, setDisp] = useState<ITestimonial[]>([]);
   const [current, setCurrent] = useState<ITestimonial | null>(null);
+  const [publishing, setPublishing] = useState(false);
   const router = useRouter();
   const options = [
     "Loved it!",
@@ -34,11 +35,14 @@ const Testimonials = () => {
     "Terrible",
   ];
   const approve = async (id) => {
+    setPublishing(true);
     const resp = await fetch("/api/v1/getUser");
     const info = await resp.json();
-    if (info.role !== "admin" || info.role !== "superadmin") {
+    console.log(info);
+    if (info.role !== "admin" && info.role !== "superadmin") {
       toast.error("You're not authenticated");
       setTimeout(() => {
+        setPublishing(false);
         router.push("/");
       }, 1000);
       return;
@@ -49,9 +53,34 @@ const Testimonials = () => {
         "Content-Type": "application/json",
       },
     })
-      .then((res) => res.json())
+      .then((res) => {
+        if (res.status === 403) {
+          toast.error("You're not autorized");
+          return;
+        }
+        res.json();
+      })
       .then(() => {
         const x = test.filter((item) => item._id !== id);
+        toast.success("Published successfully", {
+          position: "top-right",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          theme: "colored",
+          style: {
+            backgroundColor: "#1E3432",
+            maxWidth: "90%",
+            padding: "10px",
+            margin: "10px",
+            width: "200px",
+            fontSize: "16px",
+            color: "#ffffff",
+          },
+        });
+        setPublishing(false);
         setTest(x);
         setDisp(x);
         setCurrent(null);
@@ -173,29 +202,12 @@ const Testimonials = () => {
             <button
               onClick={() => {
                 approve(current._id);
-                toast.success("Published successfully", {
-                  position: "top-right",
-                  autoClose: 3000,
-                  hideProgressBar: false,
-                  closeOnClick: true,
-                  pauseOnHover: true,
-                  draggable: true,
-                  theme: "colored",
-                  style: {
-                    backgroundColor: "#1E3432",
-                    maxWidth: "90%",
-                    padding: "10px",
-                    margin: "10px",
-                    width: "200px",
-                    fontSize: "16px",
-                    color: "#ffffff",
-                  },
-                });
               }}
+              disabled={publishing}
               style={{ fontFamily: "Sofia Pro Medium" }}
-              className="cursor-pointer px-4 py-1 bg-[#14342F] text-xl mt-4 text-white rounded-full border border-[#F2B263]"
+              className={`cursor-pointer px-4 py-1 bg-[#14342F] text-xl mt-4 text-white rounded-full border border-[#F2B263] ${publishing ? "opacity-75" : ""}`}
             >
-              Publish
+              {publishing ? "Publishing" : "Publish"}
             </button>
           )}
         </div>

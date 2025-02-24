@@ -17,6 +17,11 @@ const Feedback = () => {
   };
 
   const addTest = async () => {
+    if (!content) {
+      setSubmitting(false);
+      toast.error("Cannot submit empty feedback");
+      return;
+    }
     const res = await fetch(`/api/v1/addTestimonial`, {
       method: "POST",
       headers: {
@@ -28,11 +33,11 @@ const Feedback = () => {
       }),
     });
     const data = await res.json();
-    console.log(data);
+    console.log(res);
     if (data.testimonial) {
       toast.success("Feedback submitted successfully");
-    } else {
-      toast.error("Error in submitting feedback");
+    } else if (res.status === 403) {
+      toast.error("Please sign in to submit feedback");
     }
     setSubmitting(false);
   };
@@ -77,7 +82,7 @@ const Feedback = () => {
               addTest();
             }}
           >
-            Submit
+            {submitting ? "Submitting" : "Submit"}
           </button>
         </div>
       </div>

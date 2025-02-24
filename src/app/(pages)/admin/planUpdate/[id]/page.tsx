@@ -11,8 +11,10 @@ const planUpdate = () => {
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
   const [days, setDays] = useState("");
+  const [saving, setSaving] = useState(false);
 
   const updatePlan = async () => {
+    setSaving(true);
     const resp = await fetch("/api/v1/getUser");
     const info = await resp.json();
     if (info.role !== "admin" || info.role !== "superadmin") {
@@ -20,6 +22,7 @@ const planUpdate = () => {
       setTimeout(() => {
         router.push("/");
       }, 1000);
+      setSaving(false);
       return;
     }
     const res = await fetch(`/api/v1/updatePlan/${params.id}`, {
@@ -34,6 +37,7 @@ const planUpdate = () => {
       toast.success("Plan Successfully edited");
       router.push("/pricing");
     }
+    setSaving(false);
   };
 
   useEffect(() => {
@@ -91,10 +95,11 @@ const planUpdate = () => {
             />
           </div>
           <button
-            className="cursor-pointer px-[4vw] py-[1vw] bg-[#14342F] md:text-3xl text-xl text-white rounded-full w-[25%]"
+            disabled={saving}
+            className={`cursor-pointer px-[4vw] py-[1vw] bg-[#14342F] md:text-3xl text-xl text-white rounded-full w-[25%] ${saving ? "opacity-75" : ""}`}
             onClick={() => updatePlan()}
           >
-            Save
+            {saving ? "Saving" : "Save"}
           </button>
         </div>
       </div>

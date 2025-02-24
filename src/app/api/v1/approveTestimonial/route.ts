@@ -27,7 +27,7 @@ export async function PUT(req: NextRequest) {
   try {
     const decoded = jwt.verify(token, process.env.JWT_TOKEN_SECRET);
 
-    if (decoded.role !== "admin" || decoded.role !== "superadmin") {
+    if (decoded.role !== "admin" && decoded.role !== "superadmin") {
       return NextResponse.json(
         { message: "Forbidden: Admin access required" },
         { status: 403 },
