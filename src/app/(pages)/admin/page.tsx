@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import NavbarAdmin from "../../components/NavbarAdmin";
 
 interface ITestimonial {
+  _id: string;
   content: string;
   username: string;
   rating: number;
@@ -13,21 +14,6 @@ interface ITestimonial {
 function truncateText(text, maxLength = 100) {
   return text.length > maxLength ? `${text.slice(0, maxLength)}...` : text;
 }
-
-const testData: ITestimonial[] = [
-  {
-    content:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sorem ipsum dolor sit amet, consectetur adipiscing elit.Sorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    username: "test",
-    rating: 5,
-  },
-  {
-    content:
-      "lorem ipsum dolor sit amet, consectetur adipiscing elit. Sorem ipsum dolor sit amet, consectetur adipiscing elit.Sorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    username: "test",
-    rating: 3,
-  },
-];
 
 const Team = () => {
   const [test, setTest] = useState<ITestimonial[]>();
@@ -41,8 +27,13 @@ const Team = () => {
   const router = useRouter();
 
   useEffect(() => {
-    setTest(testData);
-  }, [testData]);
+    const fetchTest = async () => {
+      const res = await fetch(`/api/v1/getAllTestimonial`);
+      const data = await res.json();
+      setTest(data);
+    };
+    fetchTest();
+  }, []);
 
   return (
     <>
@@ -74,7 +65,7 @@ const Team = () => {
             Add Member
           </button>
         </div>
-        <div className="md:w-[50%] w-full flex flex-col border-black border-2 rounded-sm p-6">
+        <div className="md:w-[50%] w-full h-[70vh] overflow-y-scroll overflow-x-hidden flex flex-col border-black border-2 rounded-sm p-6">
           <button className="bg-[#1E3432] w-fit text-[#FAC16A] text-lg px-4 py-2 rounded-md flex gap-2 items-center hover:cursor-pointer">
             <p>Total Reviews</p>
             <span className="rounded-full px-2 aspect-square flex justify-center items-center bg-white text-black">
@@ -86,7 +77,7 @@ const Team = () => {
           {test &&
             test.map((item) => (
               <div
-                key={item.username + item.content.substring(0, 10).toString()}
+                key={item._id}
                 className="border-[#D1D1D1] mb-2 border rounded-md p-4 pb-6 relative text-sm"
               >
                 <p>{options[5 - item.rating]}</p>
