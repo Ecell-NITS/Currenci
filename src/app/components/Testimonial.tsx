@@ -101,8 +101,8 @@ export default function Testimonial() {
                     ></Image>
                     <div className="text-white xLarge:text-4xl text-2xl mt-5">
                       <p style={{ fontFamily: "Sofia Pro Regular" }}>
-                        {item.user.role === "admin" ||
-                        item.user.role === "superadmin"
+                        {item?.user?.role === "admin" ||
+                        item?.user?.role === "superadmin"
                           ? "Admin at Currenci"
                           : "Client at Currenci"}
                       </p>
@@ -178,7 +178,7 @@ export default function Testimonial() {
                   <div>
                     <Image
                       src={
-                        item.user.imageUrl
+                        item?.user?.imageUrl
                           ? item.user.imageUrl
                           : "https://4kwallpapers.com/images/wallpapers/batman-dc-superheroes-dc-comics-cosplay-2048x2048-954.jpg"
                       }
