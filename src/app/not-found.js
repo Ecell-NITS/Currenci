@@ -1,5 +1,11 @@
 import Image from "next/image";
 
+export const metadata = {
+  title: "Currenci | Not Found",
+  description:
+    "Currenci is a cutting-edge financial company providing innovative solutions to help you manage, grow, and optimize your finances. The page requested does not exist on Currenci yet.",
+};
+
 export default function PageNotFound() {
   return (
     <div className="flex flex-col items-center justify-center min-h-[calc(100vh-64px)] bg-[#F9FAFB] text-center text-gray-800 px-5 pt-20">
