@@ -4,6 +4,7 @@ import Image from "next/image";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import { useCallback, useEffect, useState } from "react";
+import { ITestimonial } from "../../model/Testimonial";
 
 const useDotButton = (emblaApi) => {
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -50,86 +51,6 @@ const DotButton = (props) => {
   );
 };
 
-const testData = [
-  {
-    user: {
-      userId: 1,
-      name: "Batman",
-      role: "CEO at Doe",
-      image:
-        "https://4kwallpapers.com/images/wallpapers/batman-dc-superheroes-dc-comics-cosplay-2048x2048-954.jpg",
-    },
-    content:
-      "Lorem ipsum dolor sit amet consectetur. Id vitae viverra habitant quam. Commodo ultrices phasellus morbi nunc. Parturient amet massa nunc ac sem sit. Id dignissim malesuada volutpat morbi. Eu phasellus urna lorem nunc orci est feugiat ut fringilla.Lorem ipsum dolor sit amet consectetur. Id vitae viverra habitant quam. Commodo ultrices phasellus morbi nunc. Parturient amet massa nunc ac sem sit. Id dignissim malesuada volutpat morbi. Eu phasellus urna lorem nunc orci est feugiat ut fringilla.",
-  },
-  {
-    user: {
-      userId: 2,
-      name: "Batman",
-      role: "CEO at Doe",
-      image:
-        "https://4kwallpapers.com/images/wallpapers/batman-dc-superheroes-dc-comics-cosplay-2048x2048-954.jpg",
-    },
-    content:
-      "Lorem ipsum dolor sit amet consectetur. Id vitae viverra habitant quam. Commodo ultrices phasellus morbi nunc. Parturient amet massa nunc ac sem sit. Id dignissim malesuada volutpat morbi. Eu phasellus urna lorem nunc orci est feugiat ut fringilla.Lorem ipsum dolor sit amet consectetur. Id vitae viverra habitant quam. Commodo ultrices phasellus morbi nunc. Parturient amet massa nunc ac sem sit. Id dignissim malesuada volutpat morbi. Eu phasellus urna lorem nunc orci est feugiat ut fringilla.",
-  },
-  {
-    user: {
-      userId: 3,
-      name: "Batman",
-      role: "CEO at Doe",
-      image:
-        "https://4kwallpapers.com/images/wallpapers/batman-dc-superheroes-dc-comics-cosplay-2048x2048-954.jpg",
-    },
-    content:
-      "Lorem ipsum dolor sit amet consectetur. Id vitae viverra habitant quam. Commodo ultrices phasellus morbi nunc. Parturient amet massa nunc ac sem sit. Id dignissim malesuada volutpat morbi. Eu phasellus urna lorem nunc orci est feugiat ut fringilla.Lorem ipsum dolor sit amet consectetur. Id vitae viverra habitant quam. Commodo ultrices phasellus morbi nunc. Parturient amet massa nunc ac sem sit. Id dignissim malesuada volutpat morbi. Eu phasellus urna lorem nunc orci est feugiat ut fringilla.",
-  },
-  {
-    user: {
-      userId: 4,
-      name: "Batman",
-      role: "CEO at Doe",
-      image:
-        "https://4kwallpapers.com/images/wallpapers/batman-dc-superheroes-dc-comics-cosplay-2048x2048-954.jpg",
-    },
-    content:
-      "Lorem ipsum dolor sit amet consectetur. Id vitae viverra habitant quam. Commodo ultrices phasellus morbi nunc. Parturient amet massa nunc ac sem sit. Id dignissim malesuada volutpat morbi. Eu phasellus urna lorem nunc orci est feugiat ut fringilla.Lorem ipsum dolor sit amet consectetur. Id vitae viverra habitant quam. Commodo ultrices phasellus morbi nunc. Parturient amet massa nunc ac sem sit. Id dignissim malesuada volutpat morbi. Eu phasellus urna lorem nunc orci est feugiat ut fringilla.",
-  },
-  {
-    user: {
-      userId: 5,
-      name: "Batman",
-      role: "CEO at Doe",
-      image:
-        "https://4kwallpapers.com/images/wallpapers/batman-dc-superheroes-dc-comics-cosplay-2048x2048-954.jpg",
-    },
-    content:
-      "Lorem ipsum dolor sit amet consectetur. Id vitae viverra habitant quam. Commodo ultrices phasellus morbi nunc. Parturient amet massa nunc ac sem sit. Id dignissim malesuada volutpat morbi. Eu phasellus urna lorem nunc orci est feugiat ut fringilla.Lorem ipsum dolor sit amet consectetur. Id vitae viverra habitant quam. Commodo ultrices phasellus morbi nunc. Parturient amet massa nunc ac sem sit. Id dignissim malesuada volutpat morbi. Eu phasellus urna lorem nunc orci est feugiat ut fringilla.",
-  },
-  {
-    user: {
-      userId: 6,
-      name: "Batman",
-      role: "CEO at Doe",
-      image:
-        "https://4kwallpapers.com/images/wallpapers/batman-dc-superheroes-dc-comics-cosplay-2048x2048-954.jpg",
-    },
-    content:
-      "Lorem ipsum dolor sit amet consectetur. Id vitae viverra habitant quam. Commodo ultrices phasellus morbi nunc. Parturient amet massa nunc ac sem sit. Id dignissim malesuada volutpat morbi. Eu phasellus urna lorem nunc orci est feugiat ut fringilla.Lorem ipsum dolor sit amet consectetur. Id vitae viverra habitant quam. Commodo ultrices phasellus morbi nunc. Parturient amet massa nunc ac sem sit. Id dignissim malesuada volutpat morbi. Eu phasellus urna lorem nunc orci est feugiat ut fringilla.",
-  },
-  {
-    user: {
-      userId: 7,
-      name: "Batman",
-      role: "CEO at Doe",
-      image:
-        "https://4kwallpapers.com/images/wallpapers/batman-dc-superheroes-dc-comics-cosplay-2048x2048-954.jpg",
-    },
-    content:
-      "Lorem ipsum dolor sit amet consectetur. Id vitae viverra habitant quam. Commodo ultrices phasellus morbi nunc. Parturient amet massa nunc ac sem sit. Id dignissim malesuada volutpat morbi. Eu phasellus urna lorem nunc orci est feugiat ut fringilla.Lorem ipsum dolor sit amet consectetur. Id vitae viverra habitant quam. Commodo ultrices phasellus morbi nunc. Parturient amet massa nunc ac sem sit. Id dignissim malesuada volutpat morbi. Eu phasellus urna lorem nunc orci est feugiat ut fringilla.",
-  },
-];
-
 const truncateText = (text, maxWords) => {
   const words = text.split(" ");
   if (words.length > maxWords) {
@@ -139,17 +60,26 @@ const truncateText = (text, maxWords) => {
 };
 
 export default function Testimonial() {
+  const [test, setTest] = useState<ITestimonial[]>([]);
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [Autoplay()]);
   const { selectedIndex, scrollSnaps, onDotButtonClick } =
     useDotButton(emblaApi);
+  useEffect(() => {
+    const fetchTest = async () => {
+      const res = await fetch(`/api/v1/getApprovedTestimonial`);
+      const data = await res.json();
+      setTest(data);
+    };
+    fetchTest();
+  }, []);
   return (
     <section>
       <div className="mt-12 w-screen overflow-hidden" ref={emblaRef}>
         <div className="flex">
-          {testData.map((item, index) => (
+          {test.map((item, index) => (
             <div
               className="min-w-0 flex-[0_0_60vw] md:flex-[0_0_100%] flex justify-center"
-              key={item.user.userId}
+              key={String(item._id)}
             >
               <div
                 style={{ aspectRatio: "8/3" }}
@@ -157,7 +87,11 @@ export default function Testimonial() {
               >
                 <div className="w-[26%] relative">
                   <Image
-                    src={item.user.image}
+                    src={
+                      item.user.imgUrl
+                        ? item.user.imgUrl
+                        : "https://4kwallpapers.com/images/wallpapers/batman-dc-superheroes-dc-comics-cosplay-2048x2048-954.jpg"
+                    }
                     alt="batman"
                     height={300}
                     width={300}
@@ -165,10 +99,13 @@ export default function Testimonial() {
                   ></Image>
                   <div className="text-white xLarge:text-4xl text-2xl mt-5">
                     <p style={{ fontFamily: "Sofia Pro Regular" }}>
-                      {item.user.role}
+                      {item.user.role === "admin" ||
+                      item.user.role === "superadmin"
+                        ? "Admin at Currenci"
+                        : "Client at Currenci"}
                     </p>
                     <p style={{ fontFamily: "Sofia Pro Light" }}>
-                      {item.user.name}
+                      {item.username}
                     </p>
                   </div>
                 </div>
@@ -238,7 +175,11 @@ export default function Testimonial() {
               >
                 <div>
                   <Image
-                    src={item.user.image}
+                    src={
+                      item.user.imgUrl
+                        ? item.user.imgUrl
+                        : "https://4kwallpapers.com/images/wallpapers/batman-dc-superheroes-dc-comics-cosplay-2048x2048-954.jpg"
+                    }
                     alt="batman"
                     height={300}
                     width={300}
@@ -248,7 +189,7 @@ export default function Testimonial() {
                     className="text-white  md:text-black text-[0.9rem]"
                     style={{ fontFamily: "Sofia Pro Regular" }}
                   >
-                    {item.user.name}
+                    {item.username}
                   </p>
                 </div>
                 <div className="w-[70%] mt-[0.8rem]">
@@ -267,7 +208,7 @@ export default function Testimonial() {
       <div className="w-screen md:flex justify-center mt-4 hidden">
         {scrollSnaps.map((_, index) => (
           <DotButton
-            key={testData[index].user.userId}
+            key={test[index]._id}
             onClick={() => onDotButtonClick(index)}
             className={"h-3 w-3 mx-1 rounded-full bg-[#14342F]".concat(
               index === selectedIndex ? " bg-[#F2B263]" : "",
