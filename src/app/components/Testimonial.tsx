@@ -67,6 +67,7 @@ export default function Testimonial() {
   useEffect(() => {
     const fetchTest = async () => {
       const res = await fetch(`/api/v1/getApprovedTestimonial`);
+      console.log(res);
       const data = await res.json();
       setTest(data);
     };
@@ -88,8 +89,8 @@ export default function Testimonial() {
                 <div className="w-[26%] relative">
                   <Image
                     src={
-                      item.user.imgUrl
-                        ? item.user.imgUrl
+                      item.user.imageUrl
+                        ? item.user.imageUrl
                         : "https://4kwallpapers.com/images/wallpapers/batman-dc-superheroes-dc-comics-cosplay-2048x2048-954.jpg"
                     }
                     alt="batman"
@@ -176,8 +177,8 @@ export default function Testimonial() {
                 <div>
                   <Image
                     src={
-                      item.user.imgUrl
-                        ? item.user.imgUrl
+                      item.user.imageUrl
+                        ? item.user.imageUrl
                         : "https://4kwallpapers.com/images/wallpapers/batman-dc-superheroes-dc-comics-cosplay-2048x2048-954.jpg"
                     }
                     alt="batman"
