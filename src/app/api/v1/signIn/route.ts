@@ -42,6 +42,9 @@ export async function POST(req: NextRequest) {
       { status: 200 },
     );
 
+    if (user.role === "admin") {
+      response.cookies.set("adminToken", token, { httpOnly: true, path: "/" });
+    }
     response.cookies.set("signInToken", token, { httpOnly: true, path: "/" });
 
     return response;
