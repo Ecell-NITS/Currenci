@@ -131,13 +131,13 @@ export default function Footer() {
           {/* Book an Appointment */}
           <a
             href="https://api.whatsapp.com/send?phone=916026765255"
-            className="px-6 py-1 border-2 border-[#F2B263] text-sm rounded-full text-white hover:bg-[#F2B263] hover:text-[#14342F] transition"
+            className="px-6 py-1 mb-4 border-2 border-[#F2B263] text-sm rounded-full text-white hover:bg-[#F2B263] hover:text-[#14342F] transition"
           >
             Book an Appointment
           </a>
 
           {/* Grid Layout for Mobile View */}
-          <div className="grid grid-cols-2 gap-10 w-[52%]">
+          <div className="grid grid-cols-2 gap-10 w-[73%]">
             {sections.map(({ title, links }, index) => (
               <div
                 key={title}
@@ -149,14 +149,8 @@ export default function Footer() {
                 <ul className="space-y-1 text-xs text-[#cccccc] whitespace-nowrap">
                   {links.map(({ name, href }) => (
                     <li key={name}>
-                      {/* <button
-                        onClick={() => handleScroll(href.replace("#", ""))}
-                        className="hover:text-[#F2B263]"
-                      >
-                        {name}
-                      </button> */}
                       <button
-                        onClick={() => handleScroll(href.substring(1))} // Remove '#' from href
+                        onClick={() => handleScroll(href.substring(1))}
                         className="hover:text-[#F2B263] cursor-pointer bg-transparent border-none"
                       >
                         {name}
@@ -170,10 +164,7 @@ export default function Footer() {
             {/* Socials */}
             <div>
               <h3 className="text-sm font-bold ml-11">Socials</h3>
-              <div
-                className="grid grid-cols-2 gap-0 ml-6"
-                style={{ width: "70px" }}
-              >
+              <div className="flex gap-4 ml-10 mt-2">
                 {socialLinks.map(({ name, url, icon }) => (
                   <a
                     key={name}
@@ -181,7 +172,6 @@ export default function Footer() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="hover:text-[#F2B263] flex items-center justify-center w-12 h-10"
-                    style={{ margin: 0, padding: 0 }}
                   >
                     <Icon icon={icon} width={25} height={25} />
                   </a>
