@@ -137,12 +137,9 @@ export default function Footer() {
           </a>
 
           {/* Grid Layout for Mobile View */}
-          <div className="grid grid-cols-2 gap-10 w-[52%]">
-            {sections.map(({ title, links }, index) => (
-              <div
-                key={title}
-                className={index === 1 || index === 3 ? "ml-11" : ""}
-              >
+          <div className="grid grid-cols-2 gap-10 w-[80%] justify-evenly">
+            {sections.map(({ title, links }) => (
+              <div key={title}>
                 <h3 className="text-sm font-bold mb-4 whitespace-nowrap">
                   {title}
                 </h3>
@@ -169,10 +166,10 @@ export default function Footer() {
 
             {/* Socials */}
             <div>
-              <h3 className="text-sm font-bold ml-11">Socials</h3>
+              <h3 className="text-sm font-bold mb-4">Socials</h3>
               <div
-                className="grid grid-cols-2 gap-0 ml-6"
-                style={{ width: "70px" }}
+                className="grid grid-cols-3 justiy-center gap-4 w-fit"
+                // style={{ width: "70px" }}
               >
                 {socialLinks.map(({ name, url, icon }) => (
                   <a
@@ -180,7 +177,7 @@ export default function Footer() {
                     href={url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="hover:text-[#F2B263] flex items-center justify-center w-12 h-10"
+                    className="hover:text-[#F2B263] flex items-center justify-center w-10"
                     style={{ margin: 0, padding: 0 }}
                   >
                     <Icon icon={icon} width={25} height={25} />
