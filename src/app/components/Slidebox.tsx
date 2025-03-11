@@ -17,7 +17,7 @@ export default function SlideBox({ children, side }) {
           element?.classList.remove("opacity-0");
         }
       },
-      { threshold: 1 },
+      { threshold: 0.15 },
     );
 
     if (element) observer.observe(element);

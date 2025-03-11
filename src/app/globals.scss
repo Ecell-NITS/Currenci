@@ -14,6 +14,9 @@ body {
 
 html {
   scroll-padding-top: 5rem; /* Adjust this based on your navbar height */
+
+  scroll-behavior: smooth !important;
+  -webkit-font-smoothing: antialiased;
 }
 
 @font-face {

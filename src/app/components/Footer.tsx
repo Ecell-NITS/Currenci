@@ -40,6 +40,7 @@ const sections: Section[] = [
     links: [
       { name: "Why Trust Us?", href: "#testimonial" },
       { name: "Our Clients", href: "#testimonial" },
+      { name: "Leave a Feedback", href: "/feedback" },
     ],
   },
 ];
