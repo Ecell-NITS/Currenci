@@ -35,7 +35,7 @@ export async function PUT(req: NextRequest) {
     }
     const testimonial = await Testimonial.findByIdAndUpdate(
       testimonialId,
-      { isApproved: true },
+      { isApproved: false },
       { new: true },
     );
 
@@ -45,6 +45,7 @@ export async function PUT(req: NextRequest) {
         { status: 404 },
       );
     }
+
     const testimonials = await Testimonial.find({});
 
     return NextResponse.json(testimonials, { status: 200 });
