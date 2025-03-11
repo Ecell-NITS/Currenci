@@ -1,3 +1,4 @@
+import jwt from "jsonwebtoken";
 import { NextRequest, NextResponse } from "next/server";
 import dbConnect from "../../../../lib/dbConnect";
 import Testimonial from "../../../../model/Testimonial";
@@ -10,6 +11,15 @@ export async function DELETE(req: NextRequest) {
     );
   }
 
+  const token = req.cookies.get("signInToken")?.value || "";
+
+  if (!token) {
+    return NextResponse.json(
+      { message: "Unauthorized: No token provided" },
+      { status: 401 },
+    );
+  }
+
   const { searchParams } = req.nextUrl;
   const testimonialId = searchParams.get("Id");
 
@@ -17,6 +27,14 @@ export async function DELETE(req: NextRequest) {
   await dbConnect();
 
   try {
+    const decoded = jwt.verify(token, process.env.JWT_TOKEN_SECRET);
+
+    if (decoded.role !== "admin" && decoded.role !== "superadmin") {
+      return NextResponse.json(
+        { message: "Forbidden: Admin access required" },
+        { status: 403 },
+      );
+    }
     const deletedTestimonial =
       await Testimonial.findByIdAndDelete(testimonialId);
 
@@ -27,12 +45,9 @@ export async function DELETE(req: NextRequest) {
         { status: 404 },
       );
     }
-
+    const testimonials = await Testimonial.find({});
     // Return a 204 No Content response on successful deletion
-    return NextResponse.json(
-      { message: "testimonial deleted successfully" },
-      { status: 200 },
-    ); // No content response
+    return NextResponse.json(testimonials, { status: 200 }); // No content response
   } catch (error) {
     console.error("Error deleting testimonial:", error); // Log the error for debugging
     return NextResponse.json(
