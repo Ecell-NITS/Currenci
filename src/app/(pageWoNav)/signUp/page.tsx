@@ -13,6 +13,7 @@ import VerificationCode from "../../components/Forms/otpForm";
 const SignUp = () => {
   const [isOtpSent, setIsOtpSent] = useState(false); // State to manage if OTP is sent or not
   const [formData, setFormData] = useState({
+    fullname: "",
     username: "",
     email: "",
     password: "",
@@ -79,6 +80,7 @@ const SignUp = () => {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
+            fullname: formData.fullname,
             username: formData.username,
             email: formData.email,
             password: formData.password,
@@ -205,7 +207,7 @@ const SignUp = () => {
         <X width="45px" height="45px" />
       </button>
       <div className={styles.logoContainer}>
-        <div className="relative w-full h-full max-w-[350px] md:max-w-[100] lg:max-w-[100%]">
+        <div className="relative w-full h-[70%] max-w-[350px] md:max-w-[100] lg:max-w-[100%]">
           <Image
             src="/images/logo.png"
             alt="logo"
@@ -221,6 +223,15 @@ const SignUp = () => {
             <Form
               title="Sign Up"
               fields={[
+                {
+                  label: "Full Name",
+                  type: "text",
+                  name: "fullname",
+                  value: formData.fullname,
+                  placeholder: "John Smith",
+                  validationError: validationErrors.fullname,
+                  onChange: handleChange,
+                },
                 {
                   label: "Username",
                   type: "text",
