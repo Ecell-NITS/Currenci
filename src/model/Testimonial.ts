@@ -2,7 +2,7 @@ import mongoose, { Document, Schema } from "mongoose";
 
 interface IUser {
   _id: string;
-  imgUrl?: string;
+  imageUrl?: string;
   role?: string;
 }
 
