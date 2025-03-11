@@ -1,3 +1,13 @@
+@font-face {
+  font-family: "Sofia Pro";
+  src:
+    url("/fonts/sofia-pro.woff2") format("woff2"),
+    url("/fonts/sofia-pro.woff") format("woff"),
+    url("/fonts/sofia-pro.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
 .devContainer {
   text-align: center;
   padding: 40px;
@@ -6,8 +16,8 @@
 
 .devContainer h1 {
   color: #1e3432;
-  margin-bottom: 20px;
-  font-size: 60px;
+  margin-top: 100px;
+  font-size: clamp(2rem, 5vw, 4rem);
 }
 .devGrid {
   display: flex;
@@ -36,18 +46,28 @@
   overflow: hidden;
   border-top-left-radius: 25px;
   border-top-right-radius: 25px;
+  object-fit: cover;
 }
 .devName {
-  color: gold;
-  font-size: 35px;
+  font-family: "Sofia Pro", sans-serif;
+  color: #f2b263;
+  font-weight: 400;
+  line-height: 100%;
+  text-align: center;
+  font-size: 27px;
   margin: 0;
-  padding: 0.3rem;
+  padding: 0.5rem;
 }
 .devRole {
-  font-size: 25px;
+  font-family: "Sofia Pro", sans-serif;
+  font-size: 20px;
+  line-height: 100%;
+  text-align: center;
   color: #ccc;
   margin: 0;
-  padding: 0.3rem;
+  padding: 0.5rem;
+  padding-bottom: 1rem;
+  font-weight: 400;
 }
 
 @media (max-width: 1000px) {
