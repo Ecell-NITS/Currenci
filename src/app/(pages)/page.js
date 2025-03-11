@@ -24,7 +24,7 @@ export default function Home() {
       </div>
       <div className="flex flex-col items-center justify-center md:mt-[2.5rem] mt-[1.5rem]">
         <h1
-          className="text-4xl text-center md:text-6xl text-gray-800"
+          className="text-2xl text-center md:text-6xl text-gray-800"
           style={{ fontFamily: "Sofia Pro Medium" }}
         >
           Valuing Today, Shaping Tomorrow
@@ -36,7 +36,7 @@ export default function Home() {
         className="md:mt-[6rem] mt-10  flex flex-col items-center"
       >
         <h1
-          className="text-4xl md:text-6xl text-gray-800"
+          className="text-4xl md:text-6xl text-center text-gray-800"
           style={{ fontFamily: "Sofia Pro Medium" }}
         >
           Our Areas of Expertise
