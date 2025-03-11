@@ -6,6 +6,7 @@ import { verifyOtp } from "../../../../helpers/verifyOtp";
 import UserModel from "../../../../model/User";
 
 const userSchema = z.object({
+  fullname: z.string().min(4, "Fullname must have at least 4 characteres"),
   username: z
     .string()
     .min(4, "Username must have at least 4 characteres")
@@ -24,7 +25,7 @@ const userSchema = z.object({
 export async function POST(req: NextRequest) {
   await dbConnect();
   try {
-    const { username, email, password, otp } = userSchema.parse(
+    const { fullname, username, email, password, otp } = userSchema.parse(
       await req.json(),
     );
 
@@ -62,6 +63,7 @@ export async function POST(req: NextRequest) {
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password, salt);
     const newUser = new UserModel({
+      fullname,
       username,
       email,
       password: hashedPassword,

@@ -1,21 +1,18 @@
 "use client";
 
-import { useParams, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import Image from "next/image";
-import { X, Trash2 } from "lucide-react";
+import { X } from "lucide-react";
 import { useEffect, useState } from "react";
-import ErrorText from "../../../../components/errorText";
-import SuccessText from "../../../../components/successText";
-import ErrorFormFieldText from "../../../../components/errorFormFieldText";
-import { teamMemberSchema } from "../../../../../schemas/teamMember";
-import LoadingSpinner from "../../../../components/loadingSpinner";
+import ErrorText from "../../components/errorText";
+import SuccessText from "../../components/successText";
+import ErrorFormFieldText from "../../components/errorFormFieldText";
+import { userSchema } from "../../../schemas/userSchema";
+import LoadingSpinner from "../../components/loadingSpinner";
 
 const EditTeam = () => {
-  const params = useParams();
   const router = useRouter();
-  const [showDeletePopup, setShowDeletePopup] = useState(false);
   const [loading, setLoading] = useState(false); // State to manage loading state of API Call
-  const [deleteLoading, setDeleteLoading] = useState(false); // State to manage loading state of API Call
   const [uploadedImageUrl, setUploadedImageUrl] = useState(null);
   const [newUploadedImageUrl, setNewUploadedImageUrl] = useState(null);
   const [error, setError] = useState("");
@@ -24,22 +21,20 @@ const EditTeam = () => {
     [key: string]: string;
   }>({}); // State to manage validation errors for form fields
   const [formData, setFormData] = useState({
-    name: "",
-    designation: "",
+    fullname: "",
     email: "",
-    linkedin: "",
+    phoneNumber: "",
   });
   const [newFormData, setNewFormData] = useState({
-    name: "",
-    designation: "",
+    fullname: "",
     email: "",
-    linkedin: "",
+    phoneNumber: "",
   });
 
   useEffect(() => {
-    const fetchTeamMember = async () => {
+    const fetchUser = async () => {
       try {
-        const res = await fetch(`/api/v1/getTeamMember/${params.id}`, {
+        const res = await fetch(`/api/v1/getUser`, {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
@@ -48,29 +43,28 @@ const EditTeam = () => {
         const data = await res.json();
 
         if (!res.ok) {
-          throw new Error(data.message || "Failed to fetch team member");
+          throw new Error(data.message || "Failed to fetch user details");
         }
+        console.log(data);
         setFormData({
-          name: data.teamMember.name,
-          designation: data.teamMember.designation,
-          email: data.teamMember.email,
-          linkedin: data.teamMember.linkedin || "",
+          fullname: data.fullname,
+          email: data.email,
+          phoneNumber: data.phoneNumber || "",
         });
         setNewFormData({
-          name: data.teamMember.name,
-          designation: data.teamMember.designation,
-          email: data.teamMember.email,
-          linkedin: data.teamMember.linkedin || "",
+          fullname: data.fullname,
+          email: data.email,
+          phoneNumber: data.phoneNumber || "",
         });
-        setUploadedImageUrl(data.teamMember.image || null);
-        setNewUploadedImageUrl(data.teamMember.image || null);
+        setUploadedImageUrl(data.imageUrl || null);
+        setNewUploadedImageUrl(data.imageUrl || null);
       } catch (err) {
         console.error(err.message);
-        setError("Failed to load team member.");
+        setError("Failed to load user details.");
       }
     };
-    fetchTeamMember();
-  }, [params.id]);
+    fetchUser();
+  }, []);
 
   const handleImageUpload = async (event) => {
     setError("");
@@ -110,30 +104,29 @@ const EditTeam = () => {
     setValidationErrors((prevErrors) => ({ ...prevErrors, [name]: "" }));
   };
 
-  const saveTeamMember = async (e) => {
+  const saveUserDetails = async (e) => {
     e.preventDefault();
     try {
-      teamMemberSchema.parse(newFormData);
+      userSchema.parse(newFormData);
       try {
         setLoading(true);
-        const response = await fetch(`/api/v1/editTeamMember/${params.id}`, {
+        const response = await fetch(`/api/v1/editProfile`, {
           method: "PUT",
           headers: {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            name: newFormData.name === formData.name ? null : newFormData.name,
-            designation:
-              newFormData.designation === formData.designation
+            fullname:
+              newFormData.fullname === formData.fullname
                 ? null
-                : newFormData.designation,
+                : newFormData.fullname,
             email:
               newFormData.email === formData.email ? null : newFormData.email,
-            ...(newFormData.linkedin !== formData.linkedin && {
-              linkedin: newFormData.linkedin,
+            ...(newFormData.phoneNumber !== formData.phoneNumber && {
+              phoneNumber: newFormData.phoneNumber,
             }),
             ...(newUploadedImageUrl !== uploadedImageUrl && {
-              image: newUploadedImageUrl,
+              imageUrl: newUploadedImageUrl,
             }),
           }),
         });
@@ -144,11 +137,11 @@ const EditTeam = () => {
           setError(data.message || "Something went wrong.");
           throw new Error(data.message || "Something went wrong.");
         }
-        setSuccess("Team member updated successfully");
+        setSuccess("Profile updated successfully");
         setError("");
         setTimeout(() => {
           setLoading(false);
-          router.push("/admin/team");
+          router.push("/dashboard");
         }, 3000);
       } catch (err) {
         setLoading(false);
@@ -162,36 +155,6 @@ const EditTeam = () => {
         });
         setValidationErrors(newValidationErrors);
       }
-    }
-  };
-
-  const DeleteMember = async (e) => {
-    setDeleteLoading(true);
-    e.preventDefault();
-    try {
-      const response = await fetch(`/api/v1/removeTeamMember/${params.id}`, {
-        method: "DELETE",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-
-      const data = await response.json();
-      if (!response.ok) {
-        setDeleteLoading(false);
-        setShowDeletePopup(false);
-        setError(data.message || "Something went wrong.");
-        throw new Error(data.message || "Something went wrong.");
-      }
-      setTimeout(() => {
-        setDeleteLoading(false);
-        setShowDeletePopup(false);
-        router.push("/admin/team");
-      }, 3000);
-    } catch (err) {
-      setDeleteLoading(false);
-      setShowDeletePopup(false);
-      setError(`${err}`);
     }
   };
 
@@ -216,10 +179,10 @@ const EditTeam = () => {
           className="md:text-3xl text-2xl font-semibold ms-2"
           style={{ fontFamily: "Sofia Pro Light" }}
         >
-          Team Member Details
+          Edit Profile
         </h1>
         <X
-          onClick={() => router.push("/admin/team")}
+          onClick={() => router.push("/dashboard")}
           className="absolute right-[10vw] md:w-11 md:h-9 w-10 h-9 hover:scale-[1.1] cursor-pointer"
         />
       </div>
@@ -234,7 +197,7 @@ const EditTeam = () => {
               src={
                 newUploadedImageUrl || "/images/addTeamMemberPlaceholder.png"
               }
-              alt="addMember"
+              alt="Profile Image"
               fill
             />
           </button>
@@ -243,7 +206,7 @@ const EditTeam = () => {
               className="text-md text-red-500 cursor-pointer underline"
               onClick={() => document.getElementById("fileInput").click()}
             >
-              Change Image
+              Change Profile Picture
             </button>
           )}
           <input
@@ -263,40 +226,18 @@ const EditTeam = () => {
               className="text-md font-medium mb-2"
               style={{ fontFamily: "Sofia Pro Light" }}
             >
-              Name
+              Full Name
             </label>
             <input
               id="nameInput"
               onChange={handleChange}
-              value={newFormData.name}
-              name="name"
+              value={newFormData.fullname}
+              name="fullname"
               type="text"
-              placeholder="John Smith"
               className="lg:w-[25vw] w-full  border border-gray-300 rounded-md p-2 focus:border-[#1e3432]"
             />
-            {validationErrors.name && (
-              <ErrorFormFieldText error={validationErrors.name} />
-            )}
-          </div>
-          <div className="flex flex-col">
-            <label
-              htmlFor="designationInput"
-              className="text-md font-medium mb-2"
-              style={{ fontFamily: "Sofia Pro Light" }}
-            >
-              Designation
-            </label>
-            <input
-              id="designationInput"
-              onChange={handleChange}
-              value={newFormData.designation}
-              name="designation"
-              type="text"
-              placeholder="Manager"
-              className="lg:w-[25vw] w-full border border-gray-300 rounded-md p-2 focus:border-[#1e3432]"
-            />
-            {validationErrors.designation && (
-              <ErrorFormFieldText error={validationErrors.designation} />
+            {validationErrors.fullname && (
+              <ErrorFormFieldText error={validationErrors.fullname} />
             )}
           </div>
           <div className="flex flex-col">
@@ -307,15 +248,20 @@ const EditTeam = () => {
             >
               Email
             </label>
-            <input
-              id="emailInput"
-              onChange={handleChange}
-              value={newFormData.email}
-              name="email"
-              type="text"
-              placeholder="john@gmail.com"
-              className="lg:w-[25vw] w-full border border-gray-300 rounded-md p-2 focus:border-[#1e3432]"
-            />
+            <div className="relative">
+              <input
+                id="emailInput"
+                onChange={handleChange}
+                value={newFormData.email}
+                name="email"
+                type="text"
+                className="lg:w-[25vw] w-full border border-gray-300 rounded-md p-2 focus:border-[#1e3432]"
+              />
+              {/* {newFormData.email !== formData.email && (
+                 <button
+                 className="absolute right-2 top-2 text-green font-semibold underline">Send OTP</button>
+            )} */}
+            </div>
             {validationErrors.email && (
               <ErrorFormFieldText error={validationErrors.email} />
             )}
@@ -326,19 +272,19 @@ const EditTeam = () => {
               className="text-md font-medium mb-2"
               style={{ fontFamily: "Sofia Pro Light" }}
             >
-              Linkdin (Optional)
+              Phone Number (Optional)
             </label>
             <input
-              id="linkedinInput"
+              id="phoneNumberInput"
               onChange={handleChange}
-              value={newFormData.linkedin}
-              name="linkedin"
+              value={newFormData.phoneNumber}
+              name="phoneNumber"
               type="text"
-              placeholder="Linkdin url"
+              placeholder="+919876598765"
               className="lg:w-[25vw] w-full border border-gray-300 rounded-md p-2 focus:border-[#1e3432]"
             />
-            {validationErrors.linkedin && (
-              <ErrorFormFieldText error={validationErrors.linkedin} />
+            {validationErrors.phoneNumber && (
+              <ErrorFormFieldText error={validationErrors.phoneNumber} />
             )}
           </div>
         </form>
@@ -346,19 +292,17 @@ const EditTeam = () => {
       </div>
       <div className="md:relative w-full fixed bottom-0 flex flex-col md:flex-row items-center justify-center md:gap-2">
         <button
-          onClick={saveTeamMember}
+          onClick={saveUserDetails}
           disabled={
-            formData.name === newFormData.name &&
-            formData.designation === newFormData.designation &&
+            formData.fullname === newFormData.fullname &&
             formData.email === newFormData.email &&
-            formData.linkedin === newFormData.linkedin &&
+            formData.phoneNumber === newFormData.phoneNumber &&
             uploadedImageUrl === newUploadedImageUrl
           } // Disable the button if all fields are the same
           className={`mt-10 md:rounded-3xl rounded-none px-5 py-1 text-2xl md:w-fit w-full font-medium text-center self-center ${
-            formData.name === newFormData.name &&
-            formData.designation === newFormData.designation &&
+            formData.fullname === newFormData.fullname &&
             formData.email === newFormData.email &&
-            formData.linkedin === newFormData.linkedin &&
+            formData.phoneNumber === newFormData.phoneNumber &&
             uploadedImageUrl === newUploadedImageUrl
               ? "bg-gray-400 text-white cursor-not-allowed" // Disabled styles
               : "text-white bg-[#1e3432] hover:bg-[#172625] cursor-pointer" // Active styles
@@ -370,44 +314,7 @@ const EditTeam = () => {
             <span>Save</span>
           </div>
         </button>
-        <button
-          onClick={() => setShowDeletePopup(true)}
-          className="mt-0 md:mt-10 md:rounded-3xl rounded-none px-8 py-2 text-2xl md:w-fit w-full font-medium text-center self-center text-white bg-red-500 hover:bg-red-900 cursor-pointer "
-          style={{ fontFamily: "Sofia Pro Light" }}
-        >
-          <div className="w-full flex items-center justify-center">
-            <Trash2 />
-          </div>
-        </button>
       </div>
-
-      {showDeletePopup && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
-          <div className="bg-white p-6 rounded-lg shadow-lg">
-            <h2 className="text-xl font-semibold mb-4">Confirm Deletion</h2>
-            <p className="mb-6">
-              Are you sure you want to delete this team member?
-            </p>
-            <div className="flex justify-end gap-4">
-              <button
-                onClick={() => setShowDeletePopup(false)}
-                className="px-4 py-2 bg-gray-300 rounded hover:bg-gray-400"
-              >
-                Cancel
-              </button>
-              <button
-                onClick={DeleteMember}
-                className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600"
-              >
-                <div className="flex items-center justify-center gap-2">
-                  {deleteLoading && <LoadingSpinner />}
-                  <span>Delete</span>
-                </div>
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   );
 };

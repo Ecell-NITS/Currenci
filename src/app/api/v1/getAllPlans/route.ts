@@ -1,7 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import dbConnect from "../../../../lib/dbConnect";
-import Testimonial from "../../../../model/Testimonial";
-import "../../../../model/User";
+import Plan from "../../../../model/Plan";
 
 export async function GET(req: NextRequest) {
   await dbConnect();
@@ -14,14 +13,12 @@ export async function GET(req: NextRequest) {
   }
 
   try {
-    const testimonials = await Testimonial.find({ isApproved: true }).populate(
-      "user",
-    );
-    return NextResponse.json(testimonials, { status: 200 });
+    const plans = await Plan.find({});
+    return NextResponse.json(plans, { status: 200 });
   } catch (error) {
-    console.error("Error fetching approved testimonials:", error);
+    console.error("Error fetching plans:", error);
     return NextResponse.json(
-      { message: "Error fetching approved testimonials", error: error.message },
+      { message: "Error fetching plans", error: error.message },
       { status: 500 },
     );
   }

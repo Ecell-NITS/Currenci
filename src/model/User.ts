@@ -9,8 +9,10 @@ export interface Testimonial extends Document {
 }
 
 export interface User extends Document {
+  fullname: string;
   username: string;
   email: string;
+  phoneNumber?: string;
   password: string;
   imageUrl?: string;
   role: string;
@@ -40,6 +42,11 @@ const TestimonialSchema: Schema = new Schema({
 });
 
 const UserSchema: Schema = new Schema({
+  fullname: {
+    type: String,
+    required: [true, "Fullname is required"],
+    trim: true,
+  },
   username: {
     type: String,
     required: [true, "Username is required"],
@@ -51,6 +58,9 @@ const UserSchema: Schema = new Schema({
     required: [true, "Email is required"],
     unique: true,
     match: [/\S+@\S+\.\S+/, "Please enter a valid email"],
+  },
+  phoneNumber: {
+    type: String,
   },
   password: {
     type: String,

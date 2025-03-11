@@ -53,7 +53,7 @@ const Team = () => {
             Testimonial Management
           </button>
           <button
-            onClick={() => router.push("/admin/plans")}
+            onClick={() => router.push("/pricing")}
             className="text-white bg-[#1E3432] border-[#FAC16A] border-4 rounded-lg py-4 px-4 lg:text-4xl sm:text-2xl text-xl  w-full"
           >
             Plan Update
