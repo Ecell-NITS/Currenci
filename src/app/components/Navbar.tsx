@@ -132,15 +132,18 @@ export default function Navbar() {
               </button>
             </Link>
           ) : (
-            <button
-              onClick={handleLogOut}
-              className="px-3 py-1 sm:px-4 sm:py-2 border-2 border-[#F2B263] 
+            <Link href="/dashboard">
+              <button
+                // onClick={handleLogOut}
+
+                className="px-3 py-1 sm:px-4 sm:py-2 border-2 border-[#F2B263] 
         text-xs sm:text-xs  lg:text-base 
         rounded-lg sm:rounded-full 
         text-white hover:bg-[#F2B263] hover:text-[#14342F] transition"
-            >
-              Logout
-            </button>
+              >
+                Dashboard
+              </button>
+            </Link>
           )}
         </div>
       </div>
@@ -202,12 +205,14 @@ export default function Navbar() {
               </button>
             </Link>
           ) : (
-            <button
-              onClick={handleLogOut}
-              className="px-4 py-2 border-2 border-[#F2B263] text-sm  rounded-full text-white hover:bg-[#F2B263] hover:text-[#14342F] transition"
-            >
-              Logout
-            </button>
+            <Link href="/dashboard">
+              <button
+                onClick={handleLogOut}
+                className="px-4 py-2 border-2 border-[#F2B263] text-sm  rounded-full text-white hover:bg-[#F2B263] hover:text-[#14342F] transition"
+              >
+                Dashboard
+              </button>
+            </Link>
           )}
         </div>
 
