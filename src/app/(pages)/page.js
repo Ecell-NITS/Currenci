@@ -31,7 +31,10 @@ export default function Home() {
         </h1>
         <Button href="/pricing">Get Started</Button>
       </div>
-      <section className="md:mt-[6rem] mt-10  flex flex-col items-center">
+      <section
+        id="about"
+        className="md:mt-[6rem] mt-10  flex flex-col items-center"
+      >
         <h1
           className="text-4xl md:text-6xl text-gray-800"
           style={{ fontFamily: "Sofia Pro Medium" }}

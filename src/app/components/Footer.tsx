@@ -23,6 +23,7 @@ const sections: Section[] = [
       { name: "Projects", href: "/#projects" },
       {
         name: "Contact Us",
+
         href: "https://api.whatsapp.com/send?phone=916026765255",
       },
       { name: "FAQs", href: "#faq" },
@@ -38,8 +39,8 @@ const sections: Section[] = [
   {
     title: "Testimonials",
     links: [
-      { name: "Why Trust Us?", href: "#testimonial" },
-      { name: "Our Clients", href: "#testimonial" },
+      { name: "Why Trust Us?", href: "/#testimonial" },
+      { name: "Our Clients", href: "/pricing/#WhyTrustUS" },
     ],
   },
 ];
@@ -50,20 +51,6 @@ const socialLinks: SocialLink[] = [
   { name: "Whatsapp", url: "https://whatsapp.com", icon: "mdi:whatsapp" },
   { name: "Twitter", url: "https://twitter.com", icon: "mdi:twitter" },
 ];
-
-// Scroll function
-const handleScroll = (id: string) => {
-  if (id === "pricing" || id === "about") return; // No scrolling for these
-  const section = document.getElementById(id);
-  if (section) {
-    const navbarHeight = 100;
-
-    window.scrollTo({
-      top: section.offsetTop - navbarHeight,
-      behavior: "smooth",
-    });
-  }
-};
 
 export default function Footer() {
   return (
@@ -116,7 +103,7 @@ export default function Footer() {
             {/* Book an Appointment */}
             <div className="mt-4">
               <a
-                target="blank"
+                target="_blank"
                 href="https://wa.me/916295265705?text=Hi%20Currenci,%20I%20would%20like%20to%20book%20an%20appointment"
                 className="inline-block px-4 py-2 border-2 border-[#F2B263] rounded-full hover:bg-[#F2B263] hover:text-[#1E3432] transition"
               >
@@ -130,6 +117,7 @@ export default function Footer() {
         <div className="flex flex-col md:hidden items-center justify-center mr-5 gap-3">
           {/* Book an Appointment */}
           <a
+            target="_blank"
             href="https://api.whatsapp.com/send?phone=916026765255"
             className="px-6 py-1 border-2 border-[#F2B263] text-sm rounded-full text-white hover:bg-[#F2B263] hover:text-[#14342F] transition"
           >
@@ -147,17 +135,11 @@ export default function Footer() {
                   {title}
                 </h3>
                 <ul className="space-y-1 text-xs text-[#cccccc] whitespace-nowrap">
-                  {links.map(({ name, href }) => (
+                  {links.map(({ name }) => (
                     <li key={name}>
-                      {/* <button
-                        onClick={() => handleScroll(href.replace("#", ""))}
-                        className="hover:text-[#F2B263]"
-                      >
-                        {name}
-                      </button> */}
                       <button
-                        onClick={() => handleScroll(href.substring(1))} // Remove '#' from href
-                        className="hover:text-[#F2B263] cursor-pointer bg-transparent border-none"
+                        // onClick={() => handleScroll(href.replace("#", ""))}
+                        className="hover:text-[#F2B263]"
                       >
                         {name}
                       </button>

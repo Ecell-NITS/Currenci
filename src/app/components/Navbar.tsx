@@ -10,6 +10,7 @@ export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [pathname, setPathname] = useState("");
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [aboutClicked, setAboutClicked] = useState(false);
   const router = useRouter();
   const path = usePathname();
   useEffect(() => {
@@ -22,7 +23,6 @@ export default function Navbar() {
         const response = await fetch("/api/v1/getUser");
         if (response.ok) {
           const data = await response.json();
-          // console.log(data);
           if (data) {
             setIsAuthenticated(true);
           } else {
@@ -50,12 +50,26 @@ export default function Navbar() {
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
+  const handleButtonClick = () => {
+    setAboutClicked(!aboutClicked);
+  };
   const menuLinks = [
-    { name: "About", href: "/#about" },
+    {
+      name: aboutClicked ? "Home" : "About",
+      href: aboutClicked ? "/" : "/#about",
+      onClick: handleButtonClick,
+    },
+
     { name: "Pricing", href: "/pricing" },
     { name: "Team", href: "/team" },
   ];
-  const buttons = [{ name: "Book an Appointment", href: "/book-appointment" }];
+  const buttons = [
+    {
+      name: "Book an Appointment",
+      target: "_blank",
+      href: " https://wa.me/916295265705?text=Hi%20Currenci,%20I%20would%20like%20to%20book%20an%20appointment",
+    },
+  ];
   return (
     <nav
       className={`${
@@ -97,17 +111,18 @@ export default function Navbar() {
         <div className="hidden md:flex items-center gap-3 lg:gap-6">
           {menuLinks
             .filter(({ href }) => href !== pathname)
-            .map(({ name, href }) => (
+            .map(({ name, href, onClick }) => (
               <Link
                 key={name}
                 href={href}
+                onClick={onClick}
                 className="text-xs  lg:text-lg  text-white hover:text-[#F2B263]"
               >
                 {name}
               </Link>
             ))}
-          {buttons.map(({ name, href }) => (
-            <Link key={name} href={href}>
+          {buttons.map(({ name, target, href }) => (
+            <Link key={name} target={target} href={href}>
               <div
                 className="px-3 py-1 sm:px-4 sm:py-2 border-2 border-[#F2B263] 
                text-sm sm:text-xs  lg:text-base 
