@@ -1,14 +1,14 @@
 "use client";
 
 import Testimonial from "../../components/Testimonial";
-import FAQ from "../../components/FAQ";
+// import FAQ from "../../components/FAQ";
 import Pricecard from "../../components/Pricecard";
 import Modeling from "../../components/Modeling";
 const Pricing = () => {
   return (
     <div>
       <Pricecard />
-      <div style={{ textAlign: "center", paddingTop: "50px" }}>
+      <div id="WhyTrustUS" style={{ textAlign: "center", paddingTop: "50px" }}>
         <h1
           className="text-[6vw] md:text-[4vw] text-gray-800"
           style={{ fontFamily: "Sofia Pro Regular" }}
@@ -18,7 +18,7 @@ const Pricing = () => {
       </div>
       <Testimonial />
       <Modeling />
-      <FAQ />
+      {/* <FAQ /> */}
     </div>
   );
 };
