@@ -56,7 +56,12 @@ export default function Navbar() {
     { name: "Pricing", href: "/pricing" },
     { name: "Team", href: "/team" },
   ];
-  const buttons = [{ name: "Book an Appointment", href: "/book-appointment" }];
+  const buttons = [
+    {
+      name: "Book an Appointment",
+      href: "https://wa.me/916295265705?text=Hi%20Currenci,%20I%20would%20like%20to%20book%20an%20appointment",
+    },
+  ];
   return (
     <nav
       className={`${

@@ -48,7 +48,6 @@ const sections: Section[] = [
 const socialLinks: SocialLink[] = [
   { name: "Facebook", url: "https://facebook.com", icon: "mdi:facebook" },
   { name: "Instagram", url: "https://instagram.com", icon: "mdi:instagram" },
-  { name: "Whatsapp", url: "https://whatsapp.com", icon: "mdi:whatsapp" },
   { name: "Twitter", url: "https://twitter.com", icon: "mdi:twitter" },
 ];
 
