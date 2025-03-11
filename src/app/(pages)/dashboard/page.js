@@ -38,7 +38,9 @@ const Dashboard = () => {
     const fetchTest = async () => {
       const res = await fetch(`/api/v1/getApprovedTestimonial`);
       const data = await res.json();
-      setTest(data.filter((item) => item.username === user.username));
+      if (user) {
+        setTest(data.filter((item) => item.username === user.username));
+      }
       // console.log(test);
     };
     fetchTest();
@@ -58,20 +60,21 @@ const Dashboard = () => {
   return (
     <main className="mt-32 mb-8 px-[5%] md:px-[10%] flex flex-col gap-4">
       <h2 className="text-[48px] mb-[10px] font-bold md:text-[40px] lg:text-[48px]">
-        Welcome home, {user?.name ? user.name.split(" ")[0] : "User"}{" "}
+        Welcome home, {user?.fullname ? user.fullname.split(" ")[0] : "User"}{" "}
       </h2>
       <div className="flex justify-center gap-4 pl-2.5 pr-2.5 flex-wrap items-center w-[100%] h-fit p-4">
         <div className=" md:w-[40%] h-fit">
           <Image
             width={300}
             height={300}
-            src={`${user?.image ? user.image : "/images/placeholder_image.jpg"}`}
+            alt="profile image"
+            src={`${user?.imageUrl ? user.imageUrl : "/images/placeholder_image.jpg"}`}
           />
         </div>
         <div className="w-[80%] md:w-[50%] h-fit flex justify-center items-center ">
           <div className="p-4 flex flex-col gap-4 w-[45%]">
             <h3 className="text-[24px] mb-[10px] font-bold md:text-[40px] lg:text-[36px]">
-              {user?.name ? user.name : "User"}
+              {user?.fullname ? user.fullname : "User"}
             </h3>
           </div>
           <div className="p-4 flex flex-wrap  gap-4 w-[45%]">
@@ -82,7 +85,7 @@ const Dashboard = () => {
               Logout
             </button>
             <Link
-              href="/edit-profile"
+              href="/editProfile"
               className="px-4 py-2 border-2 border-[#F2B263] text-sm  rounded-xl  transition"
             >
               Edit Profile

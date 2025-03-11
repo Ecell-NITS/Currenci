@@ -141,7 +141,7 @@ const EditTeam = () => {
         setError("");
         setTimeout(() => {
           setLoading(false);
-          router.push("/");
+          router.push("/dashboard");
         }, 3000);
       } catch (err) {
         setLoading(false);
@@ -182,7 +182,7 @@ const EditTeam = () => {
           Edit Profile
         </h1>
         <X
-          onClick={() => router.push("/")}
+          onClick={() => router.push("/dashboard")}
           className="absolute right-[10vw] md:w-11 md:h-9 w-10 h-9 hover:scale-[1.1] cursor-pointer"
         />
       </div>
