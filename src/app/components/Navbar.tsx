@@ -4,13 +4,13 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Icon } from "@iconify/react";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [pathname, setPathname] = useState("");
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const router = useRouter();
+  // const router = useRouter();
   const path = usePathname();
   useEffect(() => {
     setPathname(path);
@@ -36,28 +36,32 @@ export default function Navbar() {
     fetchUserData();
   }, [path]);
 
-  const handleLogOut = async () => {
-    await fetch("/api/v1/signOut", {
-      method: "GET",
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        router.push("/signIn");
-        console.log(data.message);
-      })
-      .catch((err) => console.error(err));
-  };
+  // const handleLogOut = async () => {
+  //   await fetch("/api/v1/signOut", {
+  //     method: "GET",
+  //   })
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       router.push("/signIn");
+  //       console.log(data.message);
+  //     })
+  //     .catch((err) => console.error(err));
+  // };
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   const menuLinks = [
+    { name: "Home", href: "/" },
     { name: "About", href: "/#about" },
     { name: "Pricing", href: "/pricing" },
     { name: "Team", href: "/team" },
-    { name: "Testimonials", href: "/testimonials" },
-    { name: "FAQs", href: "/#faqs" },
   ];
-  const buttons = [{ name: "Book an Appointment", href: "/book-appointment" }];
+  const buttons = [
+    {
+      name: "Book an Appointment",
+      href: "https://wa.me/916295265705?text=Hi%20Currenci,%20I%20would%20like%20to%20book%20an%20appointment",
+    },
+  ];
   return (
     <nav
       className={`${
@@ -134,15 +138,18 @@ export default function Navbar() {
               </button>
             </Link>
           ) : (
-            <button
-              onClick={handleLogOut}
-              className="px-3 py-1 sm:px-4 sm:py-2 border-2 border-[#F2B263] 
+            <Link href="/dashboard">
+              <button
+                // onClick={handleLogOut}
+
+                className="px-3 py-1 sm:px-4 sm:py-2 border-2 border-[#F2B263] 
         text-xs sm:text-xs  lg:text-base 
         rounded-lg sm:rounded-full 
         text-white hover:bg-[#F2B263] hover:text-[#14342F] transition"
-            >
-              Logout
-            </button>
+              >
+                Dashboard
+              </button>
+            </Link>
           )}
         </div>
       </div>
@@ -204,12 +211,11 @@ export default function Navbar() {
               </button>
             </Link>
           ) : (
-            <button
-              onClick={handleLogOut}
-              className="px-4 py-2 border-2 border-[#F2B263] text-sm  rounded-full text-white hover:bg-[#F2B263] hover:text-[#14342F] transition"
-            >
-              Logout
-            </button>
+            <Link href="/dashboard">
+              <button className="px-4 py-2 border-2 border-[#F2B263] text-sm  rounded-full text-white hover:bg-[#F2B263] hover:text-[#14342F] transition">
+                Dashboard
+              </button>
+            </Link>
           )}
         </div>
 
