@@ -4,6 +4,7 @@ import SlideBox from "../components/Slidebox";
 import aboutData from "../../../public/data/about";
 import Testimonial from "../components/Testimonial";
 import Projects from "../components/Projects";
+import FAQ from "../components/FAQ";
 export const metadata = {
   title: "Currenci | Home",
   description: "Welcome",
@@ -23,16 +24,19 @@ export default function Home() {
       </div>
       <div className="flex flex-col items-center justify-center md:mt-[2.5rem] mt-[1.5rem]">
         <h1
-          className="text-4xl text-center md:text-6xl text-gray-800"
+          className="text-2xl text-center md:text-6xl text-gray-800"
           style={{ fontFamily: "Sofia Pro Medium" }}
         >
           Valuing Today, Shaping Tomorrow
         </h1>
         <Button href="/pricing">Get Started</Button>
       </div>
-      <section className="md:mt-[6rem] mt-10  flex flex-col items-center">
+      <section
+        id="about"
+        className="md:mt-[6rem] mt-10  flex flex-col items-center"
+      >
         <h1
-          className="text-4xl md:text-6xl text-gray-800"
+          className="text-4xl md:text-6xl text-center text-gray-800"
           style={{ fontFamily: "Sofia Pro Medium" }}
         >
           Our Areas of Expertise
@@ -65,7 +69,10 @@ export default function Home() {
           );
         })}
       </section>
-      <section className="md:mt-[6rem] mt-10 flex flex-col items-center">
+      <section
+        id="testimonial"
+        className="md:mt-[6rem] mt-10 flex flex-col items-center"
+      >
         <h1
           className="text-4xl text-center md:text-6xl text-gray-800"
           style={{ fontFamily: "Sofia Pro Medium" }}
@@ -74,14 +81,29 @@ export default function Home() {
         </h1>
         <Testimonial />
       </section>
-      <section className="md:mt-[6rem] mt-10 flex flex-col items-center">
+      <section
+        id="projects"
+        className="md:mt-[6rem] mt-10 flex flex-col items-center"
+      >
         <h1
-          className="text-4xl text-center md:text-6xl text-gray-800"
+          className="text-4xl text-center md:text-6xl text-gray-800 mt-10"
           style={{ fontFamily: "Sofia Pro Medium" }}
         >
           Projects
         </h1>
         <Projects />
+      </section>
+      <section
+        id="faq"
+        className="md:mt-[6rem] mt-10 flex flex-col items-center"
+      >
+        <h1
+          className="text-4xl text-center md:text-6xl text-gray-800 mt-10"
+          style={{ fontFamily: "Sofia Pro Medium" }}
+        >
+          FAQs
+        </h1>
+        <FAQ />
       </section>
     </main>
   );
