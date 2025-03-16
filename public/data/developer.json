@@ -23,6 +23,11 @@
         "name":"Binit Agarwalla",
         "role": "Developer",
         "image":"https://res.cloudinary.com/dtt4ftdrw/image/upload/v1739616819/binitPhoto_ydc06b.jpg"
+    },
+    {
+        "name":"Ayush Singh",
+        "role": "UI Designer",
+        "image":"https://res.cloudinary.com/dtt4ftdrw/image/upload/v1742154968/Screenshot_2025-03-17_012447_gd9hox.png"
     }
     
 ]
