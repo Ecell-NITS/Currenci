@@ -1,5 +1,7 @@
-import ToastHandler from "./components/ToastHandler";
 import "./globals.scss";
+import { Suspense } from "react";
+import Loading from "./loading";
+import ToastHandler from "./components/ToastHandler";
 
 export const metadata = {
   title: "Currenci",
@@ -11,7 +13,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        {children}
+        <Suspense fallback={<Loading />}>{children}</Suspense>
         <ToastHandler />
       </body>
     </html>
